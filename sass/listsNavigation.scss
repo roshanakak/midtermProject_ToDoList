@@ -1,0 +1,45 @@
+#sidebar {
+  background-color:rgb(224, 223, 223);
+  width: 25%;
+  height: 100%;
+  padding: 0.5em 0;
+
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+
+  //makes the menu button take up the width of the sidebar
+  ul {
+    padding: 0;
+  }
+
+  ul li{
+    list-style-type: none; //removes the bullet points from the list items
+    padding: 2em;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    border-top: 2px solid rgba(255, 255, 255, 0.05);
+
+  }
+
+  // removes the underline from the hyperlinks
+  a{
+    text-decoration: none;
+    display: block;
+  }
+
+  ul li:hover{
+    background: grey;
+  }
+
+  li:hover{
+    color: #fff
+  }
+
+  //makes a space between icon and text
+  li i{
+    width: 1.5em;
+  }
+
+}

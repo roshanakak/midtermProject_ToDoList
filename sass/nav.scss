@@ -1,0 +1,19 @@
+
+nav {
+  background-color: rgb(252, 248, 248);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0em 0.1em 0.5em #b3b2b2;
+  height: 15%;
+
+  span {
+    margin: 20px;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+  }
+}
+

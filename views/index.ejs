@@ -3,15 +3,70 @@
   <head>
     <title>Home Page</title>
 
+    <!-- linking the icons from 'font awesome' -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/listsNavigation.css" type="text/css" />
+
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <!-- fixed header - shows logo and -->
+    <nav>
+      <span>Task Me Later</span>
+
+      <div id="user-settings">
+        <img class="avatar" src="/images/Avatar1.png">
+      </div>
+
+    </nav>
+
+
+    <!-- user lists -->
+    <div id=main>
+      <div id=sidebar>
+        <h2>My Tasks</h2>
+        <ul>
+          <a href="#"><li><i class="fas fa-list"></i>All tasks</li></a>
+          <a href="#"><li><i class="fas fa-video"></i>Films/series to watch</li></a>
+          <a href="#"><li><i class="fas fa-utensils"></i>Restaurants to eat at</li></a>
+          <a href="#"><li><i class="fas fa-book"></i>Books to read</li></a>
+          <a href="#"><li><i class="fas fa-shopping-cart"></i>Products to buy</li></a>
+        </ul>
+      </div>
+
+      <div class="main-information">
+        <h1>Films</h1>
+
+        <div class="see-and-create">
+          <section id=tasks-list>
+            <article>
+
+
+            </article>
+
+
+          </section>
+
+
+          <section id=create-new-task>
+            <article>
+              <h2>Create a new task</h2>
+
+
+            </article>
+
+          </section>
+
+        </div>
+      </div>
+    </div>
   </body>
 </html>
