@@ -1,3 +1,4 @@
+@use 'base';
 
 nav {
   background-color: rgb(252, 248, 248);
@@ -8,12 +9,16 @@ nav {
   height: 15%;
 
   span {
-    margin: 20px;
+    margin: 60px;
+    font-family: base.$special-font;
+    font-size: 60px;
   }
   .avatar {
     width: 100px;
     height: 100px;
     margin: 20px;
   }
+
+
 }
 
