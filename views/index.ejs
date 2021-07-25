@@ -11,16 +11,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
 
+    <!-- App CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/listsNavigation.css" type="text/css" />
 
-
+    <!-- App JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/user-avatar.js"></script>
+
+
   </head>
+
+
+
 
   <body>
     <!-- fixed header - shows logo and -->
@@ -28,7 +35,16 @@
       <img class="logo" src="/images/logo-2c.png">
 
       <div id="user-settings">
-        <img class="avatar" src="/images/avatar-1.png">
+
+        <div>
+          <img class="avatar" src="/images/avatar-1.png">
+        </div>
+
+        <div id="user-dropdown-content">
+          <p>username</p>
+          <a href="#">Personal settings</a>
+          <a href="#">Log out</a>
+        </div>
       </div>
 
     </nav>
