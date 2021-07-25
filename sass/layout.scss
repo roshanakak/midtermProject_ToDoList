@@ -151,18 +151,51 @@ body {
     align-items: flex-end;
     height: 90%
 
+
   }
 
   #task-title {
     margin-bottom: 1em;
     width: 100%;
+    background-color: base.$off-white;
+    border: none; //removes default textarea border
+    resize: none;
+    border-bottom: 2px solid darkgrey;
+    vertical-align: baseline;
+    height: 2em;
+
+    &::placeholder {
+      font: base.$bold-font;
+      font-weight: bold;
+      opacity: 50%;
+    }
+
+    /* removes the border when the user clicks into the input box */
+    &:focus {
+      outline: none;
+    }
   }
 
   #task-content {
     margin-bottom: 1em;
     width: 100%;
-
     height: 20%;
+    background-color: base.$off-white;
+    border: none; //removes default textarea border
+    border: 2px solid darkgrey;
+    border-radius: 0.3em;
+    resize: none;
+
+    &::placeholder {
+      font: base.$bold-font;
+      font-weight: bold;
+      opacity: 50%;
+    }
+
+    /* removes the border when the user clicks into the input box */
+    &:focus {
+      outline: none;
+    }
   }
 
   .new-task-button {
