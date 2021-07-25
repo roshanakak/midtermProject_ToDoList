@@ -1,13 +1,19 @@
+@use 'base';
+
 #sidebar {
-  background-color:rgb(224, 223, 223);
-  width: 25%;
+  background-color:base.$light-grey;
+  width: 18%;
   height: 100%;
   padding: 0.5em 0;
+  z-index: 1;
+  box-shadow: 0.1em 0 0.5em base.$dark-grey-highlights;
+  position: relative;
 
   h2 {
-    text-align: center;
+    // text-align: center;
     text-transform: uppercase;
     margin-bottom: 1em;
+    padding-left: 2em;
   }
 
   //makes the menu button take up the width of the sidebar
@@ -17,11 +23,12 @@
 
   ul li{
     list-style-type: none; //removes the bullet points from the list items
-    padding: 2em;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
-    border-top: 2px solid rgba(255, 255, 255, 0.05);
+    padding: 1em 1em 1em 2em;
+    font-size: 1.2em;
 
   }
+
+
 
   // removes the underline from the hyperlinks
   a{
@@ -29,8 +36,12 @@
     display: block;
   }
 
+  a:visited{
+    color: black;
+  }
+
   ul li:hover{
-    background: grey;
+    background-color: grey;
   }
 
   li:hover{

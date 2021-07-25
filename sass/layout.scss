@@ -15,8 +15,12 @@ body {
   height: 100%;
   overflow: hidden;
   font-family: base.$regular-font;
+  font-size: 1em;
+  color: base.$font-color;
 
-
+  :is(h1, h2, h3, h4, h5, h6) {
+    font-family: base.$bold-font;
+  }
 
 }
 
@@ -27,11 +31,14 @@ body {
 }
 
 .main-information {
-  width: 75%;
+  background-image: url('/images/background-1.jpg');
+  background-size: contain;
+  width: 82%;
   height: 100%;
   padding: 2% 4% 2% 4%;
   display: flex;
   align-items: center;
+  z-index: initial;
 
   h1 {
     height: 5%;
@@ -54,12 +61,14 @@ body {
 #tasks-list {
   width: 48%;
   height: 100%;
-  border: 2px solid grey;
+  border: 1px solid base.$dark-grey-highlights;
   border-radius: 0.7em;
   padding: 3% 3%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 0.5em grey;
+  box-shadow: 0 0 0.6em base.$dark-grey-highlights;
+  background-color: base.$off-white;
+
 
   .task {
     border: 2px solid rgba(grey, 0.4);
@@ -70,6 +79,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 1em;
 
     .checkbox-and-title {
       display: flex;
@@ -79,6 +89,7 @@ body {
     }
     .task-checkbox {
       border: 1px solid grey;
+      border-radius: 50%;
       height: 2em;
       width: 2em;
       margin: 1em;
@@ -86,6 +97,11 @@ body {
       justify-content: center;
       align-items: center;
     }
+  }
+
+  .task:hover {
+    box-shadow: 0 0 0.6em base.$dark-grey-highlights;
+
   }
 
 }
@@ -103,13 +119,15 @@ body {
 #create-new-task {
   width: 48%;
   height: 100%;
-  border: 2px solid grey;
+  border: 1px solid base.$dark-grey-highlights;
   border-radius: 0.7em;
   padding: 3% 3%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 0.5em grey;
+  box-shadow: 0 0 0.6em base.$dark-grey-highlights;
   align-content: center;
+  background-color: base.$off-white;
+
 
   article {
     height: 100%
@@ -139,7 +157,6 @@ body {
 
   .new-task-button {
     width: 25%;
-    align: right;
   }
 }
 
