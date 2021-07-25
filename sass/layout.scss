@@ -100,18 +100,28 @@ body {
   }
 
   .task:hover {
-    box-shadow: 0 0 0.6em base.$dark-grey-highlights;
-
+    box-shadow: 0 0 0.3em rgba(base.$blue-highlights, 0.5);
   }
 
 }
 
 .delete-and-edit-icons {
   padding: 1em;
+  color: base.$font-color;
+  font-size: 1.2em;
 
   i{
   padding: 0.2em;
   }
+}
+
+.fas.fa-edit:hover {
+  color: base.$blue-highlights;
+}
+
+//delete icon
+.far.fa-trash-alt:hover {
+  color: base.$red-highlights;
 }
 
 

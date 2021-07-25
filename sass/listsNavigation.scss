@@ -37,11 +37,11 @@
   }
 
   a:visited{
-    color: black;
+    color: base.$font-color;
   }
 
   ul li:hover{
-    background-color: grey;
+    background-color: base.$blue-highlights;
   }
 
   li:hover{
