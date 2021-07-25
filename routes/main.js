@@ -27,7 +27,7 @@ module.exports = (db) => {
   });
 
   //retrieves all tasks in a specific category
-  router.get("/:cat_id", (req, res) => {
+  router.get("/cat?:cat_id", (req, res) => {
     const templateVars = {
       cat_id: 0
     };
