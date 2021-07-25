@@ -106,6 +106,7 @@ body {
 }
 
 .delete-and-edit-icons {
+  display: flex;
   padding: 1em;
   color: base.$font-color;
   font-size: 1.2em;
