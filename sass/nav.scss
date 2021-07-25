@@ -42,7 +42,6 @@ nav {
   // align-items: center;
   // width: 30%;
   // height: 80%;
-  // float: right;
 
 
   #user-dropdown-content {
@@ -55,7 +54,7 @@ nav {
     border: 2px solid rgba(grey, 0.5);
     box-shadow: 0 0 0.3em rgba(base.$blue-highlights, 0.5);
     border-radius: 0.4em;
-    // display: none;
+    display: none;
     margin-right: 5em;
 
     p{
@@ -68,9 +67,7 @@ nav {
     a{
       text-decoration: none;
       display: block;
-      // margin: 0.5em 0;
       padding: 1em 1.2em;
-
 
     }
 
@@ -81,8 +78,6 @@ nav {
     a:hover {
       background-color: base.$light-grey;
       font-weight: bold;
-      // color: base.$blue-highlights;
-      // text-decoration: underline;
     }
 
   }

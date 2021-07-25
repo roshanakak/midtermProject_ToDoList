@@ -138,11 +138,10 @@ body {
   align-content: center;
   background-color: base.$off-white;
 
-
   article {
-    height: 100%
+    height: 100%;
+    width: 100%;
   }
-
 
   form {
     display: flex;
@@ -150,7 +149,6 @@ body {
     flex-direction: column;
     align-items: flex-end;
     height: 90%
-
 
   }
 
@@ -163,33 +161,74 @@ body {
     border-bottom: 2px solid darkgrey;
     vertical-align: baseline;
     height: 2em;
+    font-weight: bold;
+    font: base.$bold-font;
+    color: rgb(68, 68, 68);
+    // text-transform: uppercase;
 
     &::placeholder {
       font: base.$bold-font;
       font-weight: bold;
-      opacity: 50%;
+      opacity: 30%;
     }
 
     /* removes the border when the user clicks into the input box */
     &:focus {
       outline: none;
     }
+
   }
+
+  .new-items {
+    width: 100%;
+  }
+  
+  .entered-list-item {
+    width: 100%;
+    padding-left: 10%;
+    font-weight: bold;
+    font: base.$bold-font;
+    color: rgb(68, 68, 68);
+    margin-bottom: 0;
+
+    li {
+      padding-left: 0.5em;
+    }
+  }
+
+  .new-list-item {
+    border: 2px solid rgba(grey, 0.4);
+    border-radius: 0.6em;
+    width: 100%;
+    padding-left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    li {
+      width: 100%
+    }
+  }
+
+
 
   #task-content {
-    margin-bottom: 1em;
-    width: 100%;
-    height: 20%;
+    height: 1.5em;
+    width: 95%;
     background-color: base.$off-white;
     border: none; //removes default textarea border
-    border: 2px solid darkgrey;
-    border-radius: 0.3em;
+    // border: 2px solid d3em;
     resize: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1em 0.5em;
+
 
     &::placeholder {
       font: base.$bold-font;
       font-weight: bold;
-      opacity: 50%;
+      opacity: 30%;
     }
 
     /* removes the border when the user clicks into the input box */
@@ -197,6 +236,17 @@ body {
       outline: none;
     }
   }
+
+  .fas.fa-plus {
+    opacity: 30%;
+    padding: 5% 5% 5% 1%;
+
+    &:hover {
+      opacity: 100%
+    }
+
+  }
+
 
   .new-task-button {
     width: 25%;

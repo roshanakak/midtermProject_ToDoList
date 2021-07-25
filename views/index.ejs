@@ -22,6 +22,7 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="scripts/user-avatar.js"></script>
+    <script type="text/javascript" src="scripts/create-new-task-list.js"></script>
 
 
   </head>
@@ -109,7 +110,22 @@
 
                 <textarea type="text" id="task-title" placeholder="Task title"></textarea>
 
-                <textarea type="text" id="task-content" placeholder="Task content"></textarea>
+                <section class="new-items">
+                  <!-- new items get prepended here -->
+                </section>
+                
+                <ul class="new-list-item">
+
+                    <li>
+                      <textarea type="text" id="task-content" placeholder="Task content"></textarea>
+
+                    </li>
+                    <i class="fas fa-plus"></i>
+
+
+                </ul>
+
+
 
                 <button type="submit" class="new-task-button">Submit</button>
 
