@@ -41,8 +41,7 @@ body {
   z-index: initial;
 
   h1 {
-    height: 5%;
-    // padding-left: 2%;
+    margin: 1%;
   }
 
 }
@@ -138,10 +137,75 @@ body {
   align-content: center;
   background-color: base.$off-white;
 
+
   article {
     height: 100%;
     width: 100%;
+
+    #create-task-title{
+      font-weight: bold;
+      text-decoration: underline;
+      text-decoration-color: base.$blue-highlights;
+      text-decoration-thickness: 2px;
+      text-transform: uppercase;
+      font-size: 0.9em;
+      font-family: base.$bold-font;
+      padding-bottom: 2%
+    }
   }
+
+  .tags {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2em;
+    font-size: 0.8em;
+  }
+
+  .tags button{
+    border-radius: 2.5em;
+    width: auto;
+    margin: 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+
+    p {
+      text-decoration: none;
+      margin: 0.25em 0.8em 0.25em 0.5em;
+      padding: 0;
+      text-transform: uppercase;
+      // font-weight: bold;
+      font-family: base.$bold-font;
+
+    }
+
+
+    i {
+      position: relative;
+      font-size: 0.75em;
+      margin-right: 0.5em;
+    }
+  }
+
+
+  .tag-important{
+    border: base.$red-highlights 2px solid;
+    background-color:base.$off-white;
+    color: base.$red-highlights;
+  }
+
+  .tag-school{
+    border: base.$blue-highlights 2px solid;
+    background-color:base.$off-white;
+    color: base.$blue-highlights;
+  }
+
+  .tag-create{
+    border: grey 2px dashed;
+  }
+
+
 
   form {
     display: flex;
@@ -153,7 +217,7 @@ body {
   }
 
   #task-title {
-    margin-bottom: 1em;
+    margin: 1em 0;
     width: 100%;
     background-color: base.$off-white;
     border: none; //removes default textarea border
@@ -164,7 +228,7 @@ body {
     font-weight: bold;
     font: base.$bold-font;
     color: rgb(68, 68, 68);
-    // text-transform: uppercase;
+    text-transform: uppercase;
 
     &::placeholder {
       font: base.$bold-font;
@@ -182,7 +246,7 @@ body {
   .new-items {
     width: 100%;
   }
-  
+
   .entered-list-item {
     width: 100%;
     padding-left: 10%;
@@ -254,4 +318,33 @@ body {
 }
 
 
+#task-additional-features {
+  display: flex;
+  width: 100%;
+  height: 25%;
+  margin: 5% 0;
+  align-items: center;
 
+  div{
+    border: 2px solid rgba(grey, 0.4);
+    border-radius: 0.6em;
+    margin: 2%;
+    width:30%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      margin: 0.5em;
+    }
+
+    i {
+      font-size:1.25em;
+    }
+  }
+}
+
+
+// #task-additional-features
