@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/listsNavigation.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tasksList.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/createNewTask.css" type="text/css" />
+
 
     <!-- App JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -31,7 +34,7 @@
 
 
   <body>
-    <!-- fixed header - shows logo and -->
+    <!-- fixed header - shows logo and avatar -->
     <nav>
       <img class="logo" src="/images/logo-2c.png">
 
@@ -47,11 +50,10 @@
           <a href="#">Log out</a>
         </div>
       </div>
-
     </nav>
 
 
-    <!-- user lists -->
+    <!-- user tasks and tags sidebar -->
     <div id=main>
       <div id=sidebar>
         <h2><i class="fas fa-check"></i>My Tasks</h2>
@@ -71,11 +73,16 @@
 
       </div>
 
+      <!-- the main portion of the page -->
       <div class="main-information">
 
         <div class="see-and-create">
+
+          <!-- this section contains the selected task list (left box on page)  -->
           <section id=tasks-list>
             <h1>Films</h1>
+
+            <!-- each article contains one task -->
             <article class="task">
 
               <div class="checkbox-and-title">
@@ -90,6 +97,7 @@
               </div>
 
             </article>
+
 
             <article class="task">
 
@@ -106,91 +114,89 @@
 
             </article>
 
-
           </section>
 
-
+          <!-- this section contains the box where we can create a new task (right box on page) -->
           <section id="create-new-task">
-            <article>
-              <p id="create-task-title">Create a new task</p>
 
-              <div class="tags">
-                <button type="submit" class="tag-important">
-                  <p>Important</p>
-                  <!-- <i class="fas fa-times"></i> -->
-                </button>
+            <p id="create-task-heading">Create a new task</p>
 
-                <button type="submit" class="tag-school">
-                  <p>School</p>
-                  <!-- <i class="fas fa-times"></i> -->
-                </button>
+            <form action="/edit/:id" method="POST">
 
-                <button type="submit" class="tag-create">
-                  <p>Add tag</p>
-                </button>
+              <!-- had to group the tags, input bar and the category drop down into one div for flexbox purposes-->
+              <div class="form-upper">
 
+                <div class="tags">
+                  <button type="submit" class="tag-important">
+                    <p>Important</p>
+                    <!-- <i class="fas fa-times"></i> -->
+                  </button>
+
+                  <button type="submit" class="tag-school">
+                    <p>School</p>
+                    <!-- <i class="fas fa-times"></i> -->
+                  </button>
+
+                  <button type="submit" class="tag-create">
+                    <p>Add tag</p>
+                  </button>
+
+                </div>
+
+                <!-- task title user input bar -->
+                <textarea type="text" id="task-title" placeholder="input task"></textarea>
+
+                <div class="category-dropdown">
+                  <h5>Category: </h5>
+
+                  <div class="category-select">
+
+                    <!-- this is where the auto-categorizer states the category -->
+                    <p id="auto-category">Films</p>
+
+                    <!-- these are the dropdown menu options -->
+                    <ul class="category-contents">
+                      <li>Films/series</li>
+                      <li>Restaurants</li>
+                      <li>Books</li>
+                      <li>Products</li>
+                    </ul>
+                  </div>
+
+                  <!-- up and down arrows that toggle the visibility of the dropdown menu -->
+                  <p class="category-visibility-toggle">
+                    <i class="fas fa-sort-down"></i>
+                    <i class="fas fa-caret-up"></i>
+                  </p>
+                </div>
               </div>
 
+              <!-- this contains the 'reminder', 'due date' and 'share' buttons -->
+              <div id="task-additional-features">
 
-              <form action="/edit/:id" method="POST">
-
-
-                <div class="new-task-upper">
-                  <textarea type="text" id="task-title" placeholder="input task"></textarea>
-
-                  <div class="category-dropdown">
-                    <h5>Category: </h5>
-
-                    <div class="category-select">
-                      <p id="auto-category">Films</p>
-                      <ul class="category-contents">
-                        <li>Films/series</li>
-                        <li>Restaurants</li>
-                        <li>Books</li>
-                        <li>Products</li>
-                      </ul>
-                    </div>
-
-                    <p class="category-visibility-toggle">
-                      <i class="fas fa-sort-down"></i>
-                      <i class="fas fa-caret-up"></i>
-                    </p>
-                  </div>
+                <div class="task-reminder">
+                  <i class="fas fa-bell"></i>
+                  <p>Reminder</p>
                 </div>
 
 
-
-                <div id="task-additional-features">
-
-                  <div class="task-reminder">
-                    <i class="fas fa-bell"></i>
-                    <p>Reminder</p>
-                  </div>
-
-
-                  <div class="task-calendar-date">
-                    <i class="far fa-calendar-alt"></i>
-                    <p>Due date</p>
-                  </div>
-
-
-                  <div class="task-share">
-                    <i class="fas fa-share-square"></i>
-                    <p>Share</p>
-                  </div>
-
-
+                <div class="task-calendar-date">
+                  <i class="far fa-calendar-alt"></i>
+                  <p>Due date</p>
                 </div>
 
 
-              </form>
-
-              <button type="submit" class="new-task-button">Submit</button>
-
-            </article>
-
+                <div class="task-share">
+                  <i class="fas fa-share-square"></i>
+                  <p>Share</p>
+                </div>
 
 
+              </div>
+            </form>
+
+            <!-- button to submit a new task -->
+            <button type="submit" class="new-task-button">Submit</button>
           </section>
 
         </div>

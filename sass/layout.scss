@@ -12,11 +12,11 @@ html {
 
 body {
   background-color: white;
-  height: 100%;
-  overflow: hidden;
+  color: base.$font-color;
   font-family: base.$regular-font;
   font-size: 1em;
-  color: base.$font-color;
+  height: 100%;
+  overflow: hidden;
 
   :is(h1, h2, h3, h4, h5, h6) {
     font-family: base.$bold-font;
@@ -24,346 +24,58 @@ body {
 
 }
 
+
+//#main contains the sidebar and .main-information
 #main {
   display: flex;
   height: 85%;
 
 }
 
+//this is the section that contains .see-and-create
 .main-information {
+  align-items: center;
   background-image: url('/images/background-1.jpg');
   background-size: contain;
-  width: 82%;
+  display: flex;
   height: 100%;
   padding: 2% 4% 2% 4%;
-  display: flex;
-  align-items: center;
+  width: 82%;
   z-index: initial;
-
-  h1 {
-    margin: 1%;
-  }
 
 }
 
-
+//this div contains the two boxes - #tasks-list and #create-new-task
 .see-and-create {
-  display: flex;
-  justify-content: space-between;
   align-content: center;
-  width: 100%;
+  display: flex;
   height: 95%;
+  justify-content: space-between;
+  width: 100%;
 
 }
 
 
 #tasks-list {
-  width: 48%;
-  height: 100%;
-  border: 1px solid base.$dark-grey-highlights;
-  border-radius: 0.7em;
-  padding: 3% 3%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 0.6em base.$dark-grey-highlights;
-  background-color: base.$off-white;
-
-
-  .task {
-    border: 2px solid rgba(grey, 0.4);
-    border-radius: 0.6em;
-    height: 10%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1em;
-
-    .checkbox-and-title {
-      display: flex;
-      align-items: center;
-
-
-    }
-    .task-checkbox {
-      border: 1px solid grey;
-      border-radius: 50%;
-      height: 2em;
-      width: 2em;
-      margin: 1em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  .task:hover {
-    box-shadow: 0 0 0.3em rgba(base.$blue-highlights, 0.5);
-  }
+  height: 100%;
+  padding: 3% 3%;
+  width: 48%;
 
 }
-
-.delete-and-edit-icons {
-  display: flex;
-  padding: 1em;
-  color: base.$font-color;
-  font-size: 1.2em;
-
-  i{
-  padding: 0.2em;
-  }
-}
-
-.fas.fa-edit:hover {
-  color: base.$blue-highlights;
-}
-
-//delete icon
-.far.fa-trash-alt:hover {
-  color: base.$red-highlights;
-}
-
 
 
 #create-new-task {
-  width: 48%;
-  height: 100%;
-  border: 1px solid base.$dark-grey-highlights;
-  border-radius: 0.7em;
-  padding: 3% 3%;
+  align-content: center;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 0.6em base.$dark-grey-highlights;
-  align-content: center;
-  background-color: base.$off-white;
+  height: 100%;
+  padding: 3% 3%;
+  width: 48%;
 
-
-  article {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
-    #create-task-title{
-      font-weight: bold;
-      text-decoration: underline;
-      text-decoration-color: base.$blue-highlights;
-      text-decoration-thickness: 2px;
-      text-transform: uppercase;
-      font-size: 0.9em;
-      font-family: base.$bold-font;
-      padding-bottom: 2%
-    }
-  }
-
-  .tags {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 2em;
-    font-size: 0.8em;
-  }
-
-  .tags button{
-    border-radius: 2.5em;
-    width: auto;
-    margin: 0.5em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: baseline;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    p {
-      text-decoration: none;
-      margin: 0 0.8em 0 0.5em;
-      padding: 0;
-      text-transform: uppercase;
-      font-family: base.$bold-font;
-
-    }
-
-
-    i {
-      position: relative;
-      font-size: 0.75em;
-      margin-right: 0.5em;
-    }
-  }
-
-
-  .tag-important{
-    border: base.$red-highlights 2px solid;
-    background-color:base.$off-white;
-    color: base.$red-highlights;
-    &:hover{
-      background-color: base.$red-highlights;
-      color: base.$off-white;
-    }
-  }
-
-  .tag-school{
-    border: base.$blue-highlights 2px solid;
-    background-color:base.$off-white;
-    color: base.$blue-highlights;
-    &:hover{
-      background-color: base.$blue-highlights;
-      color: base.$off-white;
-    }
-  }
-
-  .tag-create{
-    border: grey 2px dashed;
-    opacity: 0.5;
-
-    &:hover{
-      opacity: 1;
-    }
-  }
-
-
-
-  form {
-    display: flex;
-    flex-direction: column;
-    height: 80%;
-    width: 100%;
-    justify-content: space-between;
-
-  }
-
-  #task-title {
-    margin: 1em 0;
-    width: 100%;
-    background-color: base.$off-white;
-    border: none; //removes default textarea border
-    resize: none;
-    border-bottom: 2px solid darkgrey;
-    vertical-align: baseline;
-    height: 2em;
-    font-weight: bold;
-    font: base.$bold-font;
-    color: rgb(68, 68, 68);
-    text-transform: uppercase;
-
-    &::placeholder {
-      font: base.$bold-font;
-      font-weight: bold;
-      opacity: 30%;
-    }
-
-    /* removes the border when the user clicks into the input box */
-    &:focus {
-      outline: none;
-    }
-
-  }
-
-  .category-dropdown {
-    width: 100%;
-    display: flex;
-    // align-items: center;
-    // vertical-align: text-top;
-    h5 {
-      margin: 0.2em;
-    }
-
-    p {
-      margin: 0.2em;
-    }
-
-    i {
-      margin: 0.2em 0.5em;
-    }
-
-  }
-
-  .category-select {
-    display: flex;
-    flex-direction: column;
-    // width: 40%;
-  }
-
-  .category-contents {
-    border: 2px solid rgba(grey, 0.4);
-    border-radius: 0.6em;
-    padding: 0; //lets list item take up the whole row
-    margin: 0.2em;
-    display: none;
-
-    li {
-      // margin: 0.5em;
-      list-style-type: none; //removes the bullet points from the list items
-      padding: 0.3em 0.75em;
-    }
-
-    li:hover {
-      background-color: base.$dark-grey-highlights;
-      cursor: pointer;
-    }
-  }
-
-  .category-visibility-toggle {
-    display: flex;
-
-    i:hover{
-      cursor: pointer;
-      color: base.$blue-highlights;
-    }
-
-    .fas.fa-sort-down {
-      order: 1;
-    }
-
-    .fas.fa-caret-up {
-      order: 2;
-      visibility: hidden;
-    }
-  }
-
-
-  .new-task-button {
-    width: 25%;
-    align-self: flex-end;
-  }
 }
 
 
-#task-additional-features {
-  display: flex;
-  width: 100%;
-  height: 35%;
-  margin: 5% 0;
-  align-items: center;
-
-  div{
-    border: 2px solid rgba(grey, 0.4);
-    border-radius: 0.6em;
-    margin: 2%;
-    width:30%;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-      cursor: pointer;
-      color: base.$blue-highlights;
-      border-color: base.$blue-highlights;
-    }
-
-    p {
-      margin: 0.5em;
-    }
-
-    i {
-      font-size:1.25em;
-    }
-  }
-}
 
 

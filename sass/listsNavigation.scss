@@ -2,37 +2,37 @@
 
 #sidebar {
   background-color:base.$light-grey;
-  width: 18%;
+  box-shadow: 0.1em 0 0.5em base.$dark-grey-highlights;
   height: 100%;
   padding: 0.5em 0;
-  z-index: 1;
-  box-shadow: 0.1em 0 0.5em base.$dark-grey-highlights;
   position: relative;
+  width: 18%;
+  z-index: 1;
 
   h2 {
-    text-transform: uppercase;
-    text-decoration: underline;
     margin-bottom: 0.5em;
     padding-left: 1em;
+    text-decoration: underline;
+    text-transform: uppercase;
   }
 
   //makes the menu button take up the width of the sidebar
   ul {
-    padding: 0;
-    margin-top: 0;
     margin-bottom: 4em;
+    margin-top: 0;
+    padding: 0;
   }
 
   ul li{
+    font-size: 1.2em;
     list-style-type: none; //removes the bullet points from the list items
     padding: 0.5em 0.5em 0.5em 4em;
-    font-size: 1.2em;
   }
 
   // removes the underline from the hyperlinks
   a{
-    text-decoration: none;
     display: block;
+    text-decoration: none;
   }
 
   a:visited{
@@ -49,12 +49,12 @@
 
   //makes a space between icon and text
   i{
-    width: 5vmin;
-    height: 5vmin;
-    padding: 3.5%;
     border: 2px solid black;
     border-radius: 50%;
+    height: 5vmin;
     margin-right: 0.5em;
+    padding: 3.5%;
+    width: 5vmin;
 
   }
 
