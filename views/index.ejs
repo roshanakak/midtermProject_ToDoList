@@ -22,7 +22,7 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="scripts/user-avatar.js"></script>
-    <script type="text/javascript" src="scripts/create-new-task-list.js"></script>
+    <script type="text/javascript" src="scripts/category-dropdown.js"></script>
 
 
   </head>
@@ -110,12 +110,12 @@
               <div class="tags">
                 <button type="submit" class="tag-important">
                   <p>Important</p>
-                  <i class="fas fa-times"></i>
+                  <!-- <i class="fas fa-times"></i> -->
                 </button>
 
                 <button type="submit" class="tag-school">
                   <p>School</p>
-                  <i class="fas fa-times"></i>
+                  <!-- <i class="fas fa-times"></i> -->
                 </button>
 
                 <button type="submit" class="tag-create">
@@ -127,32 +127,29 @@
 
               <form action="/edit/:id" method="POST">
 
-                <textarea type="text" id="task-title" placeholder="input task"></textarea>
+                <div class="new-task-upper">
+                  <textarea type="text" id="task-title" placeholder="input task"></textarea>
 
-                <div class="cateogry-dropdown">
-                  <p>Category:</p>
-                  <a href="#">Films/series</a>
-                  <a href="#">Restaurants</a>
-                  <a href="#">Books</a>
-                  <a href="#">Products</a>
+                  <div class="category-dropdown">
+                    <h5>Category: </h5>
 
+                    <div class="category-select">
+                      <p id="auto-category">Films</p>
+                      <ul class="category-contents">
+                        <li>Films/series</li>
+                        <li>Restaurants</li>
+                        <li>Books</li>
+                        <li>Products</li>
+                      </ul>
+                    </div>
+
+                    <p class="category-visibility-toggle">
+                      <i class="fas fa-sort-down"></i>
+                      <i class="fas fa-caret-up"></i>
+                    </p>
+                  </div>
                 </div>
 
-<!--
-                <ul class="new-list-item">
-
-                  <li>
-                    <textarea type="text" id="task-content" placeholder="Task content"></textarea>
-
-                  </li>
-                  <i class="fas fa-plus"></i>
-
-
-                </ul>
-
-                <section class="new-items"> -->
-                  <!-- new items get prepended here -->
-                <!-- </section> -->
 
 
                 <div id="task-additional-features">
@@ -178,12 +175,9 @@
                 </div>
 
 
-
-                <button type="submit" class="new-task-button">Submit</button>
-
-
               </form>
 
+              <button type="submit" class="new-task-button">Submit</button>
 
             </article>
 

@@ -141,6 +141,8 @@ body {
   article {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 
     #create-task-title{
       font-weight: bold;
@@ -170,12 +172,15 @@ body {
     justify-content: space-around;
     align-items: baseline;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     p {
       text-decoration: none;
-      margin: 0.25em 0.8em 0.25em 0.5em;
+      margin: 0 0.8em 0 0.5em;
       padding: 0;
       text-transform: uppercase;
-      // font-weight: bold;
       font-family: base.$bold-font;
 
     }
@@ -193,26 +198,39 @@ body {
     border: base.$red-highlights 2px solid;
     background-color:base.$off-white;
     color: base.$red-highlights;
+    &:hover{
+      background-color: base.$red-highlights;
+      color: base.$off-white;
+    }
   }
 
   .tag-school{
     border: base.$blue-highlights 2px solid;
     background-color:base.$off-white;
     color: base.$blue-highlights;
+    &:hover{
+      background-color: base.$blue-highlights;
+      color: base.$off-white;
+    }
   }
 
   .tag-create{
     border: grey 2px dashed;
+    opacity: 0.5;
+
+    &:hover{
+      opacity: 1;
+    }
   }
 
 
 
   form {
     display: flex;
-    align-items: space-between;
     flex-direction: column;
-    align-items: flex-end;
-    height: 90%
+    height: 80%;
+    width: 100%;
+    justify-content: space-between;
 
   }
 
@@ -243,77 +261,72 @@ body {
 
   }
 
-  .new-items {
+  .category-dropdown {
     width: 100%;
-  }
-
-  .entered-list-item {
-    width: 100%;
-    padding-left: 10%;
-    font-weight: bold;
-    font: base.$bold-font;
-    color: rgb(68, 68, 68);
-    margin-bottom: 0;
-
-    li {
-      padding-left: 0.5em;
+    display: flex;
+    // align-items: center;
+    // vertical-align: text-top;
+    h5 {
+      margin: 0.2em;
     }
+
+    p {
+      margin: 0.2em;
+    }
+
+    i {
+      margin: 0.2em 0.5em;
+    }
+
   }
 
-  .new-list-item {
+  .category-select {
+    display: flex;
+    flex-direction: column;
+    // width: 40%;
+  }
+
+  .category-contents {
     border: 2px solid rgba(grey, 0.4);
     border-radius: 0.6em;
-    width: 100%;
-    padding-left: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 0; //lets list item take up the whole row
+    margin: 0.2em;
+    display: none;
 
     li {
-      width: 100%
+      // margin: 0.5em;
+      list-style-type: none; //removes the bullet points from the list items
+      padding: 0.3em 0.75em;
+    }
+
+    li:hover {
+      background-color: base.$dark-grey-highlights;
+      cursor: pointer;
     }
   }
 
-
-
-  #task-content {
-    height: 1.5em;
-    width: 95%;
-    background-color: base.$off-white;
-    border: none; //removes default textarea border
-    // border: 2px solid d3em;
-    resize: none;
+  .category-visibility-toggle {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1em 0.5em;
 
-
-    &::placeholder {
-      font: base.$bold-font;
-      font-weight: bold;
-      opacity: 30%;
+    i:hover{
+      cursor: pointer;
+      color: base.$blue-highlights;
     }
 
-    /* removes the border when the user clicks into the input box */
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .fas.fa-plus {
-    opacity: 30%;
-    padding: 5% 5% 5% 1%;
-
-    &:hover {
-      opacity: 100%
+    .fas.fa-sort-down {
+      order: 1;
     }
 
+    .fas.fa-caret-up {
+      order: 2;
+      visibility: hidden;
+    }
   }
 
 
   .new-task-button {
     width: 25%;
+    align-self: flex-end;
   }
 }
 
@@ -321,7 +334,7 @@ body {
 #task-additional-features {
   display: flex;
   width: 100%;
-  height: 25%;
+  height: 35%;
   margin: 5% 0;
   align-items: center;
 
@@ -336,6 +349,12 @@ body {
     align-items: center;
     justify-content: center;
 
+    &:hover {
+      cursor: pointer;
+      color: base.$blue-highlights;
+      border-color: base.$blue-highlights;
+    }
+
     p {
       margin: 0.5em;
     }
@@ -347,4 +366,3 @@ body {
 }
 
 
-// #task-additional-features
