@@ -1,0 +1,31 @@
+@use 'base';
+
+nav {
+  background-color: base.$off-white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0em 0.1em 0.5em base.$dark-grey-highlights;
+  height: 15%;
+  z-index: 2;
+  padding: 1%;
+  position: relative;
+
+  span {
+    margin: 60px;
+  }
+  .avatar {
+    border: 3px solid rgba(black, 0.7);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 20px;
+  }
+
+  .logo {
+    width: 20em;;
+    height: 4.5em;
+  }
+}
+
+

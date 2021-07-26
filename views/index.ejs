@@ -3,15 +3,113 @@
   <head>
     <title>Home Page</title>
 
+    <!-- linking the icons from 'font awesome' -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+
+    <!-- linking external fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/listsNavigation.css" type="text/css" />
+
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/main_edit_delete.js"></script>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <!-- fixed header - shows logo and -->
+    <nav>
+      <img class="logo" src="/images/logo-2c.png">
+
+      <div id="user-settings">
+        <img class="avatar" src="/images/avatar-1.png">
+      </div>
+
+    </nav>
+
+
+    <!-- user lists -->
+    <div id=main>
+      <div id=sidebar>
+        <h2>My Tasks</h2>
+        <ul>
+          <a href="/"><li><i class="fas fa-list"></i>All tasks</li></a>
+          <a href="/cat?1"><li><i class="fas fa-video"></i>Films/series to watch</li></a>
+          <a href="/cat?2"><li><i class="fas fa-utensils"></i>Restaurants to eat at</li></a>
+          <a href="/cat?3"><li><i class="fas fa-book"></i>Books to read</li></a>
+          <a href="/cat?4"><li><i class="fas fa-shopping-cart"></i>Products to buy</li></a>
+        </ul>
+      </div>
+
+      <div class="main-information">
+
+        <div class="see-and-create">
+          <section id=tasks-list>
+            <h1>Films</h1>
+            <article class="task">
+
+              <div class="checkbox-and-title">
+                <div class="task-checkbox"><i class="fas fa-check"></i></div>
+                <p>Film 1</p>
+
+              </div>
+
+              <div class="delete-and-edit-icons">
+                <i class="fas fa-edit"></i>
+                <i class="far fa-trash-alt"></i>
+              </div>
+
+            </article>
+
+            <article class="task">
+
+              <div class="checkbox-and-title">
+                <div class="task-checkbox"><i class="fas fa-check"></i></div>
+                <p>Film 2</p>
+
+              </div>
+
+              <div class="delete-and-edit-icons">
+                <i class="fas fa-edit"></i>
+                <i class="far fa-trash-alt"></i>
+              </div>
+
+            </article>
+
+
+          </section>
+
+
+          <section id=create-new-task>
+            <article>
+              <h2>Create a new task</h2>
+              <form action="/" method="POST">
+
+                <textarea type="text" id="task-title" placeholder="Task title"></textarea>
+
+                <textarea type="text" id="task-content" placeholder="Task content"></textarea>
+
+                <button type="submit" class="new-task-button">Submit</button>
+
+
+              </form>
+
+
+            </article>
+
+
+
+          </section>
+
+        </div>
+      </div>
+    </div>
   </body>
 </html>

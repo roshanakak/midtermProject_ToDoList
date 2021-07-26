@@ -1,0 +1,56 @@
+@use 'base';
+
+#sidebar {
+  background-color:base.$light-grey;
+  width: 18%;
+  height: 100%;
+  padding: 0.5em 0;
+  z-index: 1;
+  box-shadow: 0.1em 0 0.5em base.$dark-grey-highlights;
+  position: relative;
+
+  h2 {
+    // text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    padding-left: 2em;
+  }
+
+  //makes the menu button take up the width of the sidebar
+  ul {
+    padding: 0;
+  }
+
+  ul li{
+    list-style-type: none; //removes the bullet points from the list items
+    padding: 1em 1em 1em 2em;
+    font-size: 1.2em;
+
+  }
+
+
+
+  // removes the underline from the hyperlinks
+  a{
+    text-decoration: none;
+    display: block;
+  }
+
+  a:visited{
+    color: base.$font-color;
+  }
+
+  ul li:hover{
+    background-color: base.$blue-highlights;
+  }
+
+  li:hover{
+    color: #fff
+  }
+
+  //makes a space between icon and text
+  li i{
+    width: 1.5em;
+  }
+
+}
