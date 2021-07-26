@@ -12,8 +12,11 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
-cookieSession = require("cookie-session");
+const cookieSession = require("cookie-session");
 
+const loginRoutes = require("./routes/login");
+const logoutRoutes = require("./routes/logout");
+const registerRoutes = require("./routes/register")
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -45,7 +48,9 @@ app.use(cookieSession({
   keys: ['key1', 'key2'],
   maxAge: 24 * 60 * 1000
 }));
-
+app.use('/login', loginRoutes(db));
+app.use('/logout', logoutRoutes(db));
+app.use('/register', registerRoutes(db));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
