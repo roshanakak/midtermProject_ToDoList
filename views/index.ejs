@@ -11,17 +11,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
 
+    <!-- App CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/listsNavigation.css" type="text/css" />
 
-
+    <!-- App JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/main_edit_delete.js"></script>
+    <script type="text/javascript" src="scripts/user-avatar.js"></script>
+    <script type="text/javascript" src="scripts/category-dropdown.js"></script>
+
+
   </head>
+
+
+
 
   <body>
     <!-- fixed header - shows logo and -->
@@ -29,7 +36,16 @@
       <img class="logo" src="/images/logo-2c.png">
 
       <div id="user-settings">
-        <img class="avatar" src="/images/avatar-1.png">
+
+        <div>
+          <img class="avatar" src="/images/avatar-1.png">
+        </div>
+
+        <div id="user-dropdown-content">
+          <p>username</p>
+          <a href="#">Personal settings</a>
+          <a href="#">Log out</a>
+        </div>
       </div>
 
     </nav>
@@ -38,14 +54,21 @@
     <!-- user lists -->
     <div id=main>
       <div id=sidebar>
-        <h2>My Tasks</h2>
+        <h2><i class="fas fa-check"></i>My Tasks</h2>
         <ul>
-          <a href="/"><li><i class="fas fa-list"></i>All tasks</li></a>
-          <a href="/cat?1"><li><i class="fas fa-video"></i>Films/series to watch</li></a>
-          <a href="/cat?2"><li><i class="fas fa-utensils"></i>Restaurants to eat at</li></a>
-          <a href="/cat?3"><li><i class="fas fa-book"></i>Books to read</li></a>
-          <a href="/cat?4"><li><i class="fas fa-shopping-cart"></i>Products to buy</li></a>
+          <a href="#"><li>All tasks</li></a>
+          <a href="#"><li>Films/series</li></a>
+          <a href="#"><li>Restaurants</li></a>
+          <a href="#"><li>Books</li></a>
+          <a href="#"><li>Products</li></a>
         </ul>
+
+        <h2><i class="fas fa-tag"></i>Tags</h2>
+        <ul>
+          <a href="#"><li>Important</li></a>
+          <a href="#"><li>School</li></a>
+        </ul>
+
       </div>
 
       <div class="main-information">
@@ -87,20 +110,82 @@
           </section>
 
 
-          <section id=create-new-task>
+          <section id="create-new-task">
             <article>
-              <h2>Create a new task</h2>
-              <form action="/" method="POST">
+              <p id="create-task-title">Create a new task</p>
 
-                <textarea type="text" id="task-title" placeholder="Task title"></textarea>
+              <div class="tags">
+                <button type="submit" class="tag-important">
+                  <p>Important</p>
+                  <!-- <i class="fas fa-times"></i> -->
+                </button>
 
-                <textarea type="text" id="task-content" placeholder="Task content"></textarea>
+                <button type="submit" class="tag-school">
+                  <p>School</p>
+                  <!-- <i class="fas fa-times"></i> -->
+                </button>
 
-                <button type="submit" class="new-task-button">Submit</button>
+                <button type="submit" class="tag-create">
+                  <p>Add tag</p>
+                </button>
+
+              </div>
+
+
+              <form action="/edit/:id" method="POST">
+
+
+                <div class="new-task-upper">
+                  <textarea type="text" id="task-title" placeholder="input task"></textarea>
+
+                  <div class="category-dropdown">
+                    <h5>Category: </h5>
+
+                    <div class="category-select">
+                      <p id="auto-category">Films</p>
+                      <ul class="category-contents">
+                        <li>Films/series</li>
+                        <li>Restaurants</li>
+                        <li>Books</li>
+                        <li>Products</li>
+                      </ul>
+                    </div>
+
+                    <p class="category-visibility-toggle">
+                      <i class="fas fa-sort-down"></i>
+                      <i class="fas fa-caret-up"></i>
+                    </p>
+                  </div>
+                </div>
+
+
+
+                <div id="task-additional-features">
+
+                  <div class="task-reminder">
+                    <i class="fas fa-bell"></i>
+                    <p>Reminder</p>
+                  </div>
+
+
+                  <div class="task-calendar-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <p>Due date</p>
+                  </div>
+
+
+                  <div class="task-share">
+                    <i class="fas fa-share-square"></i>
+                    <p>Share</p>
+                  </div>
+
+
+                </div>
 
 
               </form>
 
+              <button type="submit" class="new-task-button">Submit</button>
 
             </article>
 

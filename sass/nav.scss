@@ -17,15 +17,69 @@ nav {
   .avatar {
     border: 3px solid rgba(black, 0.7);
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    margin: 20px;
+    width: 12vmin;
+    height: 12vmin;
+    margin: 0.5em;
+    // position: fixed;
+  }
+
+  .avatar:hover {
+    border-color: base.$light-grey;
+    box-shadow: 0 0 0.5em black;
+
   }
 
   .logo {
-    width: 20em;;
-    height: 4.5em;
+    width: 36vmin;;
+    height: 8vmin;
   }
 }
 
+#user-settings {
+  position: relative;
+  // display: flex;
+  // justify-content: flex-end;
+  // align-items: center;
+  // width: 30%;
+  // height: 80%;
+
+
+  #user-dropdown-content {
+    position: absolute;
+    background-color: base.$dark-grey-highlights;
+    display:flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    border: 2px solid rgba(grey, 0.5);
+    box-shadow: 0 0 0.3em rgba(base.$blue-highlights, 0.5);
+    border-radius: 0.4em;
+    display: none;
+    margin-right: 5em;
+
+    p{
+      text-decoration: underline;
+      font-weight: bold;
+      margin: 1em 1em;
+    }
+
+     // removes the underline from the hyperlinks
+    a{
+      text-decoration: none;
+      display: block;
+      padding: 1em 1.2em;
+
+    }
+
+    a:visited{
+      color: base.$font-color;
+    }
+
+    a:hover {
+      background-color: base.$light-grey;
+      font-weight: bold;
+    }
+
+  }
+}
 
