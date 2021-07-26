@@ -7,6 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
+const tasksHelper = require('./tasksHelper');
 
 module.exports = (db) => {
 
@@ -40,8 +41,10 @@ module.exports = (db) => {
     const templateVars = {
       id: 0
     };
+    
+    tasksHelper(req.body.taskTitle);
 
-    res.render("index", templateVars);
+    res.render("index");
   });
 
 

@@ -16,11 +16,13 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/listsNavigation.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/main_edit_delete.js"></script>
+
   </head>
 
   <body>
@@ -92,7 +94,7 @@
               <h2>Create a new task</h2>
               <form action="/" method="POST">
 
-                <textarea type="text" id="task-title" placeholder="Task title"></textarea>
+                <textarea type="text" id="task-title" placeholder="Task title" name="taskTitle"></textarea>
 
                 <textarea type="text" id="task-content" placeholder="Task content"></textarea>
 

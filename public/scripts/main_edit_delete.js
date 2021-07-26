@@ -1,5 +1,5 @@
-$(document).ready(function() {
 
+$(document).ready(function() {
   let editElements = document.getElementsByClassName("fa-edit");
   let deleteElements = document.getElementsByClassName("fa-trash-alt");
 
