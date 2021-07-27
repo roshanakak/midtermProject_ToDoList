@@ -16,14 +16,14 @@ module.exports = (db) => {
       id: 0
     };
 
-    res.render("index", templateVars);
+    res.render("homepage-user", templateVars);
   });
 
   //retrieves specific task, to show task details and content on click
   router.get("/:id", (req, res) => {
     const templateVars = {};
 
-    res.render("index", templateVars);
+    res.render("homepage-user", templateVars);
   });
 
   //retrieves all tasks in a specific category
@@ -32,7 +32,7 @@ module.exports = (db) => {
       cat_id: 0
     };
 
-    res.render("index", templateVars);
+    res.render("homepage-user", templateVars);
   });
 
   //saves a new task
@@ -41,7 +41,7 @@ module.exports = (db) => {
       id: 0
     };
 
-    res.render("index", templateVars);
+    res.render("homepage-user", templateVars);
   });
 
 

@@ -60,15 +60,23 @@ const mainRoutes = require("./routes/main");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-app.use("/", mainRoutes(db));
+// app.use("/", mainRoutes(db));
 
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("homepage-user");
 });
+
+
+
+app.get("/register", (req, res) => {
+  res.render("homepage-no-user");
+});
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

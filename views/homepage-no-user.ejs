@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Home Page</title>
+
+    <!-- linking the icons from 'font awesome' -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+
+
+    <!-- linking external fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/homepage-no-user/layout-homepage-no-user.css" type="text/css" />
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+
+  </head>
+
+
+  <body>
+
+  <!-- fixed header - shows logo and avatar -->
+  <nav>
+    <img class="logo" src="/images/logo-2c.png">
+  </nav>
+
+  <div class="main">
+
+    <!-- the register modal -->
+    <div id="register-modal" class="modal">
+
+      <!-- the modal content -->
+      <div class="register-modal-header">
+
+        <!-- x for closing the modal -->
+        <i class="fas fa-times" id="register-modal-close"></i>
+        <h1>Register an account</h1>
+      </div>
+
+      <div class="register-modal-body">
+
+        <p>username:</p>
+        <input type="text" id="register-username"></input>
+
+        <p>email:</p>
+        <input type="text" id="register-email"></input>
+
+        <p>password:</p>
+        <input type="password" id="register-password"></input>
+
+        <div class="sign-in-submit-buttons">
+          <div class="register-sign-in-button">
+            <p>Already have an account?</p>
+            <a href="#">Sign in</a>
+          </div>
+          <button type="submit" id="register-submit-button">Submit</button>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class="spacer"></div>
+
+    <h1>Ready to start making lists?</h1>
+
+
+    <div class="log-in-register-buttons">
+
+      <button type="submit" class="log-in-button">Log in</button>
+
+      <button type="submit" class="register-button">Register</button>
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+        <!-- <form action="/ " method="POST"></form>
+
+          <button type="submit" class="log-in-button-homepage">Log in</button>
+        </form>
+
+        <button type="submit" class="register-button">Register</button>
+
+        <button type="submit" class="submit-registration-button">Register</button>
+     -->
+
+  </body>
+
+
+
+
+</html>
