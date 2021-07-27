@@ -76,6 +76,9 @@ app.get("/register", (req, res) => {
   res.render("homepage-no-user");
 });
 
+app.get("/sign-in", (req, res) => {
+  res.render("sign-in");
+});
 
 
 app.listen(PORT, () => {

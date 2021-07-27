@@ -1,0 +1,184 @@
+@use "../base";
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+body {
+  background-color: white;
+  color: base.$font-color;
+  font-family: base.$regular-font;
+  font-size: 1em;
+  height: 100%;
+  overflow: hidden;
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    font-family: base.$bold-font;
+  }
+
+}
+
+//register button on the nav bar
+.homepage-register-button {
+  background-color: base.$off-white;
+  border: base.$blue-highlights 2px solid;
+  border-radius: 1em;
+  color: base.$blue-highlights;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0.5em;
+  opacity: 0.8;
+  padding: 0.5em;
+  text-transform: uppercase;
+  width: 10%;
+
+  &:hover {
+    background-color: rgba(base.$blue-highlights, 0.98);
+    color: white;
+    cursor: pointer;
+  }
+}
+
+
+.log-in-main-body {
+
+  height: 86%;
+  width: 100%;
+  display: flex;
+}
+
+.log-in-sidebar {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+  background-color:base.$light-grey;
+  box-shadow: 0.1em 0 0.5em base.$dark-grey-highlights;
+  position: relative;
+  z-index: 1;
+
+
+  h2 {
+    font-size: 1em;
+  }
+}
+
+
+.main-information {
+  background-image: url('/images/background-1.jpg');
+  background-size: contain;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 7%;
+
+}
+
+.log-in-body {
+
+  height: 100%;
+  // display: flex;
+  // align-items: stretch;
+  // flex-direction: column;
+  background-color: base.$off-white;
+  border: 1px solid base.$dark-grey-highlights;
+  border-radius: 0.7em;
+  // box-shadow: 0 0 0.6em
+  padding: 3em 5em;
+
+
+  h1 {
+    margin-bottom: 1em;
+    text-decoration: underline;
+  }
+
+  p {
+    margin-top: 2em;
+    margin-bottom: 0;
+
+  }
+
+  input {
+    display: flex;
+    flex-direction: column;
+    height: 2em;
+    justify-content: space-between;
+    width: 100%;
+    border: none; //removes default textarea border
+    background-color: base.$off-white;
+    border-bottom: 2px darkgrey solid;
+    resize: none;
+    margin-bottom: 2em;
+
+
+    /* removes the border when the user clicks into the input box */
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+  .log-in-forgot-pass-buttons {
+    margin-top: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: base.$font-color;
+      opacity: 0.7;
+
+    }
+
+    a:visited {
+      color: base.$font-color;
+    }
+
+    a:hover {
+      opacity: 1;
+    }
+
+    #log-in-submit-button {
+      // background-color: base.$off-white;
+      border: base.$blue-highlights 2px solid;
+      border-radius: 1em;
+      background-color: rgba(base.$blue-highlights, 0.98);
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+      margin: 0.5em 0;
+      opacity: 0.8;
+      padding: 0.5em;
+      text-transform: uppercase;
+      width: 20%;
+
+
+      &:hover {
+        border: rgb(52, 104, 128) 2px solid;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+
+
+
+
+}
+
+
