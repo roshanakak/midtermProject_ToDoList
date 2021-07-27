@@ -9,7 +9,7 @@
   height: auto;
   left: 50%;
   top: 50%;
-  transform: translate(-28%, -43%);
+  transform: translate(-30%, -43%);
   position: fixed;
   visibility: hidden;
   width: 50%;
@@ -31,7 +31,7 @@
       cursor: pointer;
     }
 
-    h2 {
+    h1 {
       color: base.$light-grey;
       margin: 0 0 1em 1em;
     }
@@ -45,7 +45,7 @@
     height: 100%;
     padding: 0.5em 2em;
 
-    .edit-task-button {
+    #edit-task-button {
       align-self: flex-end;
       background-color: base.$dark-grey-highlights;
       border: rgba(black, 0.7) 2px solid;

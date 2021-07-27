@@ -15,10 +15,22 @@ $(document).ready(function() {
   })
 
 
-
   const deleteTask = function() {
-    alert('delete');
+    $("#delete-modal").css({"visibility" : "visible"})
   };
+
+  $("#delete-modal-close").on("click", function () {
+    $("#delete-modal").css({"visibility" : "hidden"})
+
+  })
+
+  $("#cancel-deletion-button").on("click", function () {
+    $("#delete-modal").css({"visibility" : "hidden"})
+
+  })
+
+
+
 
   for (let i = 0; i < editElements.length; i++) {
     editElements[i].addEventListener('click', editTask, false);
