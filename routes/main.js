@@ -41,7 +41,7 @@ module.exports = (db) => {
     const templateVars = {
       id: 0
     };
-    
+      
     tasksHelper(req.body.taskTitle);
 
     res.render("index");
