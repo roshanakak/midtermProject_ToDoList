@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="/styles/listsNavigation.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tasksList.css" type="text/css" />
     <link rel="stylesheet" href="/styles/createNewTask.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/editModal.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/input-EditNewTask.css" type="text/css" />
 
 
     <!-- App JS -->
@@ -75,6 +77,73 @@
 
       <!-- the main portion of the page -->
       <div class="main-information">
+
+        <!-- the modal -->
+        <div id="edit-modal" class="modal">
+
+          <!-- the modal content -->
+          <div class="edit-modal-header">
+
+            <!-- x for closing the modal -->
+            <i class="fas fa-times"></i>
+            <h2>Edit Task</h2>
+          </div>
+
+          <div class="edit-modal-body">
+            <!-- modal tags -->
+            <div class="tags">
+              <button type="submit" class="tag-important">
+                <p>Important</p>
+                <!-- <i class="fas fa-times"></i> -->
+              </button>
+
+              <button type="submit" class="tag-school">
+                <p>School</p>
+                <!-- <i class="fas fa-times"></i> -->
+              </button>
+
+              <button type="submit" class="tag-create">
+                <p>Add tag</p>
+              </button>
+            </div>
+
+            <!-- modal edit task title -->
+            <textarea type="text" id="task-title" placeholder="\\replace placeholder with actual user task//"></textarea>
+
+            <!-- modal edit category dropdown -->
+            <div class="category-dropdown">
+              <h5>Category: </h5>
+
+              <div class="category-select">
+
+                <!-- this is where the auto-categorizer states the category -->
+                <p id="auto-category">Films</p>
+
+                <!-- these are the dropdown menu options -->
+                <ul class="category-contents">
+                  <li>Films/series</li>
+                  <li>Restaurants</li>
+                  <li>Books</li>
+                  <li>Products</li>
+                </ul>
+              </div>
+
+              <!-- up and down arrows that toggle the visibility of the dropdown menu -->
+              <p class="category-visibility-toggle">
+                <i class="fas fa-caret-down"></i>
+                <i class="fas fa-caret-up"></i>
+              </p>
+            </div>
+
+            <button type="submit" class="edit-task-button">Edit</button>
+          </div>
+
+          <div class="edit-modal-footer">
+          </div>
+        </div>
+
+
+
 
         <div class="see-and-create">
 
@@ -165,7 +234,7 @@
 
                   <!-- up and down arrows that toggle the visibility of the dropdown menu -->
                   <p class="category-visibility-toggle">
-                    <i class="fas fa-sort-down"></i>
+                    <i class="fas fa-caret-down"></i>
                     <i class="fas fa-caret-up"></i>
                   </p>
                 </div>

@@ -1,0 +1,167 @@
+@use 'base';
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8em;
+  padding-bottom: 1em;
+
+  button{
+    align-items: baseline;
+    border-radius: 2.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0.5em;
+    width: auto;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    p {
+      font-family: base.$bold-font;
+      margin: 0 0.8em 0 0.5em;
+      padding: 0;
+      text-decoration: none;
+      text-transform: uppercase;
+
+    }
+
+    //these are the x icons that will appear after creating a tag
+    i {
+      font-size: 0.75em;
+      margin-right: 0.5em;
+      position: relative;
+    }
+  }
+
+}
+
+.tag-important{
+  background-color:base.$off-white;
+  border: base.$red-highlights 2px solid;
+  color: base.$red-highlights;
+
+  &:hover{
+    background-color: base.$red-highlights;
+    color: base.$off-white;
+  }
+}
+
+.tag-school{
+  background-color:base.$off-white;
+  border: base.$blue-highlights 2px solid;
+  color: base.$blue-highlights;
+
+  &:hover{
+    background-color: base.$blue-highlights;
+    color: base.$off-white;
+  }
+}
+
+.tag-create{
+  border: grey 2px dashed;
+  opacity: 0.5;
+
+  &:hover{
+    opacity: 1;
+  }
+}
+
+
+//textarea input
+#task-title {
+  background-color: base.$off-white;
+  border: none; //removes default textarea border
+  border-bottom: 2px solid darkgrey;
+  color: rgb(68, 68, 68);
+  font: base.$bold-font;
+  font-size: 1.3em;
+  font-weight: bold;
+  height: 2em;
+  margin: 1em 0;
+  resize: none;
+  vertical-align: baseline;
+  width: 100%;
+
+  &::placeholder {
+    font: base.$bold-font;
+    font-weight: bold;
+    opacity: 30%;
+    // text-transform: uppercase;
+  }
+
+  /* removes the border when the user clicks into the input box */
+  &:focus {
+    outline: none;
+  }
+
+}
+
+
+.category-dropdown {
+  display: flex;
+  width: 100%;
+
+  h5 {
+    margin: 0.2em;
+    font-size: 0.9em;
+
+  }
+
+  p {
+    margin: 0.2em;
+  }
+}
+
+//contains the auto-category and the dropdown menu
+.category-select {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9em;
+  font-family: base.$bold-font;
+
+}
+
+//the actual drop down menu and selections
+.category-contents {
+  border: 2px solid rgba(grey, 0.4);
+  border-radius: 0.6em;
+  display: none;
+  margin: 0.2em;
+  padding: 0; //lets list item take up the whole row
+
+  li {
+    list-style-type: none; //removes the bullet points from the list items
+    padding: 0.3em 0.75em;
+  }
+
+  li:hover {
+    background-color: base.$dark-grey-highlights;
+    cursor: pointer;
+  }
+}
+
+//contains the up and down arrows
+.category-visibility-toggle {
+  display: flex;
+
+  i {
+    margin: 0.2em 0.5em;
+  }
+
+  i:hover{
+    color: base.$blue-highlights;
+    cursor: pointer;
+  }
+
+  .fas.fa-caret-down {
+    order: 1;
+  }
+
+  .fas.fa-caret-up {
+    order: 2;
+    visibility: hidden;
+  }
+}
