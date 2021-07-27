@@ -1,43 +1,69 @@
 
 module.exports = (taskName) => {
-  let state = 'Not sure';
-  
-  // search in the books
-  // let books = require('google-books-search');
-  // let options = {
-  //   field: 'title',
-  //   type: 'books',
-  //   order: 'relevance',
-  // };
-  // books
-  //   .search(taskName, options, function(error, results) {
-  //     if (!error) {
-  //       if (results.length === 0) {
-  //         state = 'Not Matched';
-  //       } else {
-  //         results.forEach(element => {
-  //           if (element.title.includes(taskName)) {
-  //             state = 'Matched';
-  //             return;
-  //           }
-  //         });
-  //       }
-  //     } else {
-  //       state = 'Error';
-  //     }
-  //     console.log(state);
-  //   });
 
+  const getGoogleAPIResultObj = async function() {
+    let api_key = '91d5c694c85616153d53bc1f4cad85645beec75050c9f2eaba55fc47929f49de';
+    let URL = `https://serpapi.com/search.json?engine=google&gl=us&hl=en&api_key=${api_key}&q=${taskName}`;
 
-  // search in movies
-  let imdb = require('imdb');
-  imdb('tt3659388', function(err, data) {
-    if (err) {
-      console.log(err.stack);
-    }
-    if (data) {
-      console.log(data);
-    }
-  });
+    let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+    let request = new XMLHttpRequest();
+
+    request.open('GET', URL, true);
+    request.onload = function() {
+
+      if (request.status >= 200 && request.status < 400) {
+        let cat = taskCategory(request.responseText);
+        console.log(cat);
+      } else {
+        console.log('Error');
+      }
+    };
+
+    request.send();
+  };
+
+  getGoogleAPIResultObj();
 
 };
+
+
+const taskCategory = function(APIResultJSON) {
+  const counterObj = {};
+  const str = APIResultJSON.toLowerCase();
+  const moviesArray = ['hulu', 'amazon prime', 'youtube tv', 'google play movies & tv', 'imdb', 'rotten tomatoes', 'fiction', 'sci-fi', 'sci_fi', 'drama', 'series', 'movies', 'film', 'thriller', 'mystery', 'fantasy', 'adventure'];
+  const booksArray = ['book, periodical, comic'];
+  const restaurantArray = ['restaurant'];
+  const productArray = ['product'];
+
+  let moviesCount = 0;
+  let booksCount = 0;
+  let restaurantsCount = 0;
+  let productsCount = 0;
+
+  moviesArray.forEach(element => {
+    moviesCount += str.split(element).length - 1;
+  });
+
+  booksArray.forEach(element => {
+    booksCount += str.split(element).length - 1;
+  });
+
+  restaurantArray.forEach(element => {
+    restaurantsCount += str.split(element).length - 1;
+  });
+
+  productArray.forEach(element => {
+    productsCount += str.split(element).length - 1;
+  });
+
+  counterObj.Movies = moviesCount;
+  counterObj.Books = booksCount;
+  counterObj.Restaurants = restaurantsCount;
+  counterObj.Products = productsCount;
+
+  let cat = Object.keys(counterObj).reduce((a, b) => counterObj[a] > counterObj[b] ? a : b);
+  return cat;
+};
+
+
+
