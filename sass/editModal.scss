@@ -7,9 +7,9 @@
   border-radius: 0.6em;
   box-shadow: 0em 0.1em 0.5em grey;
   height: auto;
-  // padding-top: 10%;
-  // left: 0;
-  // right: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-28%, -43%);
   position: fixed;
   visibility: hidden;
   width: 50%;
