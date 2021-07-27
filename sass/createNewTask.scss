@@ -11,9 +11,10 @@
 
     #create-task-heading{
       font-family: base.$bold-font;
-      font-size: 0.9em;
+      font-size: 1.1em;
       font-weight: bold;
-      padding-bottom: 2%;
+      margin-bottom: 0;
+      padding-bottom: 1%;
       text-decoration: underline;
       text-decoration-color: base.$blue-highlights;
       text-decoration-thickness: 2px;
