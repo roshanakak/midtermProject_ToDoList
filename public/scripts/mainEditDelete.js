@@ -9,6 +9,9 @@ $(document).ready(function() {
 
   $("#edit-modal-close").on("click", function () {
     $("#edit-modal").css({"visibility" : "hidden"})
+
+    $("#caret-up-edit-task").css({"visibility" : "hidden"})
+    $("#caret-down-edit-task").css({"visibility" : "hidden"})
   })
 
 
