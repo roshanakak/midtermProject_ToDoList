@@ -1,0 +1,69 @@
+@use 'base';
+
+#tasks-list {
+  background-color: base.$off-white;
+  border: 1px solid base.$dark-grey-highlights;
+  border-radius: 0.7em;
+  box-shadow: 0 0 0.6em base.$dark-grey-highlights;
+
+  //task list title (e.g. 'Films')
+  h1 {
+    margin: 1%;
+  }
+
+  //this is each task title (e.g. 'Loki')
+  .task {
+    align-items: center;
+    border: 2px solid rgba(grey, 0.4);
+    border-radius: 0.6em;
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    width: 100%;
+
+    // puts the checkbox and title aligned vertically
+    .checkbox-and-title {
+      align-items: center;
+      display: flex;
+    }
+
+    .task-checkbox {
+      align-items: center;
+      border: 1px solid grey;
+      border-radius: 50%;
+      display: flex;
+      height: 2em;
+      justify-content: center;
+      margin: 1em;
+      width: 2em;
+    }
+  }
+
+  .task:hover {
+    box-shadow: 0 0 0.3em rgba(base.$blue-highlights, 0.5);
+  }
+
+  .delete-and-edit-icons {
+    color: base.$font-color;
+    display: flex;
+    font-size: 1.2em;
+    padding: 1em;
+
+    i{
+    padding: 0.2em;
+    }
+  }
+
+  .fas.fa-edit:hover {
+    color: base.$blue-highlights;
+    cursor: pointer;
+  }
+
+  //delete icon
+  .far.fa-trash-alt:hover {
+    color: base.$red-highlights;
+    cursor: pointer;
+  }
+}
