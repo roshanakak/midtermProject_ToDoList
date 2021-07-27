@@ -2,18 +2,18 @@
 
 #edit-modal {
 
-  // display: none;
-  position: fixed;
-  z-index: 1;
-  // padding-top: 10%;
-  // left: 0;
-  // right: 0;
   background-color: base.$off-white;
   border: 2px solid rgba(grey, 0.4);
   border-radius: 0.6em;
-  width: 50%;
-  height: auto;
   box-shadow: 0em 0.1em 0.5em grey;
+  height: auto;
+  // padding-top: 10%;
+  // left: 0;
+  // right: 0;
+  position: fixed;
+  visibility: hidden;
+  width: 50%;
+  z-index: 1;
 
   .edit-modal-header {
     background-color: base.$blue-highlights;
@@ -42,8 +42,8 @@
   .edit-modal-body {
     display: flex;
     flex-direction: column;
-    padding: 0.5em 2em;
     height: 100%;
+    padding: 0.5em 2em;
 
     .edit-task-button {
       align-self: flex-end;

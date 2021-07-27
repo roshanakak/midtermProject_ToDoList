@@ -26,8 +26,9 @@
     <!-- App JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="scripts/user-avatar.js"></script>
-    <script type="text/javascript" src="scripts/category-dropdown.js"></script>
+    <script type="text/javascript" src="scripts/userAvatar.js"></script>
+    <script type="text/javascript" src="scripts/categoryDropdown.js"></script>
+    <script type="text/javascript" src="scripts/mainEditDelete.js"></script>
 
 
   </head>
@@ -85,7 +86,7 @@
           <div class="edit-modal-header">
 
             <!-- x for closing the modal -->
-            <i class="fas fa-times"></i>
+            <i class="fas fa-times" id="edit-modal-close"></i>
             <h2>Edit Task</h2>
           </div>
 
@@ -120,7 +121,7 @@
                 <p id="auto-category">Films</p>
 
                 <!-- these are the dropdown menu options -->
-                <ul class="category-contents">
+                <ul class="category-contents" id="category-contents-edit-task">
                   <li>Films/series</li>
                   <li>Restaurants</li>
                   <li>Books</li>
@@ -130,8 +131,8 @@
 
               <!-- up and down arrows that toggle the visibility of the dropdown menu -->
               <p class="category-visibility-toggle">
-                <i class="fas fa-caret-down"></i>
-                <i class="fas fa-caret-up"></i>
+                <i class="fas fa-caret-down" id="caret-down-edit-task"></i>
+                <i class="fas fa-caret-up" id="caret-up-edit-task"></i>
               </p>
             </div>
 
@@ -224,7 +225,7 @@
                     <p id="auto-category">Films</p>
 
                     <!-- these are the dropdown menu options -->
-                    <ul class="category-contents">
+                    <ul class="category-contents" id="category-contents-create-task">
                       <li>Films/series</li>
                       <li>Restaurants</li>
                       <li>Books</li>
@@ -234,8 +235,8 @@
 
                   <!-- up and down arrows that toggle the visibility of the dropdown menu -->
                   <p class="category-visibility-toggle">
-                    <i class="fas fa-caret-down"></i>
-                    <i class="fas fa-caret-up"></i>
+                    <i class="fas fa-caret-down" id="caret-down-create-task"></i>
+                <i class="fas fa-caret-up" id="caret-up-create-task"></i>
                   </p>
                 </div>
               </div>

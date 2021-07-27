@@ -1,11 +1,18 @@
 $(document).ready(function() {
 
-  let editElements = document.getElementsByClassName("fa-edit");
-  let deleteElements = document.getElementsByClassName("fa-trash-alt");
+  let editElements = $(".fa-edit");
+  let deleteElements = $(".fa-trash-alt");
 
   const editTask = function() {
-    alert('edit');
+    $("#edit-modal").css({"visibility" : "visible"})
   };
+
+  $("#edit-modal-close").on("click", function () {
+    $("#edit-modal").css({"visibility" : "hidden"})
+  })
+
+
+
   const deleteTask = function() {
     alert('delete');
   };

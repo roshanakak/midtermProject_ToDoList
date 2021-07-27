@@ -156,11 +156,20 @@
     cursor: pointer;
   }
 
-  .fas.fa-caret-down {
+  // the edit modal category dropdown and the create-a-new-task category dropdown must have separate visibility
+  #caret-down-create-task {
     order: 1;
   }
+  #caret-up-create-task {
+    order: 2;
+    visibility: hidden;
+  }
 
-  .fas.fa-caret-up {
+
+  #caret-down-edit-task {
+    order: 1;
+  }
+  #caret-up-edit-task {
     order: 2;
     visibility: hidden;
   }
