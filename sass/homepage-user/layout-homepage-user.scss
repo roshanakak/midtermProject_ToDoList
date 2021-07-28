@@ -1,4 +1,4 @@
-@use 'base';
+@use '../base';
 
 html {
   box-sizing: border-box;
@@ -71,7 +71,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 3% 3%;
+  padding: 3% 3% 5% 3%;
   width: 48%;
 
 }

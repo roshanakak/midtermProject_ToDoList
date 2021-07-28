@@ -1,4 +1,4 @@
-@use 'base';
+@use '../base';
 
 #delete-modal {
 
@@ -17,7 +17,7 @@
 
   .delete-modal-header {
     align-items: center;
-    color: base.$red-highlights;
+    color: rgba(base.$red-highlights, 0.7);
     display: flex;
     flex-direction: column;
 
@@ -73,7 +73,7 @@
       width: 40%;
 
       &:hover {
-        background-color: rgba(base.$red-highlights, 0.98);
+        background-color: rgba(base.$red-highlights, 0.8);
         color: white;
         cursor: pointer;
       }

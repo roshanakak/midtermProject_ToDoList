@@ -8,8 +8,8 @@ module.exports = (db) => {
   const { getUserByEmail } = helpers(db);
   console.log(getUserByEmail)
   // handles GET for registeration
-  router.get('/', (req, res) => {
-    res.redirect('/login');
+  router.get('', (req, res) => {
+    res.redirect('/');
   })
 
 
@@ -21,13 +21,14 @@ module.exports = (db) => {
       password: req.body.password
     };
 
-    //   const user = getUserByEmail(templateVars.email);
-    //   if (user) {
-    //     res.redirect('/login');
-    //   }
-    //   else {
-    //     res.redirect('/');
-    //   }
+      const user = getUserByEmail(templateVars.email);
+      if (user) {
+        res.redirect('/login');
+      }
+      else {
+        res.redirect('/');
+      }
   })
+
   return router;
 }
