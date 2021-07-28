@@ -59,13 +59,13 @@ const logoutRoutes = require("./routes/logout");
 const registerRoutes = require("./routes/register");
 const usersRoutes = require("./routes/users");
 const mainRoutes = require("./routes/main");
-const emailValidationRoutes = require("./routes/emailValidation");
+const validationRoutes = require("./routes/validation");
 
 app.use('/login', loginRoutes(db));
 app.use('/logout', logoutRoutes(db));
 app.use('/register', registerRoutes(db));
 app.use("/api/users", usersRoutes(db));
-app.use("/email", emailValidationRoutes(db));
+app.use("/valid", validationRoutes(db));
 // app.use("/", mainRoutes(db));
 
 

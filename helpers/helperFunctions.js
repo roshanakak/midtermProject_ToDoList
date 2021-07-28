@@ -13,16 +13,36 @@ module.exports = (db) => {
 
     return db.query(queryString, queryParams)
       .then((res) => {
-        if (res !== null && res.rows.length === 1) {
-          console.log('truuuuuuuue')
+        if (res !== null && res.rows.length > 0) {
           return true;
         } else {
-          console.log('faaaaaaalse')
           return false;
         }
       })
       .catch((err) => {
         return false;
+      });
+
+  };
+
+  const getUserByUsername = async function(username) {
+    const queryString = `
+        SELECT *
+        FROM users
+        WHERE username = $1
+      `;
+    const queryParams = [username];
+
+    return db.query(queryString, queryParams)
+      .then((res) => {
+        if (res !== null && res.rows.length > 0) {
+          return res.rows[0];
+        } else {
+          return null;
+        }
+      })
+      .catch((err) => {
+        return null;
       });
 
   };
@@ -46,7 +66,7 @@ module.exports = (db) => {
       });
   };
 
-  return { getUserByEmail, saveUser };
+  return { getUserByEmail, getUserByUsername, saveUser };
 };
 
 

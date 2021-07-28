@@ -17,6 +17,8 @@ $(document).ready(function() {
 
   $("#register-submit-button").on('click', (event) => {
     $("#error-msg").hide();
+    $("#error-msg").text('');
+
     let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     let username = $("#register-username").val();
     let email = $("#register-email").val();
@@ -39,14 +41,22 @@ $(document).ready(function() {
       $("#error-msg").show();
       $("#error-msg").text('You should insert a valid email!');
     } else {
-      $.get(`/email/${email}`, function(data) {
+      event.preventDefault();
+      $.get(`/valid/email/${email}`, function(data) {
         if (JSON.parse(JSON.stringify(data)).emailExists) {
-          event.preventDefault();
           $("#error-msg").show();
           $("#error-msg").text('This email already exists!');
         }
+      });
+
+      $.get(`/valid/username/${username}`, function(data) {
+        if (JSON.parse(JSON.stringify(data)).user) {
+          $("#error-msg").show();
+          $("#error-msg").text('This username already exists!');
+        }
 
       });
+
     }
 
   });

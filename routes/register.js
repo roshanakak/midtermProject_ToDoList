@@ -5,7 +5,7 @@ const helpers = require('../helpers/helperFunctions');
 
 
 module.exports = (db) => {
-  const { getUserByEmail, saveUser } = helpers(db);
+  const { getUserByEmail, getUserByUsername, saveUser } = helpers(db);
 
   // handles GET for registeration
   router.get('', (req, res) => {
@@ -31,7 +31,7 @@ module.exports = (db) => {
         email: req.body.email,
         password: req.body.password
       };
-      
+
       saveUser(user, req, res);
     }
 

@@ -1,8 +1,11 @@
 const express = require("express");
 const { loginUser } = require("../db/database");
 const router = express.Router();
+const helpers = require('../helpers/helperFunctions');
 
 module.exports = (db) => {
+  const { getUserByEmail, getUserByUsername, saveUser } = helpers(db);
+  
   router.get("/", (req, res) => {
     req.session.username = 1;
     res.render("login");
@@ -17,47 +20,47 @@ module.exports = (db) => {
   //checks that email exists in the database and password matches
   const login = function(username, password) {
     return loginUser(username, db)
-    .then(userDetails => {
+      .then(userDetails => {
 
-      if (password === userDetails.password) {
-        return userDetails;
-      }
+        if (password === userDetails.password) {
+          return userDetails;
+        }
 
-      throw {error: new Error (`incorrect password`), responseCode: 403};
-    })
-    .catch(err => {
-      throw err;
-    })
-  }
+        throw {error: new Error(`incorrect password`), responseCode: 403};
+      })
+      .catch(err => {
+        throw err;
+      });
+  };
 
 
   router.post('/', (req, res) => {
     const {username, password} = req.body;
 
     if (!username) {
-      res.status(400).render("login", {errorMessage: "no username was sent"})
+      res.status(400).render("login", {errorMessage: "no username was sent"});
     } else if (!password) {
-      res.status(400).render("login", {errorMessage: "no password was sent"})
+      res.status(400).render("login", {errorMessage: "no password was sent"});
     }
 
     login(username, password)
-      .then (user => {
-        console.log("user:", user)
+      .then(user => {
+        console.log("user:", user);
         if (user) {
-          req.session.userID = user.id
-          res.redirect('/tasks')
+          req.session.userID = user.id;
+          res.redirect('/tasks');
         } else {
-          res.redirect('/')
+          res.redirect('/');
         }
 
       })
       .catch(({error, responseCode}) => {
-        res.status(responseCode).render("login", {errorMessage: error.message})
-      })
+        res.status(responseCode).render("login", {errorMessage: error.message});
+      });
 
 
 
-  })
+  });
 
   return router;
 };

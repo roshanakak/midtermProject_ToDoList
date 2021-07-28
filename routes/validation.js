@@ -5,11 +5,16 @@ const helpers = require('../helpers/helperFunctions');
 
 
 module.exports = (db) => {
-  const { getUserByEmail, saveUser } = helpers(db);
+  const { getUserByEmail, getUserByUsername, saveUser } = helpers(db);
 
-  router.get('/:email', async(req,res) => {
+  router.get('/email/:email', async(req,res) => {
     const emailExists =  await getUserByEmail(req.params.email);
     res.json({ emailExists  });
+  });
+
+  router.get('/username/:email', async(req,res) => {
+    const user =  await getUserByUsername(req.params.email);
+    res.json({ user  });
   });
 
   return router;
