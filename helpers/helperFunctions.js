@@ -1,4 +1,3 @@
-// const { db } = require('../db/index');
 // const bcrypt = require('bcrypt');
 
 module.exports = (db) => {
