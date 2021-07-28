@@ -10,7 +10,7 @@ module.exports = (db) => {
   // handles GET for registeration
   router.get('', (req, res) => {
     res.redirect('/');
-  })
+  });
 
 
   // handles POST for registeration
@@ -21,14 +21,14 @@ module.exports = (db) => {
       password: req.body.password
     };
 
-      const user = getUserByEmail(templateVars.email);
-      if (user) {
-        res.redirect('/login');
-      }
-      else {
-        res.redirect('/');
-      }
-  })
+    const user = getUserByEmail(templateVars.email);
+    if (user) {
+      res.redirect('/login');
+    }
+    else {
+      res.redirect('/');
+    }
+  });
 
   return router;
-}
+};
