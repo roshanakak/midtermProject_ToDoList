@@ -7,21 +7,22 @@ const helpers = require('../helpers/helperFunctions');
 module.exports = (db) => {
   const { getUserByEmail, saveUser } = helpers(db);
 
-  console.log(getUserByEmail);
   // handles GET for registeration
   router.get('', (req, res) => {
     res.redirect('/');
   });
 
-
+ 
   // handles POST for registeration
-  router.post('/', (req, res) => {
+  router.post('/', async(req, res) => {
+
+    const emailExists =  await getUserByEmail(req.params.email);
 
     res.clearCookie('error');
     if (!req.body.password || !req.body.email) {
       res.cookie('error', 'The email or password has not been provided!');
       res.redirect('/register');
-    } else if (getUserByEmail(req.body.email)) {
+    } else if (emailExists) {
       res.cookie('error', 'The email already exists!');
       res.redirect('/register');
     } else {
@@ -30,11 +31,13 @@ module.exports = (db) => {
         email: req.body.email,
         password: req.body.password
       };
-  
-      const userId = saveUser(user, req, res);
-      console.log(userId);
+      
+      saveUser(user, req, res);
     }
+
   });
+
+
 
   return router;
 };

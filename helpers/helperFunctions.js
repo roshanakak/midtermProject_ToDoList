@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 module.exports = (db) => {
 
-  const getUserByEmail = (email) => {
+  const getUserByEmail = async function(email) {
     const queryString = `
         SELECT *
         FROM users
@@ -11,12 +11,18 @@ module.exports = (db) => {
       `;
     const queryParams = [email];
 
-    db.query(queryString, queryParams)
+    return db.query(queryString, queryParams)
       .then((res) => {
-        return res.rows[0] || null;
+        if (res !== null && res.rows.length === 1) {
+          console.log('truuuuuuuue')
+          return true;
+        } else {
+          console.log('faaaaaaalse')
+          return false;
+        }
       })
       .catch((err) => {
-        console.error('query error', err.stack);
+        return false;
       });
 
   };
@@ -28,9 +34,10 @@ module.exports = (db) => {
       `;
     const queryParams = [user.username, user.email, user.password];
     
+    console.log('saveuser')
+
     return db.query(queryString, queryParams)
       .then((result) => {
-        
         req.session.user_id =  result.rows[0];
         res.render("homepage-user");
       })
