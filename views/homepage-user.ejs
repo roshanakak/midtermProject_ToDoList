@@ -1,65 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <!-- linking the icons from 'font awesome' -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+<head>
+  <title>Home Page</title>
 
+  <!-- linking the icons from 'font awesome' -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    referrerpolicy="no-referrer" />
 
-    <!-- linking external fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- linking external fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
 
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/layout-homepage-user.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/listsNavigation.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/tasksList.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/createNewTask.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/editModal.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/deleteModal.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/input-EditNewTask.css" type="text/css" />
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/layout-homepage-user.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/listsNavigation.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/tasksList.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/createNewTask.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/editModal.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/deleteModal.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/input-EditNewTask.css" type="text/css" />
-
-
-    <!-- App JS -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="scripts/userAvatar.js"></script>
-    <script type="text/javascript" src="scripts/categoryDropdown.js"></script>
-    <script type="text/javascript" src="scripts/mainEditDelete.js"></script>
-    <script type="text/javascript" src="scripts/tagClick.js"></script>
-    <script type="text/javascript" src="scripts/autoGenerator.js"></script>
-    <script type="text/javascript" src="scripts/completeTask.js"></script>
-
+  <!-- App JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="scripts/userAvatar.js"></script>
+  <script type="text/javascript" src="scripts/categoryDropdown.js"></script>
+  <script type="text/javascript" src="scripts/mainEditDelete.js"></script>
+  <script type="text/javascript" src="scripts/tasks.js"></script>
+  <script type="text/javascript" src="scripts/tagClick.js"></script>
+  <script type="text/javascript" src="scripts/autoGenerator.js"></script>
+  <script type="text/javascript" src="scripts/completeTask.js"></script>
 
 
-  </head>
+</head>
 
 
 
+<body>
+  <!-- fixed header - shows logo and avatar -->
+  <nav>
+    <img class="logo" src="/images/logo-2c.png">
 
-  <body>
-    <!-- fixed header - shows logo and avatar -->
-    <nav>
-      <img class="logo" src="/images/logo-2c.png">
+    <div id="user-settings">
 
-      <div id="user-settings">
-
-        <div>
-          <img class="avatar" src="/images/avatar-1.png">
-        </div>
-
-        <div id="user-dropdown-content">
-          <p>username</p>
-          <a href="#">Personal settings</a>
-          <a href="#">Log out</a>
-        </div>
+      <div>
+        <img class="avatar" src="/images/avatar-1.png">
       </div>
     </nav>
 
@@ -82,10 +72,51 @@
           <a href="#"><li>School</li></a>
         </ul>
 
+      <div id="user-dropdown-content">
+        <p>username</p>
+        <a href="#">Personal settings</a>
+        <a href="#">Log out</a>
       </div>
+    </div>
+  </nav>
 
-      <!-- the main portion of the page -->
-      <div class="main-information">
+
+  <!-- user tasks and tags sidebar -->
+  <div id=main>
+    <div id=sidebar>
+      <h2><i class="fas fa-check"></i>My Tasks</h2>
+      <ul>
+        <a href="#">
+          <li>All tasks</li>
+        </a>
+        <a href="#">
+          <li>Films/series</li>
+        </a>
+        <a href="#">
+          <li>Restaurants</li>
+        </a>
+        <a href="#">
+          <li>Books</li>
+        </a>
+        <a href="#">
+          <li>Products</li>
+        </a>
+      </ul>
+
+      <h2><i class="fas fa-tag"></i>Tags</h2>
+      <ul>
+        <a href="#">
+          <li>Important</li>
+        </a>
+        <a href="#">
+          <li>School</li>
+        </a>
+      </ul>
+
+    </div>
+
+    <!-- the main portion of the page -->
+    <div class="main-information">
 
       <!-- the edit modal -->
       <div class="edit-modal-root">
@@ -102,23 +133,24 @@
           <div class="edit-modal-body">
             <!-- modal tags -->
             <div class="tags">
-              <span class="tag-important">
+              <button type="submit" class="tag-important">
                 <p>Important</p>
                 <!-- <i class="fas fa-times"></i> -->
-              </span>
+              </button>
 
-              <span class="tag-school">
+              <button type="submit" class="tag-school">
                 <p>School</p>
                 <!-- <i class="fas fa-times"></i> -->
-              </span>
+              </button>
 
-              <span class="tag-create">
+              <button type="submit" class="tag-create">
                 <p>Add tag</p>
-              </span>
+              </button>
             </div>
 
             <!-- modal edit task title -->
-            <textarea type="text" id="task-title" placeholder="\\replace placeholder with actual user task//"></textarea>
+            <textarea type="text" id="task-title-edit"
+              placeholder="\\replace placeholder with actual user task//"></textarea>
 
             <!-- modal edit category dropdown -->
             <div class="category-dropdown">
@@ -148,8 +180,7 @@
             <button type="submit" id="edit-task-button">Edit</button>
           </div>
 
-          <div class="edit-modal-footer">
-          </div>
+          <div class="edit-modal-footer"></div>
         </div>
       </div>
 
@@ -165,152 +196,146 @@
             <i class="far fa-trash-alt" id="delete-modal-bin"></i>
             <h1>Want to delete?</h1>
           </div>
+        </div>
 
-          <div class="delete-modal-body">
+        <div class="delete-modal-body">
 
-            <p>Are you sure you want to delete this task? You will <b>not be able to restore</b> it.</p>
+          <p>Are you sure you want to delete this task? You will <b>not be able to restore</b> it.</p>
 
-            <button type="submit" id="delete-task-button">Delete</button>
-            <button id="cancel-deletion-button">Cancel</button>
+          <button type="submit" id="delete-task-button">Delete</button>
+          <button type="submit" id="cancel-deletion-button">Cancel</button>
 
-          </div>
         </div>
       </div>
 
 
+      <div class="see-and-create">
+
+        <!-- this section contains the selected task list (left box on page)  -->
+        <section id="tasks-list">
+          <h1>Films</h1>
+
+          <!-- each article contains one task -->
+          <article class="task">
+
+            <div class="checkbox-and-title">
+              <div class="task-checkbox"><i class="fas fa-check"></i></div>
+              <p>Film 1</p>
+
+            </div>
+
+            <div class="delete-and-edit-icons">
+              <i class="fas fa-edit"></i>
+              <i class="far fa-trash-alt"></i>
+            </div>
+
+          </article>
 
 
-        <div class="see-and-create">
+          <article class="task">
 
-          <!-- this section contains the selected task list (left box on page)  -->
-          <section id=tasks-list>
-            <h1>Films</h1>
+            <div class="checkbox-and-title">
+              <div class="task-checkbox"><i class="fas fa-check"></i></div>
+              <p>Film 2</p>
 
-            <!-- each article contains one task -->
-            <article class="task">
+            </div>
 
-              <div class="checkbox-and-title">
-                <div class="task-checkbox"><i class="fas fa-check"></i></div>
-                <p>Film 1</p>
+            <div class="delete-and-edit-icons">
+              <i class="fas fa-edit"></i>
+              <i class="far fa-trash-alt"></i>
+            </div>
+
+          </article>
+
+        </section>
+
+        <!-- this section contains the box where we can create a new task (right box on page) -->
+        <section id="create-new-task">
+
+          <p id="create-task-heading">Create a new task</p>
+
+          <form id="create-task-form">
+
+            <!-- had to group the tags, input bar and the category drop down into one div for flexbox purposes-->
+            <div class="form-upper">
+
+              <div class="tags">
+                <button type="submit" class="tag-important">
+                  <p>Important</p>
+                  <!-- <i class="fas fa-times"></i> -->
+                </button>
+
+                <button type="submit" class="tag-school">
+                  <p>School</p>
+                  <!-- <i class="fas fa-times"></i> -->
+                </button>
+
+                <button type="submit" class="tag-create">
+                  <p>Add tag</p>
+                </button>
 
               </div>
 
-              <div class="delete-and-edit-icons">
-                <i class="fas fa-edit"></i>
-                <i class="far fa-trash-alt"></i>
-              </div>
+              <!-- task title user input bar -->
+              <textarea type="text" id="task-title" placeholder="input task"></textarea>
 
-            </article>
+              <div class="category-dropdown">
+                <h5>Category: </h5>
 
+                <div class="category-select">
 
-            <article class="task">
+                  <!-- this is where the auto-categorizer states the category -->
+                  <p id="auto-category">Films</p>
 
-              <div class="checkbox-and-title">
-                <div class="task-checkbox"><i class="fas fa-check"></i></div>
-                <p>Film 2</p>
-
-              </div>
-
-              <div class="delete-and-edit-icons">
-                <i class="fas fa-edit"></i>
-                <i class="far fa-trash-alt"></i>
-              </div>
-
-            </article>
-
-          </section>
-
-          <!-- this section contains the box where we can create a new task (right box on page) -->
-          <section id="create-new-task">
-
-            <p id="create-task-heading">Create a new task</p>
-
-            <form action="/" method="POST">
-
-              <!-- had to group the tags, input bar and the category drop down into one div for flexbox purposes-->
-              <div class="form-upper">
-
-                <div class="tags">
-                  <span class="tag-important">
-                    <p>Important</p>
-                  </span>
-
-                  <span class="tag-school">
-                    <p>School</p>
-                  </span>
-
-                  <span class="tag-create">
-                    <p>Add tag</p>
-                  </span>
-
+                  <!-- these are the dropdown menu options -->
+                  <ul class="category-contents" id="category-contents-create-task">
+                    <li>Films/series</li>
+                    <li>Restaurants</li>
+                    <li>Books</li>
+                    <li>Products</li>
+                  </ul>
                 </div>
 
-                <div class="task-title-category-check">
-                  <!-- task title user input bar -->
-                  <input type="text" id="task-title" placeholder="input task" name="taskTitle"></input>
-                  <i class="fas fa-redo-alt"></i>
-                </div>
+                <!-- up and down arrows that toggle the visibility of the dropdown menu -->
+                <p class="category-visibility-toggle">
+                  <i class="fas fa-caret-down" id="caret-down-create-task"></i>
+                  <i class="fas fa-caret-up" id="caret-up-create-task"></i>
+                </p>
+              </div>
+            </div>
 
+            <!-- this contains the 'reminder', 'due date' and 'share' buttons -->
+            <div id="task-additional-features">
 
-                <div class="category-dropdown">
-                  <h5>Category: </h5>
-
-                  <div class="category-select">
-
-                    <!-- this is where the auto-categorizer states the category -->
-                    <p id="auto-category"><%= %></p>
-
-                    <!-- these are the dropdown menu options -->
-                    <ul class="category-contents" id="category-contents-create-task">
-                      <li>Films/series</li>
-                      <li>Restaurants</li>
-                      <li>Books</li>
-                      <li>Products</li>
-                    </ul>
-                  </div>
-
-                  <!-- up and down arrows that toggle the visibility of the dropdown menu -->
-                  <p class="category-visibility-toggle">
-                    <i class="fas fa-caret-down" id="caret-down-create-task"></i>
-                <i class="fas fa-caret-up" id="caret-up-create-task"></i>
-                  </p>
-                </div>
+              <div class="task-reminder">
+                <i class="fas fa-bell"></i>
+                <p>Reminder</p>
               </div>
 
-              <div class="features-form-submit">
-                <!-- this contains the 'reminder', 'due date' and 'share' buttons -->
-                <div id="task-additional-features">
 
-                  <div class="task-reminder">
-                    <i class="fas fa-bell"></i>
-                    <p>Reminder</p>
-                  </div>
-
-
-                  <div class="task-calendar-date">
-                    <i class="far fa-calendar-alt"></i>
-                    <p>Due date</p>
-                  </div>
-
-
-                  <div class="task-share">
-                    <i class="fas fa-share-square"></i>
-                    <p>Share</p>
-                  </div>
-
-
-                </div>
-
-                <!-- button to submit a new task -->
-                <button type="submit" class="new-task-button">Submit</button>
+              <div class="task-calendar-date">
+                <i class="far fa-calendar-alt"></i>
+                <p>Due date</p>
               </div>
 
-            </form>
 
-          </section>
+              <div class="task-share">
+                <i class="fas fa-share-square"></i>
+                <p>Share</p>
+              </div>
 
-        </div>
+
+            </div>
+
+
+            <!-- button to submit a new task -->
+            <button type="submit" class="new-task-button">Submit</button>
+          </form>
+        </section>
+
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

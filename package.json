@@ -26,6 +26,7 @@
     "node-sass-middleware": "^0.11.0",
     "pg": "^8.5.0",
     "pg-native": "^3.0.0",
+    "sass": "^1.36.0",
     "rottentomatoes-data": "^2.1.8",
     "xmlhttprequest": "^1.8.0"
   },
