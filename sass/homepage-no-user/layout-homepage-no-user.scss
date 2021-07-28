@@ -25,10 +25,11 @@ body {
 }
 
 .main {
-  background-image: url('/images/background-1.jpg');
+  background-image: base.$background-image;
   background-size: contain;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   height: 86%;
   flex-direction: column;
   padding: 1em;
@@ -36,41 +37,63 @@ body {
 }
 
 .spacer {
-  height: 30%;
+  height: 20%;
 }
 
-.log-in-button {
-  background-color: base.$off-white;
-  border: base.$blue-highlights 2px solid;
-  border-radius: 1em;
-  color: base.$blue-highlights;
-  font-size: 1em;
-  font-weight: bold;
-  margin: 0.5em 0.5em 0.5em 0;
-  opacity: 0.8;
-  padding: 0.5em;
-  text-transform: uppercase;
-  width: 10%;
+h1  {
+  font-size: 3em;
+  margin-bottom: 0.2em;
+  color: rgba(black, 0.7);
+}
 
-  &:hover {
-    background-color: rgba(base.$blue-highlights, 0.98);
-    color: white;
-    cursor: pointer;
+.log-in-register-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 15%;
+  font-size: 1.7em;
+}
+
+form {
+  width: 15%;
+  height: 100%;
+  margin: 1em;
+
+
+  .log-in-button {
+    background-color: base.$off-white;
+    border: base.$blue-highlights 2px solid;
+    border-radius: 0.8em;
+    color: base.$blue-highlights;
+    // font-size: 1em;
+    font-weight: bold;
+    opacity: 0.8;
+    padding: 0.5em;
+    text-transform: uppercase;
+    width: 100%;
+    height: 80%;
+
+    &:hover {
+      background-color: rgba(base.$blue-highlights, 0.98);
+      color: white;
+      cursor: pointer;
+    }
   }
 }
 
 .register-button {
   background-color: base.$off-white;
   border: base.$blue-highlights 2px solid;
-  border-radius: 1em;
+  border-radius: 0.8em;
   color: base.$blue-highlights;
-  font-size: 1em;
+  // font-size: 1em;
   font-weight: bold;
-  margin: 0.5em;
+  margin: 1em;
   opacity: 0.8;
   padding: 0.5em;
   text-transform: uppercase;
-  width: 10%;
+  width: 15%;
+  height: 80%;
 
   &:hover {
     background-color: rgba(base.$blue-highlights, 0.98);
@@ -124,6 +147,7 @@ body {
     padding: 0 2.5rem 2em 2.5rem;
     display: flex;
     flex-direction: column;
+    font-size: 1.2em;
 
     p {
       text-decoration: underline;
@@ -165,7 +189,7 @@ body {
         margin-top: 0;
         text-decoration: none;
         font-weight: normal;
-        font-size: 0.8em;
+        font-size: 1em;
       }
     }
 
@@ -211,7 +235,7 @@ body {
 
 
       &:hover {
-        background-color: rgba(base.$blue-highlights, 0.7);
+        background-color: rgba(base.$blue-highlights, 0.95);
         color: white;
         cursor: pointer;
       }

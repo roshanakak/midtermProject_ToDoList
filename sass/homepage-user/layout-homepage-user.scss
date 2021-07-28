@@ -14,7 +14,7 @@ body {
   background-color: white;
   color: base.$font-color;
   font-family: base.$regular-font;
-  font-size: 1em;
+  font-size: 1.2em;
   height: 100%;
   overflow: hidden;
 
@@ -35,7 +35,7 @@ body {
 //this is the section that contains .see-and-create
 .main-information {
   align-items: center;
-  background-image: url('/images/background-1.jpg');
+  background-image: base.$background-image;
   background-size: contain;
   display: flex;
   height: 100%;

@@ -74,7 +74,7 @@ body {
 
 
 .main-information {
-  background-image: url('/images/background-1.jpg');
+  background-image: base.$background-image;
   background-size: contain;
   width: 80%;
   height: 100%;

@@ -63,7 +63,7 @@
     <!-- user tasks and tags sidebar -->
     <div id=main>
       <div id=sidebar>
-        <h2><i class="fas fa-check"></i>My Tasks</h2>
+        <h2><img class="sidebar-check" src="/images/side-bar-check-mark.png">My Tasks</h2>
         <ul>
           <a href="#"><li>All tasks</li></a>
           <a href="#"><li>Films/series</li></a>
@@ -72,7 +72,7 @@
           <a href="#"><li>Products</li></a>
         </ul>
 
-        <h2><i class="fas fa-tag"></i>Tags</h2>
+        <h2><img class="sidebar-tag" src="/images/side-bar-tag-icon.png">Tags</h2>
         <ul>
           <a href="#"><li>Important</li></a>
           <a href="#"><li>School</li></a>
@@ -83,8 +83,8 @@
       <!-- the main portion of the page -->
       <div class="main-information">
 
-
-        <!-- the edit modal -->
+      <!-- the edit modal -->
+      <div class="edit-modal-root">
         <div id="edit-modal" class="modal">
 
           <!-- the modal content -->
@@ -147,9 +147,10 @@
           <div class="edit-modal-footer">
           </div>
         </div>
+      </div>
 
-
-        <!-- the delete modal -->
+      <!-- the delete modal -->
+      <div class="delete-modal-root">
         <div id="delete-modal" class="modal">
 
           <!-- the modal content -->
@@ -169,8 +170,8 @@
             <button id="cancel-deletion-button">Cancel</button>
 
           </div>
-
         </div>
+      </div>
 
 
 
