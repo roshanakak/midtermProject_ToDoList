@@ -24,6 +24,7 @@
     <!-- App JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
+
   </head>
 
 
@@ -33,7 +34,9 @@
     <nav>
       <img class="logo" src="/images/logo-2c.png">
 
+      <form action="/" method="GET">
       <button type="submit" class="homepage-register-button">Register</button>
+      </form>
 
     </nav>
 
@@ -52,16 +55,25 @@
         <div class="log-in-body">
 
           <h1>Sign in</h1>
-          <p>email:</p>
-          <input type="text" id="log-in-email"></input>
 
-          <p>password:</p>
-          <input type="password" id="log-in-password"></input>
+          <form action='/login' method="POST" id="login-form">
 
-          <div class="log-in-forgot-pass-buttons">
-            <a href="#">Forgot your password?</a>
-            <button type="submit" id="log-in-submit-button">Sign in</button>
-          </div>
+            <p>username:</p>
+            <input type="text" id="log-in-username"  name="username"></input>
+
+            <p>password:</p>
+            <input type="password" id="log-in-password" name="password"></input>
+
+            <% if (typeof errorMessage !== "undefined") { %>
+              <span id="error-message"> <%= errorMessage %></span>
+            <% } %>
+
+            <div class="log-in-forgot-pass-buttons">
+              <a href="#">Forgot your password?</a>
+              <button type="submit" id="log-in-submit-button">Sign in</button>
+            </div>
+
+          </form>
         </div>
 
 

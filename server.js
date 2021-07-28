@@ -23,6 +23,9 @@ const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
+const database = require('./db/database')
+
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -40,6 +43,7 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use(express.static("db"));
 
 
 // Setting cookies for 24 hours
@@ -67,17 +71,20 @@ app.use("/api/users", usersRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("homepage-user");
-});
-
-
-
-app.get("/register", (req, res) => {
   res.render("homepage-no-user");
 });
 
-app.get("/sign-in", (req, res) => {
-  res.render("sign-in");
+
+
+app.get("/tasks", (req, res) => {
+
+  if (req.session.userID) {
+    res.render("homepage-user");
+
+  }
+  // else {
+  //   res.redirect('/')
+  // }
 });
 
 

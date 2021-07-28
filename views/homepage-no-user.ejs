@@ -61,7 +61,7 @@
         <div class="sign-in-submit-buttons">
           <div class="register-sign-in-button">
             <p>Already have an account?</p>
-            <a href="#">Sign in</a>
+            <a href="/login">Sign in</a>
           </div>
           <button type="submit" id="register-submit-button">Submit</button>
         </div>
@@ -73,14 +73,16 @@
 
 
 
-    <div class="spacer"></div>
+  <div class="spacer"></div>
 
     <h1>Ready to start making lists?</h1>
 
 
     <div class="log-in-register-buttons">
 
-      <button type="submit" class="log-in-button">Log in</button>
+      <form action="/login " method="get">
+        <button type="submit" class="log-in-button">Log in</button>
+      </form>
 
       <button type="submit" class="register-button">Register</button>
 
