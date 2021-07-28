@@ -13,8 +13,8 @@ $(document).ready(function() {
       "bottom" : "0",
       "z-index" : "1"
     })
-    $("#edit-modal").css({"visibility" : "visible"})
 
+    $("#edit-modal").css({"visibility" : "visible"})
   };
 
   $("#edit-modal-close").on("click", function () {
@@ -36,24 +36,18 @@ $(document).ready(function() {
       "bottom" : "0",
       "z-index" : "1"
     })
+
     $("#delete-modal").css({"visibility" : "visible"})
 
   };
 
   $("#delete-modal-close").on("click", function () {
     $(".delete-modal-root").css({"z-index" : "-1"})
-    // $("#delete-modal").css({"visibility" : "hidden"})
-
   })
 
   $("#cancel-deletion-button").on("click", function () {
     $(".delete-modal-root").css({"z-index" : "-1"})
-
-    // $("#delete-modal").css({"visibility" : "hidden"})
-
   })
-
-
 
 
   for (let i = 0; i < editElements.length; i++) {

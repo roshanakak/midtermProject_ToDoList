@@ -38,6 +38,10 @@
       justify-content: center;
       margin: 1em;
       width: 2em;
+
+      .fas.fa-check {
+        visibility: hidden;
+      }
     }
   }
 

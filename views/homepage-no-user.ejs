@@ -37,36 +37,37 @@
     <div class="main">
 
       <!-- the register modal -->
-      <div id="register-modal" class="modal">
+      <div class="register-modal-root">
+        <div id="register-modal" class="modal">
 
-        <!-- the modal content -->
-        <div class="register-modal-header">
+          <!-- the modal content -->
+          <div class="register-modal-header">
 
-          <!-- x for closing the modal -->
-          <i class="fas fa-times" id="register-modal-close"></i>
-          <h1>Register an account</h1>
-        </div>
+            <!-- x for closing the modal -->
+            <i class="fas fa-times" id="register-modal-close"></i>
+            <h1>Register an account</h1>
+          </div>
 
-        <div class="register-modal-body">
+          <div class="register-modal-body">
 
-          <p>username:</p>
-          <input type="text" id="register-username"></input>
+            <p>username:</p>
+            <input type="text" id="register-username"></input>
 
-          <p>email:</p>
-          <input type="text" id="register-email"></input>
+            <p>email:</p>
+            <input type="text" id="register-email"></input>
 
-          <p>password:</p>
-          <input type="password" id="register-password"></input>
+            <p>password:</p>
+            <input type="password" id="register-password"></input>
 
-          <div class="sign-in-submit-buttons">
-            <div class="register-sign-in-button">
-              <p>Already have an account?</p>
-              <a href="/login">Sign in</a>
+            <div class="sign-in-submit-buttons">
+              <div class="register-sign-in-button">
+                <p>Already have an account?</p>
+                <a href="/login">Sign in</a>
+              </div>
+              <button type="submit" id="register-submit-button">Submit</button>
             </div>
-            <button type="submit" id="register-submit-button">Submit</button>
           </div>
         </div>
-
       </div>
 
 

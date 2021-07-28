@@ -110,20 +110,18 @@
 }
 
 .fas.fa-redo-alt {
-  // padding-left: 0.7em;
-  // padding-right: 2%;
   padding: 1.5%;
   margin: 2%;
   border-radius: 50%;
   color: rgba(16, 172, 55, 0.89);
   opacity: 0.7;
-  border: 2px black solid;
+  border: 2px rgba(black, 0.7) solid;
 
   &:hover {
     cursor: pointer;
     opacity: 1;
   }
-  }
+}
 
 .category-dropdown {
   display: flex;

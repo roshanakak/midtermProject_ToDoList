@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+  //"fa-spin" is a built-in class from Font Awesome - this class will spin the icon
   function spinIcon(icon) {
     setTimeout(function () {
       icon.toggleClass("fa-spin");
@@ -11,8 +12,6 @@ $(document).ready(function() {
   }
 
   $(".fas.fa-redo-alt").on("click", function() {
-
-    // $(this).toggleClass("fa-spin")
 
     var $icon = $(this);
 
