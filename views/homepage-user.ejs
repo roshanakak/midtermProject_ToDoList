@@ -28,6 +28,7 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="scripts/userAvatar.js"></script>
     <script type="text/javascript" src="scripts/categoryDropdown.js"></script>
@@ -219,30 +220,30 @@
 
             <p id="create-task-heading">Create a new task</p>
 
-            <form action="/edit/:id" method="POST">
+            <form action="/" method="POST">
 
               <!-- had to group the tags, input bar and the category drop down into one div for flexbox purposes-->
               <div class="form-upper">
 
                 <div class="tags">
-                  <button type="submit" class="tag-important">
+                  <span class="tag-important">
                     <p>Important</p>
                     <!-- <i class="fas fa-times"></i> -->
-                  </button>
+                  </span>
 
-                  <button type="submit" class="tag-school">
+                  <span class="tag-school">
                     <p>School</p>
                     <!-- <i class="fas fa-times"></i> -->
-                  </button>
+                  </span>
 
-                  <button type="submit" class="tag-create">
+                  <span class="tag-create">
                     <p>Add tag</p>
-                  </button>
+                  </span>
 
                 </div>
 
                 <!-- task title user input bar -->
-                <textarea type="text" id="task-title" placeholder="input task"></textarea>
+                <textarea type="text" id="task-title" placeholder="input task" name="taskTitle"></textarea>
 
                 <div class="category-dropdown">
                   <h5>Category: </h5>
@@ -291,10 +292,12 @@
 
 
               </div>
+
+              <!-- button to submit a new task -->
+              <button type="submit" class="new-task-button">Submit</button>
+
             </form>
 
-            <!-- button to submit a new task -->
-            <button type="submit" class="new-task-button">Submit</button>
           </section>
 
         </div>

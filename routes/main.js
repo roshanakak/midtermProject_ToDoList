@@ -7,6 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
+const tasksHelper = require('./tasksHelper');
 
 module.exports = (db) => {
 
@@ -41,7 +42,10 @@ module.exports = (db) => {
       id: 0
     };
 
+    tasksHelper(req.body.taskTitle);
+
     res.render("homepage-user", templateVars);
+
   });
 
 
