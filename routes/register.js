@@ -20,7 +20,7 @@ module.exports = (db) => {
     res.clearCookie('error');
     if (!req.body.password || !req.body.email) {
       res.cookie('error', 'The email or password has not been provided!');
-      res.redirect('/');
+      res.redirect('/register');
     } else if (getUserByEmail(req.body.email)) {
       res.cookie('error', 'The email already exists!');
       res.redirect('/register');
@@ -33,21 +33,7 @@ module.exports = (db) => {
   
       const userId = saveUser(user, req, res);
       console.log(userId);
-
-      // req.session.user_id =  123;
-      // res.redirect(`/login`);
-
     }
-
-
-
-    
-
-    // if (userId) {
-    //   res.redirect('/login');
-    // } else {
-    //   res.redirect('/');
-    // }
   });
 
   return router;
