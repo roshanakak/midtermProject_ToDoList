@@ -15,37 +15,39 @@ $(document).ready(function() {
   });
 
 
-  $("#register-submit-button").on('click', () => {
+  $("#register-submit-button").on('click', (event) => {
+    $("#error-msg").hide();
     let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     let username = $("#register-username").val();
     let email = $("#register-email").val();
     let password = $("#register-password").val();
 
-    // if (!username) {
-    //   event.preventDefault();
-    //   $("#error-msg").show();
-    //   $("#error-msg").text('You have not provided a username!');
-    // } else if (!email) {
-    //   event.preventDefault();
-    //   $("#error-msg").show();
-    //   $("#error-msg").text('You have not provided an email!');
-    // } else if (!password) {
-    //   event.preventDefault();
-    //   $("#error-msg").show();
-    //   $("#error-msg").text('You have not provided a password!');
-    // } else if (!regex.test(email)) {
-    //   event.preventDefault();
-    //   $("#error-msg").show();
-    //   $("#error-msg").text('You should insert a valid email!');
-    // } else {
-    //   $.get(`http://localhost:8080/email/${email}`, function(data) {
-    //     if (JSON.parse(JSON.stringify(data)).emailExists) {
-    //       event.preventDefault();
-    //       $("#error-msg").show();
-    //       $("#error-msg").text('This email already exists!');
-    //     }
-    //   });
-    // }
+    if (!username) {
+      event.preventDefault();
+      $("#error-msg").show();
+      $("#error-msg").text('You have not provided a username!');
+    } else if (!email) {
+      event.preventDefault();
+      $("#error-msg").show();
+      $("#error-msg").text('You have not provided an email!');
+    } else if (!password) {
+      event.preventDefault();
+      $("#error-msg").show();
+      $("#error-msg").text('You have not provided a password!');
+    } else if (!regex.test(email)) {
+      event.preventDefault();
+      $("#error-msg").show();
+      $("#error-msg").text('You should insert a valid email!');
+    } else {
+      $.get(`/email/${email}`, function(data) {
+        if (JSON.parse(JSON.stringify(data)).emailExists) {
+          event.preventDefault();
+          $("#error-msg").show();
+          $("#error-msg").text('This email already exists!');
+        }
+
+      });
+    }
 
   });
 
