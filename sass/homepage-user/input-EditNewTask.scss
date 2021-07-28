@@ -44,18 +44,18 @@
   color: base.$red-highlights;
 
   &:hover{
-    background-color: base.$red-highlights;
+    background-color: rgba(base.$red-highlights, 0.8);
     color: base.$off-white;
   }
 }
 
 .tag-school{
-  background-color:base.$off-white;
+  background-color: base.$off-white;
   border: base.$blue-highlights 2px solid;
   color: base.$blue-highlights;
 
   &:hover{
-    background-color: base.$blue-highlights;
+    background-color: rgba(base.$blue-highlights, 0.8);
     color: base.$off-white;
   }
 }
@@ -79,7 +79,7 @@
   font: base.$bold-font;
   font-size: 1.3em;
   font-weight: bold;
-  height: 2em;
+  height: 2.5rem;
   margin: 1em 0;
   resize: none;
   vertical-align: baseline;
@@ -97,8 +97,24 @@
     outline: none;
   }
 
+
 }
 
+.fas.fa-redo-alt {
+  // padding-left: 0.7em;
+  // padding-right: 2%;
+  padding: 1.5%;
+  margin: 2%;
+  border-radius: 50%;
+  color: rgba(16, 172, 55, 0.89);
+  opacity: 0.7;
+  border: 2px black solid;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+  }
 
 .category-dropdown {
   display: flex;
