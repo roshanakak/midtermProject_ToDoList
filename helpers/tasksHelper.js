@@ -25,7 +25,7 @@ module.exports = (db) => {
 
   const getTasksByCategory = async function(userId, category) {
     const queryString = `
-        SELECT *
+        SELECT tasks.*
         FROM tasks
         join categories on categories.id = category_id
         WHERE owner_id = $1 and categories.title = $2
