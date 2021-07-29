@@ -26,7 +26,7 @@ module.exports = (db) => {
 
   //retrieves specific task, to show task details and content on click
   router.get("/:id", (req, res) => {
-    
+
     const templateVars = {
       username: req.session.username
     };
@@ -34,7 +34,7 @@ module.exports = (db) => {
     res.render("homepage-user", templateVars);
   });
 
-  
+
 
   //retrieves all tasks in a specific category
   router.get("/cats/:category", async(req, res) => {
@@ -44,7 +44,7 @@ module.exports = (db) => {
     } else {
       taskList = await getTasksByCategory(req.session.userID, req.cookies.category);
     }
-    
+
     res.json({ taskList });
 
   });
@@ -70,15 +70,16 @@ module.exports = (db) => {
         'owner_id':  owner.id,
         'category_id': cat.id
       };
-      
+
       await saveTask(Task);
     }
-    
+
     //res.redirect("/");
 
-    
+
     const templateVars = {
-      username: req.session.username
+      username: req.session.username,
+      userId: req.session.userID
     };
     res.render('homepage-user', templateVars);
 

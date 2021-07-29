@@ -36,7 +36,8 @@ module.exports = (db) => {
     if (user && user.password === password) {
       req.session.username = user.username;
       const templateVars = {
-        username: user.username
+        username: user.username,
+        userId: user.id
       };
 
       req.session.userID = user.id;
