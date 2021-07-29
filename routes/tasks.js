@@ -7,7 +7,7 @@ const router  = express.Router();
 module.exports = (db) => {
 
   const { categorizeTasks, getCategoryByTitle } = categoriesHelper(db);
-  const { getTasks, saveTask } = tasksHelper(db);
+  const { getAllTasks, saveTask, getTasksByCategory } = tasksHelper(db);
   const { getUserByEmail, getUserByUsername, getUserByID, saveUser } = userssHelper(db);
 
 
@@ -37,12 +37,15 @@ module.exports = (db) => {
   
 
   //retrieves all tasks in a specific category
-  router.get("/cat?:cat_id", (req, res) => {
-    const templateVars = {
-      cat_id: 0
-    };
-
-    res.render("homepage-user", templateVars);
+  router.get("/cats/:category", async(req, res) => {
+    let taskList = '';
+    if (req.cookies.category === "all") {
+      taskList = await getAllTasks(req.session.userID, req.cookies.category);
+    } else {
+      taskList = await getTasksByCategory(req.session.userID, req.cookies.category);
+    }
+    
+    res.json({ taskList });
   });
 
   //saves a new task

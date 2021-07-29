@@ -96,4 +96,64 @@ $(document).ready(() => {
     // renderTasks(exampleTasks);
   });
 
+
+  $('#all-tasks-link').click(function(event) {
+    event.preventDefault();
+    document.cookie = "category=all";
+    
+    $.get(`/tasks/cats/all`, function(data) {
+      console.log(data)
+    });
+
+    return false;
+  });
+
+  $('#Films-tasks-link').click(function(event) {
+    event.preventDefault();
+    document.cookie = "category=Films/Series";
+    
+    $.get(`/tasks/cats/Films`, function(data) {
+      console.log(data);
+    });
+    
+    return false;
+  });
+
+  $('#Restaurants-tasks-link').click(function(event) {
+    event.preventDefault();
+    document.cookie = "category=Restaurants";
+    
+    $.get(`/tasks/cats/Restaurants`, function(data) {
+      console.log(data);
+    });
+    
+    return false;
+  });
+
+  $('#Books-tasks-link').click(function(event) {
+    event.preventDefault();
+    document.cookie = "category=Books";
+    
+    $.get(`/tasks/cats/Books`, function(data) {
+      console.log(data);
+    });
+    
+    return false;
+  });
+
+  $('#Products-tasks-link').click(function(event) {
+    event.preventDefault();
+    document.cookie = "category=Products";
+    
+    $.get(`/tasks/cats/Products`, function(data) {
+      console.log(data);
+    });
+    
+    return false;
+  });
+
+
+
+
+
 });

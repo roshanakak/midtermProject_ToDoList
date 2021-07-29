@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  document.cookie = "cat=false";
+  document.cookie = "cat=0";
   
 
   document.querySelector("#find-category").addEventListener("click", (e) => {
