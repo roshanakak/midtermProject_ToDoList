@@ -37,6 +37,20 @@ const deleteTask = function() {
 
 
 $(document).ready(() => {
+
+  //fill the tasks list at first load
+  document.getElementById('list-title').innerHTML = 'All Tasks';
+  document.cookie = "category=all";  
+  $.get(`/tasks/cats/all`, function(data) {
+    if (data) {
+      console.log(data)
+      renderTasks(Object.values(data.taskList));
+    }
+  });
+
+
+
+
   const createTaskElement = function(taskData) {
     const $tasks = $(`
     <article class="task">
@@ -60,10 +74,14 @@ $(document).ready(() => {
 
 
   const renderTasks = function(tasks) {
+    console.log(tasks);
     const tasksElements = tasks.map(task => createTaskElement(task));
     const $list = $("#tasks-list");
     $list.children().not(":first-child").remove();
     $list.append(tasksElements);
+    while ($("#tasks-list").firstChild) {
+      $("#tasks-list").removeChild($("#tasks-list").firstChild);
+    }
 
     let completedTask = $(".task-checkbox");
     let editElements = $(".fas.fa-edit");
@@ -82,7 +100,6 @@ $(document).ready(() => {
     }
   };
 
-
   renderTasks(exampleTasks);
 
   $("#create-task-form").submit((event) => {
@@ -95,5 +112,73 @@ $(document).ready(() => {
 
     // renderTasks(exampleTasks);
   });
+
+
+
+  $('#all-tasks-link').click(function(event) {
+    event.preventDefault();
+    document.getElementById('list-title').innerHTML = 'All Tasks';
+    document.cookie = "category=all";
+    
+    $.get(`/tasks/cats/all`, function(data) {
+      if (data) {
+        renderTasks(Object.values(data.taskList));
+      }
+    });
+
+    return false;
+  });
+
+  $('#Films-tasks-link').click(function(event) {
+    event.preventDefault();
+    document.getElementById('list-title').innerHTML = 'Films/Series';
+    document.cookie = "category=Films/Series";
+    
+    $.get(`/tasks/cats/Films`, function(data) {
+      renderTasks(Object.values(data.taskList));
+    });
+    
+    return false;
+  });
+
+  $('#Restaurants-tasks-link').click(function(event) {
+    event.preventDefault();
+    document.getElementById('list-title').innerHTML = 'Restaurants';
+    document.cookie = "category=Restaurants";
+    
+    $.get(`/tasks/cats/Restaurants`, function(data) {
+      renderTasks(Object.values(data.taskList));
+    });
+    
+    return false;
+  });
+
+  $('#Books-tasks-link').click(function(event) {
+    event.preventDefault();
+    document.getElementById('list-title').innerHTML = 'Books';
+    document.cookie = "category=Books";
+    
+    $.get(`/tasks/cats/Books`, function(data) {
+      renderTasks(Object.values(data.taskList));
+    });
+    
+    return false;
+  });
+
+  $('#Products-tasks-link').click(function(event) {
+    event.preventDefault();
+    document.getElementById('list-title').innerHTML = 'Products';
+    document.cookie = "category=Products";
+    
+    $.get(`/tasks/cats/Products`, function(data) {
+      renderTasks(Object.values(data.taskList));
+    });
+    
+    return false;
+  });
+
+
+
+
 
 });

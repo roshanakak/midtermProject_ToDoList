@@ -26,7 +26,7 @@ module.exports = (db) => {
     }
 
     let user = await getUserByUsername(username, db);
-    if (user) {
+    if (user && user.password === password) {
       req.session.username = user.username;
       const templateVars = {
         username: user.username

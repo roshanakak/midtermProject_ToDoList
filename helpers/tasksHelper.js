@@ -1,10 +1,7 @@
 
-const helpers = require('../helpers/usersHelper');
-
 module.exports = (db) => {
-  const { getUserByEmail, getUserByUsername, getUserByID, saveUser } = helpers(db);
 
-  const getTasks = async function(userId) {
+  const getAllTasks = async function(userId) {
     const queryString = `
         SELECT *
         FROM tasks
@@ -14,14 +11,37 @@ module.exports = (db) => {
 
     return db.query(queryString, queryParams)
       .then((res) => {
-        if (res !== null && res.rows.length > 0) {
-          return true;
+        if (res !== null) {
+          return res.rows;
         } else {
-          return false;
+          return null;
         }
       })
       .catch((err) => {
-        return false;
+        return null;
+      });
+
+  };
+
+  const getTasksByCategory = async function(userId, category) {
+    const queryString = `
+        SELECT tasks.*
+        FROM tasks
+        join categories on categories.id = category_id
+        WHERE owner_id = $1 and categories.title = $2
+      `;
+    const queryParams = [userId, category];
+
+    return db.query(queryString, queryParams)
+      .then((res) => {
+        if (res !== null) {
+          return res.rows;
+        } else {
+          return null;
+        }
+      })
+      .catch((err) => {
+        return null;
       });
 
   };
@@ -35,16 +55,16 @@ module.exports = (db) => {
     
     return db.query(queryString, queryParams)
       .then((result) => {
-        console.log(result)
+        console.log(result);
         return result.rows[0];
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
         return -1;
       });
   };
 
-  return { getTasks, saveTask };
+  return { getAllTasks, saveTask, getTasksByCategory };
 };
 
 
