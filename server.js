@@ -79,7 +79,10 @@ app.use("/tasks", tasksRoutes(db));
 app.get("/", (req, res) => {
 
   if (req.session.userID) {
-    res.render("homepage-user");
+    const templateVars = {
+      username: req.session.username
+    };
+    res.render('homepage-user', templateVars);
   } else {
     res.render("homepage-no-user");
   }

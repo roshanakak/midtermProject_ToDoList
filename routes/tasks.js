@@ -14,12 +14,11 @@ module.exports = (db) => {
   //retrieves all tasks
   router.get("/", (req, res) => {
     const templateVars = {
-      id: 0
+      username: req.session.username
     };
 
-    //res.render("homepage-user", templateVars);
     if (req.session.userID) {
-      res.render("homepage-user");
+      res.render("homepage-user", templateVars);
     } else {
       res.render("homepage-no-user");
     }
@@ -27,7 +26,10 @@ module.exports = (db) => {
 
   //retrieves specific task, to show task details and content on click
   router.get("/:id", (req, res) => {
-    const templateVars = {};
+    
+    const templateVars = {
+      username: req.session.username
+    };
 
     res.render("homepage-user", templateVars);
   });
@@ -49,6 +51,7 @@ module.exports = (db) => {
     if (req.body.taskTitle) {
       let category = '';
 
+      // req.cookies.cat === '1': category assigned by user manually and it is in req.body.hiddenInput
       if (req.cookies.cat === '1' && req.body.hiddenInput)  {
         category = req.body.hiddenInput;
       } else {
@@ -68,7 +71,13 @@ module.exports = (db) => {
      
 
     }
-    res.redirect("/");
+    //res.redirect("/");
+
+    
+    const templateVars = {
+      username: req.session.username
+    };
+    res.render('homepage-user', templateVars);
 
   });
 

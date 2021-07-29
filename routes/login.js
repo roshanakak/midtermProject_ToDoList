@@ -6,7 +6,7 @@ module.exports = (db) => {
   const { getUserByEmail, getUserByUsername, getUserByID, saveUser } = helpers(db);
   
   router.get("/", (req, res) => {
-    req.session.username = 1;
+    //req.session.username = 222;
     res.render("login");
   });
 
@@ -27,10 +27,10 @@ module.exports = (db) => {
 
     let user = await getUserByUsername(username, db);
     if (user) {
+      req.session.username = user.username;
       const templateVars = {
         username: user.username
       };
-      console.log(templateVars);
 
       req.session.userID = user.id;
       res.render('homepage-user', templateVars);

@@ -29,11 +29,9 @@ module.exports = (db) => {
   const saveTask = async(Task) => {
     const queryString = `
         INSERT INTO tasks (title, owner_id, category_id, status_id)
-        VALUES ($1, $2, $3, 1) RETURNING *;
+        VALUES ($1, $2, $3, $4) RETURNING *;
       `;
-    const queryParams = [Task.title, Task.owner_id, Task.category_id];
-
-    console.log(Task)
+    const queryParams = [Task.title, Task.owner_id, Task.category_id, 1];
     
     return db.query(queryString, queryParams)
       .then((result) => {
