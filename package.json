@@ -16,6 +16,7 @@
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
+    "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
     "dotenv": "^2.0.0",
     "ejs": "^2.6.2",
@@ -28,6 +29,7 @@
     "pg-native": "^3.0.0",
     "sass": "^1.36.0",
     "rottentomatoes-data": "^2.1.8",
+    "superagent": "^6.1.0",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {

@@ -1,10 +1,12 @@
 const express = require("express");
-const { loginUser } = require("../db/database");
 const router = express.Router();
+const helpers = require('../helpers/usersHelper');
 
 module.exports = (db) => {
+  const { getUserByEmail, getUserByUsername, getUserByID, saveUser } = helpers(db);
+  
   router.get("/", (req, res) => {
-    req.session.username = 1;
+    //req.session.username = 222;
     res.render("login");
   });
 
@@ -14,49 +16,31 @@ module.exports = (db) => {
   });
 
 
-  //checks that email exists in the database and password matches
-  const login = function(username, password) {
-    return loginUser(username, db)
-    .then(userDetails => {
-
-      if (password === userDetails.password) {
-        return userDetails;
-      }
-
-      throw {error: new Error (`Incorrect password`), responseCode: 403};
-    })
-    .catch(err => {
-      throw err;
-    })
-  }
-
-
-  router.post('/', (req, res) => {
+  router.post('/', async(req, res) => {
     const {username, password} = req.body;
 
     if (!username) {
-      res.status(400).render("login", {errorMessage: "No username was entered"})
+      res.status(400).render("login", {errorMessage: "no username was sent"});
     } else if (!password) {
-      res.status(400).render("login", {errorMessage: "No password was entered"})
+      res.status(400).render("login", {errorMessage: "no password was sent"});
     }
 
-    login(username, password)
-      .then (user => {
-        if (user) {
-          req.session.userID = user.id
-          res.redirect(`/tasks`)
-        } else {
-          res.redirect('/')
-        }
+    let user = await getUserByUsername(username, db);
+    if (user) {
+      req.session.username = user.username;
+      const templateVars = {
+        username: user.username
+      };
 
-      })
-      .catch(({error, responseCode}) => {
-        res.status(responseCode).render("login", {errorMessage: error.message})
-      })
+      req.session.userID = user.id;
+      res.render('homepage-user', templateVars);
+
+    } else {
+      res.redirect('/');
+    }
 
 
-
-  })
+  });
 
   return router;
 };

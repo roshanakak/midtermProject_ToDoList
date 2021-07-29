@@ -1,35 +1,45 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const helpers = require('../helpers/helperFunctions');
+const helpers = require('../helpers/usersHelper');
 
 
 module.exports = (db) => {
-  const { getUserByEmail } = helpers(db);
-  console.log(getUserByEmail)
+  const { getUserByEmail, getUserByUsername, getUserByID, saveUser } = helpers(db);
+
   // handles GET for registeration
   router.get('', (req, res) => {
-    templateVars = {registerModal: "visible"}
-    res.render("homepage-no-user", templateVars)
-  })
+    const templateVars = {registerModal: "visible"};
+    res.render("homepage-no-user", templateVars);
+  });
 
 
+ 
   // handles POST for registeration
-  router.post('/', (req, res) => {
-    const templateVars = {
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password
-    };
+  router.post('/', async(req, res) => {
 
-      const user = getUserByEmail(templateVars.email);
-      if (user) {
-        res.redirect('/login');
-      }
-      else {
-        res.redirect('/');
-      }
-  })
+    const emailExists =  await getUserByEmail(req.params.email);
+
+    res.clearCookie('error');
+    if (!req.body.password || !req.body.email) {
+      res.cookie('error', 'The email or password has not been provided!');
+      res.redirect('/register');
+    } else if (emailExists) {
+      res.cookie('error', 'The email already exists!');
+      res.redirect('/register');
+    } else {
+      const user = {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+      };
+
+      saveUser(user, req, res);
+    }
+
+  });
+
+
 
   return router;
-}
+};

@@ -15,17 +15,15 @@ const morgan = require('morgan');
 
 const path = require('path');
 const cookieSession = require("cookie-session");
+const cookieParser = require('cookie-parser');
 
-const loginRoutes = require("./routes/login");
-const logoutRoutes = require("./routes/logout");
-const registerRoutes = require("./routes/register");
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
-const database = require('./db/database')
+const database = require('./db/database');
 
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -48,6 +46,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 app.use(express.static("db"));
 
+app.use(cookieParser());
 
 // Setting cookies for 24 hours
 app.use(cookieSession({
@@ -55,39 +54,39 @@ app.use(cookieSession({
   keys: ['key1', 'key2'],
   maxAge: 24 * 60 * 1000
 }));
+
+// router files
+const loginRoutes = require("./routes/login");
+const logoutRoutes = require("./routes/logout");
+const registerRoutes = require("./routes/register");
+const tasksRoutes = require("./routes/tasks");
+const validationRoutes = require("./routes/validation");
+const categoryRoutes = require("./routes/categories");
+// const usersRoutes = require("./routes/users");
+
 app.use('/login', loginRoutes(db));
 app.use('/logout', logoutRoutes(db));
 app.use('/register', registerRoutes(db));
-
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const mainRoutes = require("./routes/main");
-
-// Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-// app.use("/", mainRoutes(db));
+app.use("/valid", validationRoutes(db));
+app.use("/cat", categoryRoutes(db));
+app.use("/tasks", tasksRoutes(db));
+// app.use("/api/users", usersRoutes(db));
 
 
 // Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  templateVars = {registerModal: "hidden"}
-  res.render("homepage-no-user", templateVars);
-});
+  const templateVars = {
+    username: req.session.username,
+    registerModal: "hidden"
+  };
 
-
-app.get("/tasks", (req, res) => {
   if (req.session.userID) {
-    res.render("homepage-user");
+    res.render('homepage-user', templateVars);
+  } else {
+    res.render("login", templateVars);
   }
-  else {
-    res.redirect('/register')
-  }
+  
 });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

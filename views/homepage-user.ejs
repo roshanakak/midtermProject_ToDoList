@@ -36,6 +36,7 @@
     <script type="text/javascript" src="scripts/autoGenerator.js"></script>
     <script type="text/javascript" src="scripts/tasks.js"></script>
     <script type="text/javascript" src="scripts/mainEditDelete.js"></script>
+    <script type="text/javascript" src="scripts/findCategory.js"></script>
 
 
 
@@ -56,6 +57,7 @@
         </div>
 
         <div id="user-dropdown-content">
+          <p><%= username %></p>
           <a href="#">Personal settings</a>
           <a href="/logout">Log out</a>
         </div>
@@ -131,10 +133,6 @@
               <h5>Category: </h5>
 
               <div class="category-select">
-
-                <!-- this is where the auto-categorizer states the category -->
-                <p id="auto-category">Films</p>
-
                 <!-- these are the dropdown menu options -->
                 <ul class="category-contents" id="category-contents-edit-task">
                   <li>Films/series</li>
@@ -199,7 +197,8 @@
 
             <p id="create-task-heading">Create a new task</p>
 
-            <form id="create-task-form">
+
+            <form action="/tasks" method="POST" id="create-task-form">
 
               <!-- had to group the tags, input bar and the category drop down into one div for flexbox purposes-->
               <div class="form-upper">
@@ -221,13 +220,16 @@
 
                 <div class="task-title-category-check">
                   <!-- task title user input bar -->
+
                   <input type="text" id="task-title-new" placeholder="Task" name="taskTitle"></input>
-                  <i class="fas fa-redo-alt"></i>
+                  <i class="fas fa-redo-alt" id="find-category"></i>
+
                 </div>
 
 
                 <div class="category-dropdown">
                   <h5>Category: </h5>
+                  <h5 id="selectedCategory"></h5>
 
                   <div class="category-select">
 
@@ -236,10 +238,10 @@
 
                     <!-- these are the dropdown menu options -->
                     <ul class="category-contents" id="category-contents-create-task">
-                      <li>Films/series</li>
-                      <li>Restaurants</li>
-                      <li>Books</li>
-                      <li>Products</li>
+                      <li id="cat-item-Films">Films/series</li>
+                      <li id="cat-item-Restaurants">Restaurants</li>
+                      <li id="cat-item-Books">Books</li>
+                      <li id="cat-item-Products">Products</li>
                     </ul>
                   </div>
 
@@ -277,6 +279,7 @@
 
                 <!-- button to submit a new task -->
                 <button type="submit" class="new-task-button">Submit</button>
+                <input type="text" id="selectedCategoryInput" name="hiddenInput" style="visibility: hidden;"></input>
               </div>
 
             </form>
