@@ -146,8 +146,8 @@ $(document).ready(() => {
 
   $('#Films-tasks-link').click(function(event) {
     event.preventDefault();
-    document.getElementById('list-title').innerHTML = 'Films/Series';
-    document.cookie = "category=Films/Series";
+    document.getElementById('list-title').innerHTML = 'Movies';
+    document.cookie = "category=Movies";
     
     $.get(`/tasks/cats/Films`, function(data) {
       renderTasks(Object.values(data.taskList));

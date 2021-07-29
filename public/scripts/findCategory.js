@@ -49,7 +49,7 @@ $(document).ready(function() {
   };
 
   document.querySelector("#cat-item-Films").addEventListener("click", (e) => {
-    $("#selectedCategory").text('Films/Series');
+    $("#selectedCategory").text('Movies');
     catItemClick();
     console.log($("#selectedCategoryInput").text)
   });
@@ -72,7 +72,7 @@ $(document).ready(function() {
 
   
   document.querySelector("#cat-item-edit-Films").addEventListener("click", (e) => {
-    $("#selectedCategoryEdit").text('Films/Series');
+    $("#selectedCategoryEdit").text('Movies');
     catItemEditClick();
   });
   
