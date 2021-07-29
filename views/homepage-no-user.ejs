@@ -55,29 +55,32 @@
             <h1>Register an account</h1>
           </div>
 
-      <form action="/register" method="POST">
-        <div class="register-modal-body">
 
-          <p>username:</p>
-          <input type="text" id="register-username" name="username"></input>
+          <form action="/register" method="POST">
+            <div class="register-modal-body">
 
-          <p>email:</p>
-          <input type="text" id="register-email" name="email"></input>
+              <p>username:</p>
+              <input type="text" id="register-username" name="username"></input>
 
-          <p>password:</p>
-          <input type="password" id="register-password" name="password"></input>
+              <p>email:</p>
+              <input type="text" id="register-email" name="email"></input>
 
-          <div class="sign-in-submit-buttons">
-            <div class="register-sign-in-button">
-              <p id="error-msg" style="visibility: hidden;">Error</p>
-              <p>Already have an account?</p>
-              <a href="/login">Sign in</a>
+              <p>password:</p>
+              <input type="password" id="register-password" name="password"></input>
+
+              <div class="sign-in-submit-buttons">
+                <div class="register-sign-in-button">
+                  <p id="error-msg" style="visibility: hidden;">Error</p>
+                  <p>Already have an account?</p>
+                  <a href="/login">Sign in</a>
+                </div>
+                <button type="submit" id="register-submit-button">Submit</button>
+
+              </div>
             </div>
-            <button type="submit" id="register-submit-button">Submit</button>
-
-          </div>
+          </form>
         </div>
-      </form>
+      </div>
 
 
       <div class="spacer"></div>

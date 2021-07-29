@@ -5,6 +5,8 @@
   border: 1px solid base.$dark-grey-highlights;
   border-radius: 0.7em;
   box-shadow: 0 0 0.6em base.$dark-grey-highlights;
+  overflow: auto;
+
 
   //task list title (e.g. 'Films')
   h1 {
