@@ -1,7 +1,7 @@
 const express = require("express");
 const { loginUser } = require("../db/database");
 const router = express.Router();
-const helpers = require('../helpers/helperFunctions');
+const helpers = require('../helpers/usersHelper');
 
 module.exports = (db) => {
   const { getUserByEmail, getUserByUsername, saveUser } = helpers(db);

@@ -57,35 +57,37 @@ app.use(cookieSession({
 const loginRoutes = require("./routes/login");
 const logoutRoutes = require("./routes/logout");
 const registerRoutes = require("./routes/register");
+const tasksRoutes = require("./routes/tasks");
+const validationRoutes = require("./routes/validation");
+const categoryRoutes = require("./routes/categories");
 const usersRoutes = require("./routes/users");
 const mainRoutes = require("./routes/main");
-const validationRoutes = require("./routes/validation");
 
 app.use('/login', loginRoutes(db));
 app.use('/logout', logoutRoutes(db));
 app.use('/register', registerRoutes(db));
-app.use("/api/users", usersRoutes(db));
 app.use("/valid", validationRoutes(db));
+app.use("/cat", categoryRoutes(db));
+app.use("/tasks", tasksRoutes(db));
 // app.use("/", mainRoutes(db));
+// app.use("/api/users", usersRoutes(db));
 
 
 // Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("homepage-no-user");
+  res.redirect('/tasks');
 });
 
 
 
 app.get("/tasks", (req, res) => {
+
   if (req.session.userID) {
     res.render("homepage-user");
-
   }
-  // else {
-  //   res.redirect('/')
-  // }
+  else {
+    res.render("homepage-no-user");
+  }
 });
 
 
