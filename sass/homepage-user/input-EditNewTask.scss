@@ -21,18 +21,11 @@
 
     p {
       font-family: base.$bold-font;
-      margin: 0 0.8em 0 0.5em;
+      margin: 0 0.8em;
       padding: 0;
       text-decoration: none;
       text-transform: uppercase;
-
-    }
-
-    //these are the x icons that will appear after creating a tag
-    i {
-      font-size: 0.75em;
-      margin-right: 0.5em;
-      position: relative;
+      text-align: center;
     }
   }
 
@@ -46,7 +39,15 @@
   &:hover{
     background-color: rgba(base.$red-highlights, 0.8);
     color: base.$off-white;
+
   }
+
+}
+
+//".onClick" class gets toggled everytime the user clicks on this tag
+.tag-important.onClick{
+  background-color: rgba(base.$red-highlights, 0.8);
+  color: base.$off-white;
 }
 
 .tag-school{
@@ -57,8 +58,16 @@
   &:hover{
     background-color: rgba(base.$blue-highlights, 0.8);
     color: base.$off-white;
+
   }
 }
+
+//".onClick" class gets toggled everytime the user clicks on this tag
+.tag-school.onClick{
+  background-color: rgba(base.$blue-highlights, 0.8);
+  color: base.$off-white;
+}
+
 
 .tag-create{
   border: grey 2px dashed;
@@ -71,7 +80,7 @@
 
 
 //textarea input
-#task-title {
+#task-title-edit, #task-title-new {
   background-color: base.$off-white;
   border: none; //removes default textarea border
   border-bottom: 2px solid darkgrey;
@@ -101,20 +110,18 @@
 }
 
 .fas.fa-redo-alt {
-  // padding-left: 0.7em;
-  // padding-right: 2%;
   padding: 1.5%;
   margin: 2%;
   border-radius: 50%;
   color: rgba(16, 172, 55, 0.89);
   opacity: 0.7;
-  border: 2px black solid;
+  border: 2px rgba(black, 0.7) solid;
 
   &:hover {
     cursor: pointer;
     opacity: 1;
   }
-  }
+}
 
 .category-dropdown {
   display: flex;

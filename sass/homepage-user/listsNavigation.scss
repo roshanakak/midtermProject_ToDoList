@@ -7,14 +7,25 @@
   padding: 0.5em 0;
   position: relative;
   width: 18%;
-  z-index: 1;
+  z-index: 2;
 
   h2 {
+    align-items: center;
+    display: flex;
     margin-bottom: 0.5em;
     padding-left: 1em;
     text-decoration: underline;
     text-transform: uppercase;
     font-size: 1.2em;
+  }
+
+  //makes a space between icon and text
+  img{
+    height: 7vmin;
+    margin-right: 0.2em;
+    padding: 3.5%;
+    width: 7vmin;
+
   }
 
   //makes the menu button take up the width of the sidebar
@@ -28,6 +39,7 @@
     font-size: 1em;
     list-style-type: none; //removes the bullet points from the list items
     padding: 0.5em 0.5em 0.5em 4em;
+    color: base.$font-color;
   }
 
   // removes the underline from the hyperlinks
@@ -48,16 +60,7 @@
     color: #fff
   }
 
-  //makes a space between icon and text
-  i{
-    border: 2px solid black;
-    border-radius: 50%;
-    height: 5vmin;
-    margin-right: 0.5em;
-    padding: 3.5%;
-    width: 5vmin;
 
-  }
 
 
 }

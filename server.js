@@ -74,20 +74,18 @@ app.use("/api/users", usersRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("homepage-no-user");
+  templateVars = {registerModal: "hidden"}
+  res.render("homepage-no-user", templateVars);
 });
 
 
-
 app.get("/tasks", (req, res) => {
-
   if (req.session.userID) {
     res.render("homepage-user");
-
   }
-  // else {
-  //   res.redirect('/')
-  // }
+  else {
+    res.redirect('/register')
+  }
 });
 
 

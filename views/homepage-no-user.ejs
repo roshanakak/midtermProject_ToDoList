@@ -29,86 +29,73 @@
 
   <body>
 
-  <!-- fixed header - shows logo and avatar -->
-  <nav>
-    <img class="logo" src="/images/logo-2c.png">
-  </nav>
+    <!-- fixed header - shows logo and avatar -->
+    <nav>
+      <img class="logo" src="/images/logo-2c.png">
+    </nav>
 
-  <div class="main">
+    <div class="main">
 
-    <!-- the register modal -->
-    <div id="register-modal" class="modal">
+      <!-- the register modal -->
+        <!-- if user came from 'registration button', show this page with the registration modal -->
+      <div class="register-modal-root" style=
 
-      <!-- the modal content -->
-      <div class="register-modal-header">
+        <% if (registerModal === 'visible') { %>
+          "visibility: visible;">
+        <% } else if (registerModal === 'hidden') { %>
+          "z-index: -1;">
+        <% } %>
+        <div id="register-modal" class="modal">
 
-        <!-- x for closing the modal -->
-        <i class="fas fa-times" id="register-modal-close"></i>
-        <h1>Register an account</h1>
-      </div>
+          <!-- the modal content -->
+          <div class="register-modal-header">
 
-      <div class="register-modal-body">
-
-        <p>username:</p>
-        <input type="text" id="register-username"></input>
-
-        <p>email:</p>
-        <input type="text" id="register-email"></input>
-
-        <p>password:</p>
-        <input type="password" id="register-password"></input>
-
-        <div class="sign-in-submit-buttons">
-          <div class="register-sign-in-button">
-            <p>Already have an account?</p>
-            <a href="/login">Sign in</a>
+            <!-- x for closing the modal -->
+            <i class="fas fa-times" id="register-modal-close"></i>
+            <h1>Register an account</h1>
           </div>
-          <button type="submit" id="register-submit-button">Submit</button>
+
+          <div class="register-modal-body">
+
+            <p>username:</p>
+            <input type="text" id="register-username"></input>
+
+            <p>email:</p>
+            <input type="text" id="register-email"></input>
+
+            <p>password:</p>
+            <input type="password" id="register-password"></input>
+
+            <div class="sign-in-submit-buttons">
+              <div class="register-sign-in-button">
+                <p>Already have an account?</p>
+                <a href="/login">Sign in</a>
+              </div>
+              <button type="submit" id="register-submit-button">Submit</button>
+            </div>
+          </div>
         </div>
       </div>
 
-    </div>
+
+      <div class="spacer"></div>
+
+      <h1>Ready to start making lists?</h1>
 
 
+      <div class="log-in-register-buttons">
 
-
-
-  <div class="spacer"></div>
-
-    <h1>Ready to start making lists?</h1>
-
-
-    <div class="log-in-register-buttons">
-
-      <form action="/login " method="get">
-        <button type="submit" class="log-in-button">Log in</button>
-      </form>
-
-      <button type="submit" class="register-button">Register</button>
-
-    </div>
-
-
-
-  </div>
-
-
-
-
-
-
-
-
-
-        <!-- <form action="/ " method="POST"></form>
-
-          <button type="submit" class="log-in-button-homepage">Log in</button>
+        <form action="/login " method="get">
+          <button type="submit" class="log-in-button">Log in</button>
         </form>
 
-        <button type="submit" class="register-button">Register</button>
+        <button class="register-button">Register</button>
 
-        <button type="submit" class="submit-registration-button">Register</button>
-     -->
+      </div>
+
+
+
+    </div>
 
   </body>
 

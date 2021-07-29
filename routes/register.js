@@ -9,7 +9,8 @@ module.exports = (db) => {
   console.log(getUserByEmail)
   // handles GET for registeration
   router.get('', (req, res) => {
-    res.redirect('/');
+    templateVars = {registerModal: "visible"}
+    res.render("homepage-no-user", templateVars)
   })
 
 
