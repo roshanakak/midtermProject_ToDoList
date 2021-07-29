@@ -36,13 +36,13 @@ const getCookie = function(cname) {
 
 const editTask = function(event) {
   $(".edit-modal-root").css({
-    "background-color" : "rgba(0,0,0,0.2)",
-    "position" : "absolute",
-    "top" : "0",
-    "left" : "0",
-    "right" : "0",
-    "bottom" : "0",
-    "z-index" : "1"
+    "background-color": "rgba(0,0,0,0.2)",
+    "position": "absolute",
+    "top": "0",
+    "left": "0",
+    "right": "0",
+    "bottom": "0",
+    "z-index": "1"
   });
 
   $("#edit-modal").css({"visibility" : "visible"});
@@ -57,13 +57,13 @@ const editTask = function(event) {
 
 const deleteTask = function(event) {
   $(".delete-modal-root").css({
-    "background-color" : "rgba(0,0,0,0.2)",
-    "position" : "absolute",
-    "top" : "0",
-    "left" : "0",
-    "right" : "0",
-    "bottom" : "0",
-    "z-index" : "1"
+    "background-color": "rgba(0,0,0,0.2)",
+    "position": "absolute",
+    "top": "0",
+    "left": "0",
+    "right": "0",
+    "bottom": "0",
+    "z-index": "1"
   });
 
   $("#delete-modal").css({"visibility" : "visible"});
@@ -127,7 +127,6 @@ $(document).ready(() => {
 
 
   const renderTasks = function(tasks) {
-    console.log(tasks)
     const tasksElements = tasks.map(task => createTaskElement(task));
     const $list = $("#tasks-list");
     $list.children().not(":first-child").remove();
@@ -154,12 +153,32 @@ $(document).ready(() => {
   };
 
 
-  $('#all-tasks-link').click(function(event) {
+
+  // -------- Function to validate task input(field) and returns appropriate error message -----//
+  const validateTask = () => {
+    const taskText = $("task-title-new").val();
+    if (!taskText || taskText === "\n") {
+      return "Can't be empty";
+    }
+    return true;
+  };
+
+  const newTaskHandler = () => {
+    $(".new-task-button").on("click", () => {
+      //alert("Can't be empty")
+
+    }
+    )
+  };
+  newTaskHandler();
+
+
+  $('#all-tasks-link').click(function (event) {
     event.preventDefault();
     document.getElementById('list-title').innerHTML = 'All Tasks';
     document.cookie = "category=all";
-    
-    $.get(`/tasks/cats/all`, function(data) {
+
+    $.get(`/tasks/cats/all`, function (data) {
       if (data) {
         renderTasks(Object.values(data.taskList));
       }
@@ -168,7 +187,7 @@ $(document).ready(() => {
     return false;
   });
 
-  $('#Films-tasks-link').click(function(event) {
+  $('#Films-tasks-link').click(function (event) {
     event.preventDefault();
     document.getElementById('list-title').innerHTML = 'Movies';
     document.cookie = "category=Movies";
@@ -176,43 +195,43 @@ $(document).ready(() => {
     $.get(`/tasks/cats/Films`, function(data) {
       renderTasks(Object.values(data.taskList));
     });
-    
+
     return false;
   });
 
-  $('#Restaurants-tasks-link').click(function(event) {
+  $('#Restaurants-tasks-link').click(function (event) {
     event.preventDefault();
     document.getElementById('list-title').innerHTML = 'Restaurants';
     document.cookie = "category=Restaurants";
-    
-    $.get(`/tasks/cats/Restaurants`, function(data) {
+
+    $.get(`/tasks/cats/Restaurants`, function (data) {
       renderTasks(Object.values(data.taskList));
     });
-    
+
     return false;
   });
 
-  $('#Books-tasks-link').click(function(event) {
+  $('#Books-tasks-link').click(function (event) {
     event.preventDefault();
     document.getElementById('list-title').innerHTML = 'Books';
     document.cookie = "category=Books";
-    
-    $.get(`/tasks/cats/Books`, function(data) {
+
+    $.get(`/tasks/cats/Books`, function (data) {
       renderTasks(Object.values(data.taskList));
     });
-    
+
     return false;
   });
 
-  $('#Products-tasks-link').click(function(event) {
+  $('#Products-tasks-link').click(function (event) {
     event.preventDefault();
     document.getElementById('list-title').innerHTML = 'Products';
     document.cookie = "category=Products";
-    
-    $.get(`/tasks/cats/Products`, function(data) {
+
+    $.get(`/tasks/cats/Products`, function (data) {
       renderTasks(Object.values(data.taskList));
     });
-    
+
     return false;
   });
 
