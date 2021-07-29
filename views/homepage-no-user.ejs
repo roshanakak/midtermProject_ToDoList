@@ -71,7 +71,9 @@
 
               <p>password:</p>
               <input type="password" id="register-password" name="password"></input>
-              <span id="error-msg"></span>
+              <% if (typeof errorMessage !== "undefined") { %>
+                <span id="error-message"><i class="fas fa-exclamation-circle"></i><%= errorMessage %></span>
+              <% } %>
 
               <div class="sign-in-submit-buttons">
                 <div class="register-sign-in-button">

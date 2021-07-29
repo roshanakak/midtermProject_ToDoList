@@ -7,7 +7,7 @@ $(document).ready(function() {
   })
 
   $('.register-modal-body input').focus(() => {
-    $("#error-msg").hide();
+    $('#error-message').empty();
   })
 
 });

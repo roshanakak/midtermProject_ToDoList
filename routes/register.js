@@ -14,19 +14,38 @@ module.exports = (db) => {
   });
 
 
- 
+
   // handles POST for registeration
   router.post('/', async(req, res) => {
+    const {username, email, password} = req.body;
 
-    const emailExists =  await getUserByEmail(req.params.email);
+    console.log("username:" , username)
+    console.log("email:" , email)
+    console.log("password:" , password)
 
-    res.clearCookie('error');
-    if (!req.body.password || !req.body.email) {
-      res.cookie('error', 'The email or password has not been provided!');
-      res.redirect('/register');
+    const usernameExists =  await getUserByUsername(username);
+    const emailExists =  await getUserByEmail(email);
+
+    // res.clearCookie('error');
+
+    let regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+
+    if (!username) {
+      res.render("homepage-no-user", {errorMessage: "Please enter a username"})
+    } else if (!email) {
+      res.render("homepage-no-user", {errorMessage: "Please enter an email"})
+    } else if (!password) {
+      res.render("homepage-no-user", {errorMessage: "Please enter a password"})
+    } else if (password.length < 8) {
+      res.render("homepage-no-user", {errorMessage: "Password must be at least 8 characters long"})
+    } else if (!regex.test(email)) {
+      res.render("homepage-no-user", {errorMessage: "Please enter a valid email"})
+    } else if (usernameExists) {
+      res.render("homepage-no-user", {errorMessage: "Username already exists!"})
     } else if (emailExists) {
-      res.cookie('error', 'The email already exists!');
-      res.redirect('/register');
+      res.render("homepage-no-user", {errorMessage: "Email already exists!"})
+
     } else {
       const user = {
         username: req.body.username,

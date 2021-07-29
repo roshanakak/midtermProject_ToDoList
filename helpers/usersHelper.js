@@ -38,7 +38,7 @@ module.exports = (db) => {
         if (res !== null && res.rows.length > 0) {
           return res.rows[0];
         } else {
-          return null;
+          return false;
         }
       })
       .catch((err) => {
@@ -68,18 +68,26 @@ module.exports = (db) => {
       });
 
   };
-  
+
   const saveUser = (user, req, res) => {
     const queryString = `
         INSERT INTO users (username, email, password)
         VALUES ($1, $2, $3) RETURNING *;
       `;
     const queryParams = [user.username, user.email, user.password];
-    
+
     return db.query(queryString, queryParams)
       .then((result) => {
         req.session.userID =  result.rows[0];
-        res.render("homepage-user");
+
+        console.log(result.rows[0])
+
+        const templateVars = {
+          username: result.rows[0]['username'],
+          userId: result.rows[0]['id']
+        };
+
+        res.render("homepage-user", templateVars);
       })
       .catch((err) => {
         res.redirect('/');

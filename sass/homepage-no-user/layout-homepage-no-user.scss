@@ -205,6 +205,8 @@ h1  {
     .register-sign-in-button {
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
+      width:auto;
 
       a {
         margin-top: 0;
@@ -213,6 +215,7 @@ h1  {
         font-size: 1em;
         color: base.$font-color;
         opacity: 0.7;
+        width: 30%;
 
       }
 
@@ -255,12 +258,16 @@ h1  {
 
 }
 
-#error-msg {
+#error-message {
   visibility: visible;
   color: base.$red-highlights;
   font-weight: bold;
   font-style: italic;
   font-size: 0.8em;
+
+  i {
+    margin: 2%;
+  }
 }
 
 
