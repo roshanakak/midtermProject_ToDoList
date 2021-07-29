@@ -71,10 +71,6 @@ module.exports = (db) => {
         WHERE id = $1
       `;
     const queryParams = [Task.id, Task.title, Task.category_id];
-
-    console.log(queryString)
-    
-    console.log(queryParams)
     
     return db.query(queryString, queryParams)
       .then((result) => {
@@ -88,7 +84,7 @@ module.exports = (db) => {
 
   const deleteTask = async(id) => {
     const queryString = `
-        DELETE tasks WHERE id = $1
+        DELETE FROM tasks WHERE id = $1
       `;
     const queryParams = [id];
     

@@ -97,13 +97,14 @@ module.exports = (db) => {
       await editTask(Task);
      
     }
-    
-    // const templateVars = {
-    //   username: req.session.username
-    // };
-    // res.render('homepage-user', templateVars);
     res.redirect('/');
 
+  });
+  
+  //delete a task
+  router.post("/delete:id", async(req, res) => {
+    await deleteTask(req.cookies.taskid);
+    res.redirect('/');
   });
 
 

@@ -1,9 +1,21 @@
-const exampleTasks = [{
-  title: "Black Widow"
-}];
-
 const completeTask = function() {
   $(".fas.fa-check").css({"visibility" : "visible"});
+};
+
+const getCookie = function(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 };
 
 const editTask = function(event) {
@@ -27,7 +39,7 @@ const editTask = function(event) {
 };
 
 
-const deleteTask = function(id) {
+const deleteTask = function(event) {
   $(".delete-modal-root").css({
     "background-color" : "rgba(0,0,0,0.2)",
     "position" : "absolute",
@@ -39,23 +51,10 @@ const deleteTask = function(id) {
   });
 
   $("#delete-modal").css({"visibility" : "visible"});
+  
+  document.cookie = `taskid=${event.target.getAttribute('taskid')}`;
 };
 
-const getCookie = function(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) === ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) === 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-};
 
 $(document).ready(() => {
 
@@ -95,7 +94,7 @@ $(document).ready(() => {
 
     <div class="delete-and-edit-icons">
       <i class="fas fa-edit" id="icon-edit" taskId="${taskData.id}" taskTitle="${taskData.title}" taskCat="${taskData.cattitle}"></i>
-      <i class="far fa-trash-alt" id="icon-trash"></i>
+      <i class="far fa-trash-alt" id="icon-trash" taskId="${taskData.id}" ></i>
     </div>
 
     </article>`);
@@ -129,21 +128,6 @@ $(document).ready(() => {
       deleteElements[i].addEventListener('click', deleteTask, false);
     }
   };
-
-  renderTasks(exampleTasks);
-
-  $("#create-task-form").submit((event) => {
-    // event.preventDefault();
-    // const newTitle = $("#task-title-new").val();
-    // $("#task-title").val("");
-    // exampleTasks.push({ title: newTitle });
-
-    // $('#create-task-form').trigger("reset");
-
-    // renderTasks(exampleTasks);
-
-  });
-
 
 
   $('#all-tasks-link').click(function(event) {
@@ -206,21 +190,6 @@ $(document).ready(() => {
     });
     
     return false;
-  });
-
-
-  $('#Products-tasks-link').click(function(event) {
-
-    $.get(`/tasks/edit/${getCookie('taskid')}`, function(data) {
-      // let obj = JSON.parse(JSON.stringify(data));
-      // $("#selectedCategory").text(obj.result);
-      console.log(data);
-
-      $(".edit-modal-root").css({"z-index" : "-1"});
-  
-      $("#caret-up-edit-task").css({"visibility" : "hidden"});
-      $("#caret-down-edit-task").css({"visibility" : "hidden"});
-    });
   });
 
 

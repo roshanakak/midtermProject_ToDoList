@@ -165,28 +165,30 @@
 
 
       <!-- the delete modal -->
-      <div class="delete-modal-root">
-        <div id="delete-modal" class="modal">
+      <form action="/tasks/delete:id" method="POST">
+        <div class="delete-modal-root">
+          <div id="delete-modal" class="modal">
 
-          <!-- the modal content -->
-          <div class="delete-modal-header">
+            <!-- the modal content -->
+            <div class="delete-modal-header">
 
-            <!-- x for closing the modal -->
-            <i class="fas fa-times" id="delete-modal-close"></i>
-            <i class="far fa-trash-alt" id="delete-modal-bin"></i>
-            <h1>Want to delete?</h1>
-          </div>
+              <!-- x for closing the modal -->
+              <i class="fas fa-times" id="delete-modal-close"></i>
+              <i class="far fa-trash-alt" id="delete-modal-bin"></i>
+              <h1>Want to delete?</h1>
+            </div>
 
-          <div class="delete-modal-body">
+            <div class="delete-modal-body">
 
-            <p>Are you sure you want to delete this task? You will <b>not be able to restore</b> it.</p>
+              <p>Are you sure you want to delete this task? You will <b>not be able to restore</b> it.</p>
 
-            <button type="submit" id="delete-task-button">Delete</button>
-            <button id="cancel-deletion-button">Cancel</button>
+              <button type="submit" id="delete-task-button">Delete</button>
+              <button id="cancel-deletion-button">Cancel</button>
 
+            </div>
           </div>
         </div>
-      </div>
+      </form>
 
 
 
