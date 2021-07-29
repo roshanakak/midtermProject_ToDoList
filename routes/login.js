@@ -4,7 +4,7 @@ const helpers = require('../helpers/usersHelper');
 
 module.exports = (db) => {
   const { getUserByEmail, getUserByUsername, getUserByID, saveUser } = helpers(db);
-  
+
   router.get("/", (req, res) => {
     //req.session.username = 222;
     res.render("login");
@@ -26,6 +26,12 @@ module.exports = (db) => {
     }
 
     let user = await getUserByUsername(username, db);
+
+    if (!user) {
+      res.status(404).render("login", {errorMessage: "user does not exist"})
+    } else if (user && user.password !== password) {
+      res.status(404).render("login", {errorMessage: "incorrect password"})
+    }
     if (user && user.password === password) {
       req.session.username = user.username;
       const templateVars = {
