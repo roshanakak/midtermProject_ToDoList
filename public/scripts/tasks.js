@@ -2,9 +2,9 @@ const exampleTasks = [{
   title: "Black Widow"
 }];
 
-const completeTask = function () {
-  $(".fas.fa-check").css({"visibility" : "visible"})
-}
+const completeTask = function() {
+  $(".fas.fa-check").css({"visibility" : "visible"});
+};
 
 const editTask = function() {
   $(".edit-modal-root").css({
@@ -15,9 +15,9 @@ const editTask = function() {
     "right" : "0",
     "bottom" : "0",
     "z-index" : "1"
-  })
+  });
 
-  $("#edit-modal").css({"visibility" : "visible"})
+  $("#edit-modal").css({"visibility" : "visible"});
 };
 
 
@@ -30,14 +30,14 @@ const deleteTask = function() {
     "right" : "0",
     "bottom" : "0",
     "z-index" : "1"
-  })
+  });
 
-  $("#delete-modal").css({"visibility" : "visible"})
+  $("#delete-modal").css({"visibility" : "visible"});
 };
 
 
 $(document).ready(() => {
-  const createTaskElement = function (taskData) {
+  const createTaskElement = function(taskData) {
     const $tasks = $(`
     <article class="task">
 
@@ -52,14 +52,14 @@ $(document).ready(() => {
       <i class="far fa-trash-alt" id="icon-trash"></i>
     </div>
 
-    </article>`)
+    </article>`);
 
 
-    return $tasks
-  }
+    return $tasks;
+  };
 
 
-  const renderTasks = function (tasks) {
+  const renderTasks = function(tasks) {
     const tasksElements = tasks.map(task => createTaskElement(task));
     const $list = $("#tasks-list");
     $list.children().not(":first-child").remove();
@@ -80,20 +80,20 @@ $(document).ready(() => {
     for (let i = 0; i < deleteElements.length; i++) {
       deleteElements[i].addEventListener('click', deleteTask, false);
     }
-  }
+  };
 
 
   renderTasks(exampleTasks);
 
   $("#create-task-form").submit((event) => {
-    event.preventDefault();
-    const newTitle = $("#task-title-new").val();
-    $("#task-title").val("");
-    exampleTasks.push({ title: newTitle });
+    // event.preventDefault();
+    // const newTitle = $("#task-title-new").val();
+    // $("#task-title").val("");
+    // exampleTasks.push({ title: newTitle });
 
-    $('#create-task-form').trigger("reset");
+    // $('#create-task-form').trigger("reset");
 
-    renderTasks(exampleTasks);
-  })
+    // renderTasks(exampleTasks);
+  });
 
 });

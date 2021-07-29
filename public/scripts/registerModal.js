@@ -13,24 +13,12 @@ $(document).ready(function() {
     })
 
     $("#register-modal").css({"visibility" : "visible"});
-<<<<<<< HEAD
-
-  });
-
-
-  $("#register-modal-close").on("click", function() {
-    
-    $("#register-modal").css({"visibility" : "hidden"});
-
-  });
-=======
   })
 
 
   $("#register-modal-close").on("click", function() {
     $(".register-modal-root").css({"z-index" : "-1"})
   })
->>>>>>> master
 
 
   $("#register-submit-button").on('click', (event) => {

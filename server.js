@@ -83,7 +83,7 @@ app.get("/", (req, res) => {
   if (req.session.userID) {
     res.render('homepage-user', templateVars);
   } else {
-    res.render("homepage-no-user", templateVars);
+    res.render("login", templateVars);
   }
   
 });

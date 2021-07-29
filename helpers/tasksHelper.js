@@ -35,9 +35,11 @@ module.exports = (db) => {
     
     return db.query(queryString, queryParams)
       .then((result) => {
+        console.log(result)
         return result.rows[0];
       })
       .catch((err) => {
+        console.log(err)
         return -1;
       });
   };
