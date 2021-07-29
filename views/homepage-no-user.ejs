@@ -40,12 +40,14 @@
 
       <!-- the register modal -->
         <!-- if user came from 'registration button', show this page with the registration modal -->
-      <div class="register-modal-root" style=
+      <div class="register-modal-root"
 
-        <% if (registerModal === 'visible') { %>
-          "visibility: visible;">
-        <% } else if (registerModal === 'hidden') { %>
-          "z-index: -1;">
+        <% if (typeof registerModal !== "undefined" && registerModal === 'visible') { %>
+          style="visibility: visible;">
+        <% } else if (typeof registerModal !== "undefined" && registerModal === 'hidden') { %>
+          style="z-index: -1;">
+        <% } else { %>
+          >
         <% } %>
         <div id="register-modal" class="modal">
 
