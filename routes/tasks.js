@@ -17,7 +17,12 @@ module.exports = (db) => {
       id: 0
     };
 
-    res.render("homepage-user", templateVars);
+    //res.render("homepage-user", templateVars);
+    if (req.session.userID) {
+      res.render("homepage-user");
+    } else {
+      res.render("homepage-no-user");
+    }
   });
 
   //retrieves specific task, to show task details and content on click
@@ -26,6 +31,8 @@ module.exports = (db) => {
 
     res.render("homepage-user", templateVars);
   });
+
+  
 
   //retrieves all tasks in a specific category
   router.get("/cat?:cat_id", (req, res) => {

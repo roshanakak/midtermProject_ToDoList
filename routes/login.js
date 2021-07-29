@@ -18,23 +18,30 @@ module.exports = (db) => {
 
 
   //checks that email exists in the database and password matches
-  const login = function(username, password) {
-    return loginUser(username, db)
-      .then(userDetails => {
+  // const login = async function(username, password) {
+  // let user = await getUserByUsername(username, db);
+  // if (user) {
+  //   return user;
+  // } else {
+  //   return null;
+  // }
+    
+  // return getUserByUsername(username, db)
+  //   .then(userDetails => {
 
-        if (password === userDetails.password) {
-          return userDetails;
-        }
+  //     if (password === userDetails.password) {
+  //       return userDetails;
+  //     }
 
-        throw {error: new Error(`incorrect password`), responseCode: 403};
-      })
-      .catch(err => {
-        throw err;
-      });
-  };
+  //     throw {error: new Error(`incorrect password`), responseCode: 403};
+  //   })
+  //   .catch(err => {
+  //     throw err;
+  //   });
+  // };
 
 
-  router.post('/', (req, res) => {
+  router.post('/', async(req, res) => {
     const {username, password} = req.body;
 
     if (!username) {
@@ -43,20 +50,39 @@ module.exports = (db) => {
       res.status(400).render("login", {errorMessage: "no password was sent"});
     }
 
-    login(username, password)
-      .then(user => {
-        console.log("user:", user);
-        if (user) {
-          req.session.userID = user.id;
-          res.redirect('/tasks');
-        } else {
-          res.redirect('/');
-        }
+    let user = await getUserByUsername(username, db);
+    if (user) {
+      const templateVars = {
+        username: user.username
+      };
+      console.log(templateVars);
 
-      })
-      .catch(({error, responseCode}) => {
-        res.status(responseCode).render("login", {errorMessage: error.message});
-      });
+      req.session.userID = user.id;
+      res.redirect('/tasks');//, templateVars);
+
+    } else {
+      res.redirect('/');
+    }
+
+    // login(username, password)
+    //   .then(user => {
+    //     if (user) {
+    //       const templateVars = {
+    //         username: user.username
+    //       };
+    //       console.log(templateVars);
+
+    //       req.session.userID = user.id;
+    //       res.redirect('/tasks');//, templateVars);
+
+    //     } else {
+    //       res.redirect('/');
+    //     }
+
+    //   })
+    //   .catch(({error, responseCode}) => {
+    //     res.status(responseCode).render("login", {errorMessage: error.message});
+    //   });
 
 
 

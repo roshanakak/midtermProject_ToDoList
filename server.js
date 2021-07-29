@@ -77,12 +77,6 @@ app.use("/tasks", tasksRoutes(db));
 
 // Home page
 app.get("/", (req, res) => {
-  res.redirect('/tasks');
-});
-
-
-
-app.get("/tasks", (req, res) => {
 
   if (req.session.userID) {
     res.render("homepage-user");

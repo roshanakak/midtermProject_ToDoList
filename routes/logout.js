@@ -6,6 +6,8 @@ const router = express.Router();
 module.exports = () => {
 
   router.get('/', (req, res) => {
+
+    delete req.session.userID;
     req.session = null;
     res.redirect('/login');
     
