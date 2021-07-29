@@ -42,12 +42,7 @@
 
     <div class="log-in-main-body">
 
-      <div class="log-in-sidebar">
 
-        <h2><em>You're just a few clicks away from creating your own to-do list!</em></h2>
-
-
-      </div>
 
       <div class="main-information">
 
@@ -58,15 +53,17 @@
 
           <form action='/login' method="POST" id="login-form">
 
-            <p>username:</p>
-            <input type="text" id="log-in-username"  name="username"></input>
+            <div>
+              <p>username:</p>
+              <input type="text" id="log-in-username"  name="username"></input>
 
-            <p>password:</p>
-            <input type="password" id="log-in-password" name="password"></input>
+              <p>password:</p>
+              <input type="password" id="log-in-password" name="password"></input>
 
-            <% if (typeof errorMessage !== "undefined") { %>
-              <span id="error-message"> <%= errorMessage %></span>
-            <% } %>
+              <% if (typeof errorMessage !== "undefined") { %>
+                <span id="error-message"><i class="fas fa-exclamation-circle"></i><%= errorMessage %></span>
+              <% } %>
+            </div>
 
             <div class="log-in-forgot-pass-buttons">
               <a href="#">Forgot your password?</a>
@@ -80,6 +77,14 @@
 
       </div>
 
+      <div class="log-in-sidebar">
+
+        <img src="/images/login-page-clipart-1.png">
+
+        <h2><em>You're just a few clicks away from creating your own to-do list!</em></h2>
+
+
+      </div>
 
 
     </div>

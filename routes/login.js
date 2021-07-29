@@ -23,7 +23,7 @@ module.exports = (db) => {
         return userDetails;
       }
 
-      throw {error: new Error (`incorrect password`), responseCode: 403};
+      throw {error: new Error (`Incorrect password`), responseCode: 403};
     })
     .catch(err => {
       throw err;
@@ -35,9 +35,9 @@ module.exports = (db) => {
     const {username, password} = req.body;
 
     if (!username) {
-      res.status(400).render("login", {errorMessage: "no username was sent"})
+      res.status(400).render("login", {errorMessage: "No username was entered"})
     } else if (!password) {
-      res.status(400).render("login", {errorMessage: "no password was sent"})
+      res.status(400).render("login", {errorMessage: "No password was entered"})
     }
 
     login(username, password)
