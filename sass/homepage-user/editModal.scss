@@ -45,6 +45,11 @@
     height: 100%;
     padding: 0.5em 2em;
 
+    .task-title-category-check {
+      display: flex;
+      align-items: center;
+    }
+
     #edit-task-button {
       align-self: flex-end;
       background-color: base.$dark-grey-highlights;
