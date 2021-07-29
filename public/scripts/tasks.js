@@ -35,18 +35,45 @@ const deleteTask = function() {
   $("#delete-modal").css({"visibility" : "visible"});
 };
 
+const getCookie = function(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+};
 
 $(document).ready(() => {
 
   //fill the tasks list at first load
-  document.getElementById('list-title').innerHTML = 'All Tasks';
-  document.cookie = "category=all";  
-  $.get(`/tasks/cats/all`, function(data) {
-    if (data) {
-      console.log(data)
-      renderTasks(Object.values(data.taskList));
-    }
-  });
+  
+  const categoryCookie = getCookie('category');
+  if (categoryCookie === '') {
+    document.getElementById('list-title').innerHTML = 'All Tasks';
+    document.cookie = "category=all";
+    $.get(`/tasks/cats/all`, function(data) {
+      if (data) {
+        renderTasks(Object.values(data.taskList));
+      }
+    });
+  } else {
+    document.getElementById('list-title').innerHTML = categoryCookie;
+    $.get(`/tasks/cats/${categoryCookie}`, function(data) {
+      if (data) {
+        renderTasks(Object.values(data.taskList));
+      }
+    });
+  }
+ 
+
 
 
 
@@ -74,7 +101,6 @@ $(document).ready(() => {
 
 
   const renderTasks = function(tasks) {
-    console.log(tasks);
     const tasksElements = tasks.map(task => createTaskElement(task));
     const $list = $("#tasks-list");
     $list.children().not(":first-child").remove();
@@ -111,6 +137,7 @@ $(document).ready(() => {
     // $('#create-task-form').trigger("reset");
 
     // renderTasks(exampleTasks);
+
   });
 
 

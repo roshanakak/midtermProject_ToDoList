@@ -44,14 +44,12 @@ module.exports = (db) => {
     } else {
       taskList = await getTasksByCategory(req.session.userID, req.cookies.category);
     }
-    
     res.json({ taskList });
 
   });
 
   //saves a new task
   router.post("/", async(req, res) => {
-
     if (req.body.taskTitle) {
       let category = '';
 
@@ -73,10 +71,7 @@ module.exports = (db) => {
       
       await saveTask(Task);
      
-
     }
-    //res.redirect("/");
-
     
     const templateVars = {
       username: req.session.username

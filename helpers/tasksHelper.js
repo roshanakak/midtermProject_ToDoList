@@ -6,6 +6,7 @@ module.exports = (db) => {
         SELECT *
         FROM tasks
         WHERE owner_id = $1
+        ORDER BY id DESC
       `;
     const queryParams = [userId];
 
@@ -29,6 +30,7 @@ module.exports = (db) => {
         FROM tasks
         join categories on categories.id = category_id
         WHERE owner_id = $1 and categories.title = $2
+        ORDER BY tasks.id DESC
       `;
     const queryParams = [userId, category];
 
