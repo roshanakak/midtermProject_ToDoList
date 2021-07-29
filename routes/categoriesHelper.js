@@ -7,7 +7,7 @@ module.exports = (db) => {
     let URL = `https://serpapi.com/search.json?engine=google&gl=us&hl=en`;
     try {
       const queryArguments = {
-        api_key: '91d5c694c85616153d53bc1f4cad85645beec75050c9f2eaba55fc47929f49de',// '91d5c694c85616153d53bc1f4cad85645beec75050c9f2eaba55fc47929f49de',
+        api_key: 'a76f48b401acdb0bae0502bde45beaf6ffe4a45b54a61f73f729b054dcb82af0',  // '91d5c694c85616153d53bc1f4cad85645beec75050c9f2eaba55fc47929f49de',
         q: taskName
       };
   
