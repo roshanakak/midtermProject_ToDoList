@@ -72,9 +72,8 @@ module.exports = (db) => {
       };
       
       await saveTask(Task);
-     
-
     }
+    
     //res.redirect("/");
 
     
