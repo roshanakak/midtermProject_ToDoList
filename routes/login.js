@@ -42,10 +42,9 @@ module.exports = (db) => {
 
     login(username, password)
       .then (user => {
-        console.log("user:", user)
         if (user) {
           req.session.userID = user.id
-          res.redirect('/tasks')
+          res.redirect(`/tasks`)
         } else {
           res.redirect('/')
         }

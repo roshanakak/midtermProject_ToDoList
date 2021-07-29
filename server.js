@@ -82,12 +82,13 @@ app.get("/", (req, res) => {
 app.get("/tasks", (req, res) => {
 
   if (req.session.userID) {
+
     res.render("homepage-user");
 
   }
-  // else {
-  //   res.redirect('/')
-  // }
+  else {
+    res.redirect('/register')
+  }
 });
 
 

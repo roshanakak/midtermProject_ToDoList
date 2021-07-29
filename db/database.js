@@ -4,7 +4,6 @@ const loginUser = function(username, db) {
     .query('SELECT * FROM users WHERE username = LOWER($1);', [username.trim()])
     .then( (result) => {
       if (result.rows[0]) {
-        console.log("result.rows:", result.rows[0])
         return result.rows[0]
       }
 
