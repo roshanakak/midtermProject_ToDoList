@@ -4,7 +4,7 @@ const router = express.Router();
 const helpers = require('../helpers/usersHelper');
 
 module.exports = (db) => {
-  const { getUserByEmail, getUserByUsername, saveUser } = helpers(db);
+  const { getUserByEmail, getUserByUsername, getUserByID, saveUser } = helpers(db);
   
   router.get("/", (req, res) => {
     req.session.username = 1;

@@ -15,6 +15,7 @@ const morgan = require('morgan');
 
 const path = require('path');
 const cookieSession = require("cookie-session");
+const cookieParser = require('cookie-parser');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -45,6 +46,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 app.use(express.static("db"));
 
+app.use(cookieParser());
 
 // Setting cookies for 24 hours
 app.use(cookieSession({
@@ -84,10 +86,10 @@ app.get("/tasks", (req, res) => {
 
   if (req.session.userID) {
     res.render("homepage-user");
-  }
-  else {
+  } else {
     res.render("homepage-no-user");
   }
+  
 });
 
 

@@ -5,7 +5,7 @@ const helpers = require('../helpers/usersHelper');
 
 
 module.exports = (db) => {
-  const { getUserByEmail, getUserByUsername, saveUser } = helpers(db);
+  const { getUserByEmail, getUserByUsername, getUserByID, saveUser } = helpers(db);
 
   // handles GET for registeration
   router.get('', (req, res) => {

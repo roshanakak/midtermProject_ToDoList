@@ -5,7 +5,7 @@ const categoriesHelper = require('./categoriesHelper');
 
 module.exports = (db) => {
 
-  const { categorizeTasks } = categoriesHelper(db);
+  const { categorizeTasks, getCategoryByTitle  } = categoriesHelper(db);
 
   router.get('/find/:taskTitle', async(req,res) => {
     const result =  await categorizeTasks(req.params.taskTitle);

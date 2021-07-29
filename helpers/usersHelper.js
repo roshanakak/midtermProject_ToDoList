@@ -46,6 +46,28 @@ module.exports = (db) => {
       });
 
   };
+
+  const getUserByID = async function(id) {
+    const queryString = `
+        SELECT *
+        FROM users
+        WHERE id = $1
+      `;
+    const queryParams = [id];
+
+    return db.query(queryString, queryParams)
+      .then((res) => {
+        if (res !== null && res.rows.length > 0) {
+          return res.rows[0];
+        } else {
+          return null;
+        }
+      })
+      .catch((err) => {
+        return null;
+      });
+
+  };
   
   const saveUser = (user, req, res) => {
     const queryString = `
@@ -54,11 +76,9 @@ module.exports = (db) => {
       `;
     const queryParams = [user.username, user.email, user.password];
     
-    console.log('saveuser')
-
     return db.query(queryString, queryParams)
       .then((result) => {
-        req.session.user_id =  result.rows[0];
+        req.session.userID =  result.rows[0];
         res.render("homepage-user");
       })
       .catch((err) => {
@@ -66,7 +86,7 @@ module.exports = (db) => {
       });
   };
 
-  return { getUserByEmail, getUserByUsername, saveUser };
+  return { getUserByEmail, getUserByUsername, getUserByID, saveUser };
 };
 
 

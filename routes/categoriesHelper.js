@@ -1,5 +1,5 @@
 
-module.exports = () => {
+module.exports = (db) => {
 
   const superagent = require('superagent');
 
@@ -70,7 +70,31 @@ module.exports = () => {
     return cat;
   };
 
-  return { categorizeTasks };
+
+  const getCategoryByTitle = async function(CatTitle) {
+    const queryString = `
+        SELECT *
+        FROM categories
+        WHERE title = $1
+      `;
+    const queryParams = [CatTitle];
+
+    return db.query(queryString, queryParams)
+      .then((res) => {
+        if (res !== null && res.rows.length > 0) {
+          return res.rows[0];
+        } else {
+          return null;
+        }
+      })
+      .catch((err) => {
+        return null;
+      });
+
+  };
+
+
+  return { categorizeTasks, getCategoryByTitle };
 
 };
 
