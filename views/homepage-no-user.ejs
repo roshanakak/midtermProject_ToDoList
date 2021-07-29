@@ -24,6 +24,11 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/registerModal.js"></script>
 
+
+
+
+
+
   </head>
 
 
@@ -37,7 +42,14 @@
     <div class="main">
 
       <!-- the register modal -->
-      <div class="register-modal-root">
+        <!-- if user came from 'registration button', show this page with the registration modal -->
+      <div class="register-modal-root" style=
+
+        <% if (registerModal === 'visible') { %>
+          "visibility: visible;">
+        <% } else if (registerModal === 'hidden') { %>
+          "visibility: hidden;">
+        <% } %>
         <div id="register-modal" class="modal">
 
           <!-- the modal content -->
