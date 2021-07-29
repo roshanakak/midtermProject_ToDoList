@@ -9,8 +9,10 @@ module.exports = (db) => {
 
   // handles GET for registeration
   router.get('', (req, res) => {
-    res.redirect('/');
+    const templateVars = {registerModal: "visible"};
+    res.render("homepage-no-user", templateVars);
   });
+
 
  
   // handles POST for registeration

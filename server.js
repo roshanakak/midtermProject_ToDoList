@@ -62,8 +62,7 @@ const registerRoutes = require("./routes/register");
 const tasksRoutes = require("./routes/tasks");
 const validationRoutes = require("./routes/validation");
 const categoryRoutes = require("./routes/categories");
-const usersRoutes = require("./routes/users");
-const mainRoutes = require("./routes/main");
+// const usersRoutes = require("./routes/users");
 
 app.use('/login', loginRoutes(db));
 app.use('/logout', logoutRoutes(db));
@@ -71,24 +70,23 @@ app.use('/register', registerRoutes(db));
 app.use("/valid", validationRoutes(db));
 app.use("/cat", categoryRoutes(db));
 app.use("/tasks", tasksRoutes(db));
-// app.use("/", mainRoutes(db));
 // app.use("/api/users", usersRoutes(db));
 
 
 // Home page
 app.get("/", (req, res) => {
+  const templateVars = {
+    username: req.session.username,
+    registerModal: "hidden"
+  };
 
   if (req.session.userID) {
-    const templateVars = {
-      username: req.session.username
-    };
     res.render('homepage-user', templateVars);
   } else {
-    res.render("homepage-no-user");
+    res.render("homepage-no-user", templateVars);
   }
   
 });
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

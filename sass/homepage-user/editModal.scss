@@ -1,7 +1,6 @@
 @use '../base';
 
 #edit-modal {
-
   background-color: base.$off-white;
   border: 2px solid rgba(grey, 0.4);
   border-radius: 0.6em;
@@ -13,7 +12,7 @@
   position: fixed;
   visibility: hidden;
   width: 50%;
-  z-index: 1;
+  z-index: 2;
 
   .edit-modal-header {
     background-color: rgba(base.$blue-highlights, 0.8);
@@ -46,6 +45,11 @@
     height: 100%;
     padding: 0.5em 2em;
 
+    .task-title-category-check {
+      display: flex;
+      align-items: center;
+    }
+
     #edit-task-button {
       align-self: flex-end;
       background-color: base.$dark-grey-highlights;
@@ -66,7 +70,7 @@
         opacity: 1;
       }
     }
-    
+
   }
 
   .edit-modal-footer {

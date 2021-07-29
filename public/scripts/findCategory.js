@@ -6,7 +6,7 @@ $(document).ready(function() {
     
     document.cookie = "cat=1";
     
-    let taskTitle = document.getElementById("new-task-title").value;
+    let taskTitle = document.getElementById("task-title-new").value;
     $.get(`/cat/find/${taskTitle}`, function(data) {
       let obj = JSON.parse(JSON.stringify(data));
       $("#selectedCategory").text(obj.result);
@@ -15,7 +15,7 @@ $(document).ready(function() {
     
   });
 
-  document.querySelector("#new-task-title").addEventListener("keyup", (e) => {
+  document.querySelector("#task-title-new").addEventListener("keyup", (e) => {
     
     document.cookie = "cat=0";
     

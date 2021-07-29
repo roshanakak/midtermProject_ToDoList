@@ -32,8 +32,12 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="scripts/userAvatar.js"></script>
     <script type="text/javascript" src="scripts/categoryDropdown.js"></script>
+    <script type="text/javascript" src="scripts/tagClick.js"></script>
+    <script type="text/javascript" src="scripts/autoGenerator.js"></script>
+    <script type="text/javascript" src="scripts/tasks.js"></script>
     <script type="text/javascript" src="scripts/mainEditDelete.js"></script>
     <script type="text/javascript" src="scripts/findCategory.js"></script>
+
 
 
   </head>
@@ -64,7 +68,7 @@
     <!-- user tasks and tags sidebar -->
     <div id=main>
       <div id=sidebar>
-        <h2><i class="fas fa-check"></i>My Tasks</h2>
+        <h2><img class="sidebar-check" src="/images/side-bar-check-mark.png">My Tasks</h2>
         <ul>
           <a href="#"><li>All tasks</li></a>
           <a href="#"><li>Films/series</li></a>
@@ -73,7 +77,7 @@
           <a href="#"><li>Products</li></a>
         </ul>
 
-        <h2><i class="fas fa-tag"></i>Tags</h2>
+        <h2><img class="sidebar-tag" src="/images/side-bar-tag-icon.png">Tags</h2>
         <ul>
           <a href="#"><li>Important</li></a>
           <a href="#"><li>School</li></a>
@@ -84,8 +88,8 @@
       <!-- the main portion of the page -->
       <div class="main-information">
 
-
-        <!-- the edit modal -->
+      <!-- the edit modal -->
+      <div class="edit-modal-root">
         <div id="edit-modal" class="modal">
 
           <!-- the modal content -->
@@ -114,8 +118,15 @@
               </span>
             </div>
 
-            <!-- modal edit task title -->
-            <textarea type="text" id="task-title" placeholder="\\replace placeholder with actual user task//"></textarea>
+            <!-- modal edit task title
+            <textarea type="text" id="task-title" placeholder="\\replace placeholder with actual user task//"></textarea> -->
+
+
+            <div class="task-title-category-check">
+              <!-- modal edit task title -->
+              <input type="text" id="task-title-edit" placeholder="\\replace placeholder with actual user task//"></input>
+              <i class="fas fa-redo-alt"></i>
+            </div>
 
             <!-- modal edit category dropdown -->
             <div class="category-dropdown">
@@ -144,9 +155,10 @@
           <div class="edit-modal-footer">
           </div>
         </div>
+      </div>
 
-
-        <!-- the delete modal -->
+      <!-- the delete modal -->
+      <div class="delete-modal-root">
         <div id="delete-modal" class="modal">
 
           <!-- the modal content -->
@@ -166,8 +178,8 @@
             <button id="cancel-deletion-button">Cancel</button>
 
           </div>
-
         </div>
+      </div>
 
 
 
@@ -178,38 +190,6 @@
           <section id=tasks-list>
             <h1>Films</h1>
 
-            <!-- each article contains one task -->
-            <article class="task">
-
-              <div class="checkbox-and-title">
-                <div class="task-checkbox"><i class="fas fa-check"></i></div>
-                <p>Film 1</p>
-
-              </div>
-
-              <div class="delete-and-edit-icons">
-                <i class="fas fa-edit"></i>
-                <i class="far fa-trash-alt"></i>
-              </div>
-
-            </article>
-
-
-            <article class="task">
-
-              <div class="checkbox-and-title">
-                <div class="task-checkbox"><i class="fas fa-check"></i></div>
-                <p>Film 2</p>
-
-              </div>
-
-              <div class="delete-and-edit-icons">
-                <i class="fas fa-edit"></i>
-                <i class="far fa-trash-alt"></i>
-              </div>
-
-            </article>
-
           </section>
 
           <!-- this section contains the box where we can create a new task (right box on page) -->
@@ -217,7 +197,8 @@
 
             <p id="create-task-heading">Create a new task</p>
 
-            <form action="/tasks" method="POST">
+
+            <form action="/tasks" method="POST" id="create-task-form">
 
               <!-- had to group the tags, input bar and the category drop down into one div for flexbox purposes-->
               <div class="form-upper">
@@ -225,12 +206,10 @@
                 <div class="tags">
                   <span class="tag-important">
                     <p>Important</p>
-                    <!-- <i class="fas fa-times"></i> -->
                   </span>
 
                   <span class="tag-school">
                     <p>School</p>
-                    <!-- <i class="fas fa-times"></i> -->
                   </span>
 
                   <span class="tag-create">
@@ -241,8 +220,10 @@
 
                 <div class="task-title-category-check">
                   <!-- task title user input bar -->
-                  <input type="text" id="new-task-title" placeholder="input task" name="taskTitle"></input>
+
+                  <input type="text" id="task-title-new" placeholder="Task" name="taskTitle"></input>
                   <i class="fas fa-redo-alt" id="find-category"></i>
+
                 </div>
 
 
