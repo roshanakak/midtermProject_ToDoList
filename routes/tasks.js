@@ -7,7 +7,7 @@ const router  = express.Router();
 module.exports = (db) => {
 
   const { categorizeTasks, getCategoryByTitle } = categoriesHelper(db);
-  const { getAllTasks, saveTask, getTasksByCategory, editTask, deleteTask } = tasksHelper(db);
+  const { getAllTasks, saveTask, getTasksByCategory, editTask, deleteTask, completeTask } = tasksHelper(db);
   const { getUserByEmail, getUserByUsername, getUserByID, saveUser } = userssHelper(db);
 
 
@@ -97,6 +97,16 @@ module.exports = (db) => {
       await editTask(Task);
      
     }
+    res.redirect('/');
+
+  });
+  
+  //complete a task
+  router.get("/edit/:taskid/:statusid", async(req, res) => {
+    
+    await completeTask(req.params.taskid, req.params.statusid);
+     
+    
     res.redirect('/');
 
   });

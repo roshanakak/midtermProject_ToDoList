@@ -1,5 +1,21 @@
-const completeTask = function() {
-  $(".fas.fa-check").css({"visibility" : "visible"});
+const completeTask = function(event) {
+  $(`#fasfa-check_${event.target.getAttribute('taskid')}`).toggle();
+  
+  if ($(`#fasfa-check_${event.target.getAttribute('taskid')}`).css('display') === 'block')  {
+    
+    //completed
+    $.get(`/tasks/edit/${event.target.getAttribute('taskid')}/3`, function(data) {
+      
+    });
+
+  } else if ($(`#fasfa-check_${event.target.getAttribute('taskid')}`).css('display') === 'none')  {
+    //not-completed
+    $.get(`/tasks/edit/${event.target.getAttribute('taskid')}/1`, function(data) {
+      
+    });
+  } 
+  
+
 };
 
 const getCookie = function(cname) {
@@ -83,11 +99,18 @@ $(document).ready(() => {
  
 
   const createTaskElement = function(taskData) {
-    const $tasks = $(`
+    let $tasks = `
     <article class="task">
 
     <div class="checkbox-and-title">
-      <div class="task-checkbox"><i class="fas fa-check"></i></div>
+    <div class="task-checkbox" taskId="${taskData.id}" id="task-checkbox_${taskData.id}">`;
+    if (taskData.status_id === 1) {
+      $tasks += `<i class="fas fa-check" id="fasfa-check_${taskData.id}" style="display:none"></i>`
+    } else if (taskData.status_id === 3) {
+      $tasks += `<i class="fas fa-check" id="fasfa-check_${taskData.id}" style="display:block"></i>`
+    }
+    $tasks += `
+    </div>
       <p>${taskData.title}</p>
 
     </div>
@@ -97,13 +120,14 @@ $(document).ready(() => {
       <i class="far fa-trash-alt" id="icon-trash" taskId="${taskData.id}" ></i>
     </div>
 
-    </article>`);
+    </article>`;
 
     return $tasks;
   };
 
 
   const renderTasks = function(tasks) {
+    console.log(tasks)
     const tasksElements = tasks.map(task => createTaskElement(task));
     const $list = $("#tasks-list");
     $list.children().not(":first-child").remove();

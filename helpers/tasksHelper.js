@@ -98,7 +98,29 @@ module.exports = (db) => {
       });
   };
 
-  return { getAllTasks, saveTask, getTasksByCategory, editTask, deleteTask };
+  
+
+  const completeTask = async(id, status) => {
+    const queryString = `
+        UPDATE tasks SET status_id = $2 
+        WHERE id = $1
+      `;
+    const queryParams = [id, status];
+    
+    console.log(queryString)
+    console.log(queryParams)
+
+    return db.query(queryString, queryParams)
+      .then((result) => {
+        return result.rows[0];
+      })
+      .catch((err) => {
+        console.log(err);
+        return -1;
+      });
+  };
+
+  return { getAllTasks, saveTask, getTasksByCategory, editTask, deleteTask, completeTask };
 };
 
 
