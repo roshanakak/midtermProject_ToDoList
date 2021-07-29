@@ -6,4 +6,8 @@ $(document).ready(function() {
     $('#error-message').empty();
   })
 
+  $('.register-modal-body input').focus(() => {
+    $("#error-msg").hide();
+  })
+
 });
