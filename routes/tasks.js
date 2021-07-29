@@ -2,7 +2,7 @@ const express = require('express');
 const categoriesHelper = require('./categoriesHelper');
 const tasksHelper = require('../helpers/tasksHelper');
 const userssHelper = require('../helpers/usersHelper');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
 
@@ -37,7 +37,7 @@ module.exports = (db) => {
 
 
   //retrieves all tasks in a specific category
-  router.get("/cats/:category", async(req, res) => {
+  router.get("/cats/:category", async (req, res) => {
     let taskList = '';
     if (req.cookies.category === "all") {
       taskList = await getAllTasks(req.session.userID, req.cookies.category);
@@ -50,15 +50,16 @@ module.exports = (db) => {
   });
 
   //saves a new task
-  router.post("/", async(req, res) => {
+  router.post("/", async (req, res) => {
 
     if (req.body.taskTitle) {
       let category = '';
 
       // req.cookies.cat === '1': category assigned by user manually and it is in req.body.hiddenInput
-      if (req.cookies.cat === '1' && req.body.hiddenInput)  {
+      if (req.cookies.cat === '1' && req.body.hiddenInput) {
         category = req.body.hiddenInput;
       } else {
+        console.log("Task title", req.body.taskTitle);
         category = await categorizeTasks(req.body.taskTitle);
       }
 
@@ -67,11 +68,20 @@ module.exports = (db) => {
 
       const Task = {
         title: req.body.taskTitle,
-        'owner_id':  owner.id,
+        'owner_id': owner.id,
         'category_id': cat.id
       };
-
+      console.log("Saving a task");
       await saveTask(Task);
+      console.log("Task saved");
+    }
+    if (!req.body.taskTitle) {
+      console.log("Task field is empty")
+      res.render('homepage-user', {
+        errorMessage: "Task Title cannot be blank", username: req.session.username,
+        userId: req.session.userID
+      });
+
     }
 
     //res.redirect("/");
