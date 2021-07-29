@@ -6,7 +6,7 @@ const completeTask = function() {
   $(".fas.fa-check").css({"visibility" : "visible"});
 };
 
-const editTask = function() {
+const editTask = function(event) {
   $(".edit-modal-root").css({
     "background-color" : "rgba(0,0,0,0.2)",
     "position" : "absolute",
@@ -18,10 +18,16 @@ const editTask = function() {
   });
 
   $("#edit-modal").css({"visibility" : "visible"});
+
+  document.cookie = `taskid=${event.target.getAttribute('taskid')}`;
+  $("#task-title-edit").val(event.target.getAttribute('taskTitle'));
+  $("#selectedCategoryEdit").html(event.target.getAttribute('taskCat'));
+  $("#selectedCategoryEditInput").val($("#selectedCategoryEdit").text());
+
 };
 
 
-const deleteTask = function() {
+const deleteTask = function(id) {
   $(".delete-modal-root").css({
     "background-color" : "rgba(0,0,0,0.2)",
     "position" : "absolute",
@@ -66,6 +72,9 @@ $(document).ready(() => {
     });
   } else {
     document.getElementById('list-title').innerHTML = categoryCookie;
+    if (categoryCookie === 'all') {
+      document.getElementById('list-title').innerHTML = 'All Tasks';
+    }
     $.get(`/tasks/cats/${categoryCookie}`, function(data) {
       if (data) {
         renderTasks(Object.values(data.taskList));
@@ -73,10 +82,6 @@ $(document).ready(() => {
     });
   }
  
-
-
-
-
 
   const createTaskElement = function(taskData) {
     const $tasks = $(`
@@ -89,12 +94,11 @@ $(document).ready(() => {
     </div>
 
     <div class="delete-and-edit-icons">
-      <i class="fas fa-edit" id="icon-edit"></i>
+      <i class="fas fa-edit" id="icon-edit" taskId="${taskData.id}" taskTitle="${taskData.title}" taskCat="${taskData.cattitle}"></i>
       <i class="far fa-trash-alt" id="icon-trash"></i>
     </div>
 
     </article>`);
-
 
     return $tasks;
   };
@@ -205,7 +209,19 @@ $(document).ready(() => {
   });
 
 
+  $('#Products-tasks-link').click(function(event) {
 
+    $.get(`/tasks/edit/${getCookie('taskid')}`, function(data) {
+      // let obj = JSON.parse(JSON.stringify(data));
+      // $("#selectedCategory").text(obj.result);
+      console.log(data);
+
+      $(".edit-modal-root").css({"z-index" : "-1"});
+  
+      $("#caret-up-edit-task").css({"visibility" : "hidden"});
+      $("#caret-down-edit-task").css({"visibility" : "hidden"});
+    });
+  });
 
 
 });

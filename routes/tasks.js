@@ -7,7 +7,7 @@ const router  = express.Router();
 module.exports = (db) => {
 
   const { categorizeTasks, getCategoryByTitle } = categoriesHelper(db);
-  const { getAllTasks, saveTask, getTasksByCategory } = tasksHelper(db);
+  const { getAllTasks, saveTask, getTasksByCategory, editTask, deleteTask } = tasksHelper(db);
   const { getUserByEmail, getUserByUsername, getUserByID, saveUser } = userssHelper(db);
 
 
@@ -77,6 +77,32 @@ module.exports = (db) => {
       username: req.session.username
     };
     res.render('homepage-user', templateVars);
+
+  });
+  
+  //edit a task
+  router.post("/edit:id", async(req, res) => {
+    if (req.body.taskTitleEdit) {
+
+      let owner = await getUserByID(req.session.userID);
+      let cat = await getCategoryByTitle(req.body.hiddenInputEdit);
+      
+      const Task = {
+        id: req.cookies.taskid,
+        title: req.body.taskTitleEdit,
+        'owner_id':  owner.id,
+        'category_id': cat.id
+      };
+      
+      await editTask(Task);
+     
+    }
+    
+    // const templateVars = {
+    //   username: req.session.username
+    // };
+    // res.render('homepage-user', templateVars);
+    res.redirect('/');
 
   });
 
