@@ -184,7 +184,7 @@ h1  {
     }
 
     #register-password {
-      margin-bottom: 2em;
+      margin-bottom: 1em;
     }
 
     .sign-in-submit-buttons {
@@ -259,10 +259,8 @@ h1  {
   visibility: visible;
   color: base.$red-highlights;
   font-weight: bold;
-
-    i {
-      margin: 2%;
-    }
+  font-style: italic;
+  font-size: 0.8em;
 }
 
 

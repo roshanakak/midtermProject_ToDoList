@@ -23,6 +23,8 @@
     <!-- App JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/registerModal.js"></script>
+    <script type="text/javascript" src="scripts/resetInputForm.js"></script>
+
 
   </head>
 
@@ -67,10 +69,10 @@
 
               <p>password:</p>
               <input type="password" id="register-password" name="password"></input>
+              <span id="error-msg"></span>
 
               <div class="sign-in-submit-buttons">
                 <div class="register-sign-in-button">
-                  <p id="error-msg" style="visibility: hidden;">Error</p>
                   <p>Already have an account?</p>
                   <a href="/login">Sign in</a>
                 </div>

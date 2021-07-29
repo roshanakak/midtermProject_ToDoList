@@ -42,6 +42,10 @@ $(document).ready(function() {
       event.preventDefault();
       $("#error-msg").show();
       $("#error-msg").text('You have not provided a password!');
+    } else if (password.length < 8) {
+      event.preventDefault();
+      $("#error-msg").show();
+      $("#error-msg").text('Password must be at least 8 characters long');
     } else if (!regex.test(email)) {
       event.preventDefault();
       $("#error-msg").show();
