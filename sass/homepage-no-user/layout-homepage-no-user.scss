@@ -100,6 +100,15 @@ form {
   }
 }
 
+.register-modal-root {
+  background-color: rgba(0,0,0,0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1
+}
 
 #register-modal {
   background-color: base.$off-white;
@@ -113,6 +122,7 @@ form {
   position: fixed;
   width: 35%;
   z-index: 1;
+
 
   .register-modal-header {
     background-color: rgba(base.$blue-highlights, 0.7);
