@@ -9,17 +9,16 @@
   flex-direction: column;
   height: 100%;
 
-    #create-task-heading{
-      font-family: base.$bold-font;
-      font-size: 1.1em;
-      font-weight: bold;
-      margin-bottom: 0;
-      padding-bottom: 1%;
-      text-decoration: underline;
-      text-decoration-color: base.$blue-highlights;
-      text-decoration-thickness: 2px;
-      text-transform: uppercase;
-
+  #create-task-heading{
+    font-family: base.$bold-font;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 0;
+    padding-bottom: 1%;
+    text-decoration: underline;
+    text-decoration-color: base.$blue-highlights;
+    text-decoration-thickness: 2px;
+    text-transform: uppercase;
   }
 
 
@@ -82,10 +81,10 @@
     border: 2px solid rgba(grey, 0.4);
     border-radius: 0.6em;
     display: flex;
-    flex-direction: column;
     height: 100%;
     justify-content: center;
-    margin: 0 2%;
+    margin: 2%;
+    padding: 4%;
     width:30%;
 
     &:hover {
@@ -94,13 +93,9 @@
       cursor: pointer;
     }
 
-    p {
-      margin: 0.5em 0.5em 0 0.5em;
-    }
-
     //icons
     i {
-      font-size:1.25em;
+      font-size: 2em;
     }
   }
 }

@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     setTimeout(function () {
       icon.toggleClass("fa-spin");
-    }, 2000);
+    }, 4000);
   }
 
   $(".fas.fa-redo-alt").on("click", function() {
