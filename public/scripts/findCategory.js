@@ -34,9 +34,22 @@ $(document).ready(function() {
     $("#caret-down-create-task").css({"visibility" : "visible", "order" : "1"});
   
   };
+ 
+  const catItemEditClick = function() {
+    
+    document.cookie = "cat=1";
+
+    $("#selectedCategoryEditInput").val($("#selectedCategoryEdit").text());
+
+    const menu = $('#category-contents-edit-task');
+    menu.toggle(200);
+    $("#caret-up-edit-task").css({"visibility" : "hidden", "order" : "2"});
+    $("#caret-down-edit-task").css({"visibility" : "visible", "order" : "1"});
+  
+  };
 
   document.querySelector("#cat-item-Films").addEventListener("click", (e) => {
-    $("#selectedCategory").text('Films/Series');
+    $("#selectedCategory").text('Movies');
     catItemClick();
     console.log($("#selectedCategoryInput").text)
   });
@@ -54,6 +67,28 @@ $(document).ready(function() {
   document.querySelector("#cat-item-Products").addEventListener("click", (e) => {
     $("#selectedCategory").text('Products');
     catItemClick();
+  });
+
+
+  
+  document.querySelector("#cat-item-edit-Films").addEventListener("click", (e) => {
+    $("#selectedCategoryEdit").text('Movies');
+    catItemEditClick();
+  });
+  
+  document.querySelector("#cat-item-edit-Restaurants").addEventListener("click", (e) => {
+    $("#selectedCategoryEdit").text('Restaurants');
+    catItemEditClick();
+  });
+
+  document.querySelector("#cat-item-edit-Books").addEventListener("click", (e) => {
+    $("#selectedCategoryEdit").text('Books');
+    catItemEditClick();
+  });
+  
+  document.querySelector("#cat-item-edit-Products").addEventListener("click", (e) => {
+    $("#selectedCategoryEdit").text('Products');
+    catItemEditClick();
   });
 
 

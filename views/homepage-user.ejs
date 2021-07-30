@@ -80,7 +80,7 @@
           <li>All tasks</li>
         </a>
         <a href="#" id="Films-tasks-link">
-          <li>Films/series</li>
+          <li>Movies</li>
         </a>
         <a href="#" id="Restaurants-tasks-link">
           <li>Restaurants</li>
@@ -109,98 +109,106 @@
     <div class="main-information">
 
       <!-- the edit modal -->
-      <div class="edit-modal-root">
-        <div id="edit-modal" class="modal">
+      <form action="/tasks/edit:id" method="POST">
 
-          <!-- the modal content -->
-          <div class="edit-modal-header">
+        <div class="edit-modal-root">
+          <div id="edit-modal" class="modal">
 
-            <!-- x for closing the modal -->
-            <i class="fas fa-times" id="edit-modal-close"></i>
-            <h1>Edit Task</h1>
-          </div>
+            <!-- the modal content -->
+            <div class="edit-modal-header">
 
-          <div class="edit-modal-body">
-            <!-- modal tags -->
-            <div class="tags">
-              <span class="tag-important">
-                <p>Important</p>
-                <!-- <i class="fas fa-times"></i> -->
-              </span>
-
-              <span class="tag-school">
-                <p>School</p>
-                <!-- <i class="fas fa-times"></i> -->
-              </span>
-
-              <span class="tag-create">
-                <p>Add tag</p>
-              </span>
+              <!-- x for closing the modal -->
+              <i class="fas fa-times" id="edit-modal-close"></i>
+              <h1>Edit Task</h1>
             </div>
 
-            <!-- modal edit task title
-            <textarea type="text" id="task-title" placeholder="\\replace placeholder with actual user task//"></textarea> -->
+            <div class="edit-modal-body">
+              <!-- modal tags -->
+              <div class="tags">
+                <span class="tag-important">
+                  <p>Important</p>
+                  <!-- <i class="fas fa-times"></i> -->
+                </span>
 
+                <span class="tag-school">
+                  <p>School</p>
+                  <!-- <i class="fas fa-times"></i> -->
+                </span>
 
-            <div class="task-title-category-check">
-              <!-- modal edit task title -->
-              <input type="text" id="task-title-edit"
-                placeholder="\\replace placeholder with actual user task//"></input>
-              <i class="fas fa-redo-alt" title="auto-categorizer"></i>
-            </div>
-
-            <!-- modal edit category dropdown -->
-            <div class="category-dropdown">
-              <h5>Category: </h5>
-
-              <div class="category-select">
-                <!-- these are the dropdown menu options -->
-                <ul class="category-contents" id="category-contents-edit-task">
-                  <li>Films/series</li>
-                  <li>Restaurants</li>
-                  <li>Books</li>
-                  <li>Products</li>
-                </ul>
+                <span class="tag-create">
+                  <p>Add tag</p>
+                </span>
               </div>
 
-              <!-- up and down arrows that toggle the visibility of the dropdown menu -->
-              <p class="category-visibility-toggle">
-                <i class="fas fa-caret-down" id="caret-down-edit-task"></i>
-                <i class="fas fa-caret-up" id="caret-up-edit-task"></i>
-              </p>
+              <!-- modal edit task title
+              <textarea type="text" id="task-title" placeholder="\\replace placeholder with actual user task//"></textarea> -->
+
+
+              <div class="task-title-category-check">
+                <!-- modal edit task title -->
+                <input type="text" id="task-title-edit"  name="taskTitleEdit"></input>
+                <!-- <i class="fas fa-redo-alt"></i> -->
+              </div>
+
+              <!-- modal edit category dropdown -->
+              <div class="category-dropdown">
+                <h5>Category: </h5>
+                <h5 id="selectedCategoryEdit"></h5>
+
+                <div class="category-select">
+                  <!-- these are the dropdown menu options -->
+                  <ul class="category-contents" id="category-contents-edit-task">
+                    <li id="cat-item-edit-Films">Movies</li>
+                    <li id="cat-item-edit-Restaurants">Restaurants</li>
+                    <li id="cat-item-edit-Books">Books</li>
+                    <li id="cat-item-edit-Products">Products</li>
+                  </ul>
+                </div>
+
+                <!-- up and down arrows that toggle the visibility of the dropdown menu -->
+                <p class="category-visibility-toggle">
+                  <i class="fas fa-caret-down" id="caret-down-edit-task"></i>
+                  <i class="fas fa-caret-up" id="caret-up-edit-task"></i>
+                </p>
+              </div>
+
+              <button type="submit" id="edit-task-button">Edit</button>
             </div>
+            <input type="text" id="selectedCategoryEditInput" name="hiddenInputEdit" style="visibility: hidden;"></input>
 
-            <button type="submit" id="edit-task-button">Edit</button>
-          </div>
-
-          <div class="edit-modal-footer">
+            <div class="edit-modal-footer">
+            </div>
           </div>
         </div>
-      </div>
+        
+      </form>
+
 
       <!-- the delete modal -->
-      <div class="delete-modal-root">
-        <div id="delete-modal" class="modal">
+      <form action="/tasks/delete:id" method="POST">
+        <div class="delete-modal-root">
+          <div id="delete-modal" class="modal">
 
-          <!-- the modal content -->
-          <div class="delete-modal-header">
+            <!-- the modal content -->
+            <div class="delete-modal-header">
 
-            <!-- x for closing the modal -->
-            <i class="fas fa-times" id="delete-modal-close"></i>
-            <i class="far fa-trash-alt" id="delete-modal-bin"></i>
-            <h1>Want to delete?</h1>
-          </div>
+              <!-- x for closing the modal -->
+              <i class="fas fa-times" id="delete-modal-close"></i>
+              <i class="far fa-trash-alt" id="delete-modal-bin"></i>
+              <h1>Want to delete?</h1>
+            </div>
 
-          <div class="delete-modal-body">
+            <div class="delete-modal-body">
 
-            <p>Are you sure you want to delete this task? You will <b>not be able to restore</b> it.</p>
+              <p>Are you sure you want to delete this task? You will <b>not be able to restore</b> it.</p>
 
-            <button type="submit" id="delete-task-button">Delete</button>
-            <button id="cancel-deletion-button">Cancel</button>
+              <button type="submit" id="delete-task-button">Delete</button>
+              <button id="cancel-deletion-button">Cancel</button>
 
+            </div>
           </div>
         </div>
-      </div>
+      </form>
 
 
 
@@ -269,7 +277,7 @@
 
                   <!-- these are the dropdown menu options -->
                   <ul class="category-contents" id="category-contents-create-task">
-                    <li id="cat-item-Films">Films/series</li>
+                    <li id="cat-item-Films">Movies</li>
                     <li id="cat-item-Restaurants">Restaurants</li>
                     <li id="cat-item-Books">Books</li>
                     <li id="cat-item-Products">Products</li>

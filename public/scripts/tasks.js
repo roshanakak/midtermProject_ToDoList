@@ -1,12 +1,40 @@
-const exampleTasks = [{
-  title: "Black Widow"
-}];
+const completeTask = function(event) {
+  $(`#fasfa-check_${event.target.getAttribute('taskid')}`).toggle();
+  
+  if ($(`#fasfa-check_${event.target.getAttribute('taskid')}`).css('display') === 'block')  {
+    
+    //completed
+    $.get(`/tasks/edit/${event.target.getAttribute('taskid')}/3`, function(data) {
+      
+    });
 
-const completeTask = function () {
-  $(".fas.fa-check").css({ "visibility": "visible" });
+  } else if ($(`#fasfa-check_${event.target.getAttribute('taskid')}`).css('display') === 'none')  {
+    //not-completed
+    $.get(`/tasks/edit/${event.target.getAttribute('taskid')}/1`, function(data) {
+      
+    });
+  } 
+  
+
 };
 
-const editTask = function () {
+const getCookie = function(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) === 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+};
+
+const editTask = function(event) {
   $(".edit-modal-root").css({
     "background-color": "rgba(0,0,0,0.2)",
     "position": "absolute",
@@ -17,11 +45,17 @@ const editTask = function () {
     "z-index": "1"
   });
 
-  $("#edit-modal").css({ "visibility": "visible" });
+  $("#edit-modal").css({"visibility" : "visible"});
+
+  document.cookie = `taskid=${event.target.getAttribute('taskid')}`;
+  $("#task-title-edit").val(event.target.getAttribute('taskTitle'));
+  $("#selectedCategoryEdit").html(event.target.getAttribute('taskCat'));
+  $("#selectedCategoryEditInput").val($("#selectedCategoryEdit").text());
+
 };
 
 
-const deleteTask = function () {
+const deleteTask = function(event) {
   $(".delete-modal-root").css({
     "background-color": "rgba(0,0,0,0.2)",
     "position": "absolute",
@@ -32,49 +66,67 @@ const deleteTask = function () {
     "z-index": "1"
   });
 
-  $("#delete-modal").css({ "visibility": "visible" });
+  $("#delete-modal").css({"visibility" : "visible"});
+  
+  document.cookie = `taskid=${event.target.getAttribute('taskid')}`;
 };
 
 
 $(document).ready(() => {
 
   //fill the tasks list at first load
-  document.getElementById('list-title').innerHTML = 'All Tasks';
-  document.cookie = "category=all";
-  $.get(`/tasks/cats/all`, function (data) {
-    if (data) {
-      console.log(data)
-      renderTasks(Object.values(data.taskList));
+  
+  const categoryCookie = getCookie('category');
+  if (categoryCookie === '') {
+    document.getElementById('list-title').innerHTML = 'All Tasks';
+    document.cookie = "category=all";
+    $.get(`/tasks/cats/all`, function(data) {
+      if (data) {
+        renderTasks(Object.values(data.taskList));
+      }
+    });
+  } else {
+    document.getElementById('list-title').innerHTML = categoryCookie;
+    if (categoryCookie === 'all') {
+      document.getElementById('list-title').innerHTML = 'All Tasks';
     }
-  });
+    $.get(`/tasks/cats/${categoryCookie}`, function(data) {
+      if (data) {
+        renderTasks(Object.values(data.taskList));
+      }
+    });
+  }
+ 
 
-
-
-
-  const createTaskElement = function (taskData) {
-    const $tasks = $(`
+  const createTaskElement = function(taskData) {
+    let $tasks = `
     <article class="task">
 
     <div class="checkbox-and-title">
-      <div class="task-checkbox"><i class="fas fa-check"></i></div>
+    <div class="task-checkbox" taskId="${taskData.id}" id="task-checkbox_${taskData.id}">`;
+    if (taskData.status_id === 1) {
+      $tasks += `<i class="fas fa-check" id="fasfa-check_${taskData.id}" style="display:none"></i>`
+    } else if (taskData.status_id === 3) {
+      $tasks += `<i class="fas fa-check" id="fasfa-check_${taskData.id}" style="display:block"></i>`
+    }
+    $tasks += `
+    </div>
       <p>${taskData.title}</p>
 
     </div>
 
     <div class="delete-and-edit-icons">
-      <i class="fas fa-edit" id="icon-edit"></i>
-      <i class="far fa-trash-alt" id="icon-trash"></i>
+      <i class="fas fa-edit" id="icon-edit" taskId="${taskData.id}" taskTitle="${taskData.title}" taskCat="${taskData.cattitle}"></i>
+      <i class="far fa-trash-alt" id="icon-trash" taskId="${taskData.id}" ></i>
     </div>
 
-    </article>`);
-
+    </article>`;
 
     return $tasks;
   };
 
 
-  const renderTasks = function (tasks) {
-    console.log(tasks);
+  const renderTasks = function(tasks) {
     const tasksElements = tasks.map(task => createTaskElement(task));
     const $list = $("#tasks-list");
     $list.children().not(":first-child").remove();
@@ -100,7 +152,7 @@ $(document).ready(() => {
     }
   };
 
-  renderTasks(exampleTasks);
+
 
   // -------- Function to validate task input(field) and returns appropriate error message -----//
   const validateTask = () => {
@@ -119,18 +171,6 @@ $(document).ready(() => {
 
   $("#task-title-new").keydown(clearError);
 
-  $("#create-task-form").submit((event) => {
-    // event.preventDefault();
-    // const newTitle = $("#task-title-new").val();
-    // $("#task-title").val("");
-    // exampleTasks.push({ title: newTitle });
-
-    // $('#create-task-form').trigger("reset");
-
-    // renderTasks(exampleTasks);
-  });
-
-
 
   $('#all-tasks-link').click(function (event) {
     event.preventDefault();
@@ -148,10 +188,10 @@ $(document).ready(() => {
 
   $('#Films-tasks-link').click(function (event) {
     event.preventDefault();
-    document.getElementById('list-title').innerHTML = 'Films/Series';
-    document.cookie = "category=Films/Series";
-
-    $.get(`/tasks/cats/Films`, function (data) {
+    document.getElementById('list-title').innerHTML = 'Movies';
+    document.cookie = "category=Movies";
+    
+    $.get(`/tasks/cats/Films`, function(data) {
       renderTasks(Object.values(data.taskList));
     });
 
@@ -193,9 +233,6 @@ $(document).ready(() => {
 
     return false;
   });
-
-
-
 
 
 });
