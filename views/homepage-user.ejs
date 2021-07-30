@@ -1,291 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <!-- linking the icons from 'font awesome' -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+<head>
+  <title>Home Page</title>
 
-
-    <!-- linking external fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- linking the icons from 'font awesome' -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    referrerpolicy="no-referrer" />
 
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/layout-homepage-user.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/listsNavigation.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/tasksList.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/createNewTask.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/editModal.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/deleteModal.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/homepage-user/input-EditNewTask.css" type="text/css" />
+  <!-- linking external fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500&display=swap"
+    rel="stylesheet">
 
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="scripts/userAvatar.js"></script>
-    <script type="text/javascript" src="scripts/categoryDropdown.js"></script>
-    <script type="text/javascript" src="scripts/tagClick.js"></script>
-    <script type="text/javascript" src="scripts/autoGenerator.js"></script>
-    <script type="text/javascript" src="scripts/tasks.js"></script>
-    <script type="text/javascript" src="scripts/mainEditDelete.js"></script>
-    <script type="text/javascript" src="scripts/findCategory.js"></script>
-
-
-
-  </head>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/layout-homepage-user.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/listsNavigation.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/tasksList.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/createNewTask.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/editModal.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/deleteModal.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/homepage-user/input-EditNewTask.css" type="text/css" />
 
 
+  <!-- App JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="scripts/userAvatar.js"></script>
+  <script type="text/javascript" src="scripts/categoryDropdown.js"></script>
+  <script type="text/javascript" src="scripts/tagClick.js"></script>
+  <script type="text/javascript" src="scripts/autoGenerator.js"></script>
+  <script type="text/javascript" src="scripts/tasks.js"></script>
+  <script type="text/javascript" src="scripts/mainEditDelete.js"></script>
+  <script type="text/javascript" src="scripts/findCategory.js"></script>
 
 
-  <body>
-    <!-- fixed header - shows logo and avatar -->
-    <nav>
-      <img class="logo" src="/images/logo-2c.png">
 
-      <div id="user-settings">
-
-        <div>
-          <img class="avatar" src="/images/avatar-<%=userId%>.png">
-        </div>
-
-        <div id="user-dropdown-content">
-          <p><%= username %></p>
-          <a href="#">Personal settings</a>
-          <a href="/logout">Log out</a>
-
-        </div>
-      </div>
-    </nav>
+</head>
 
 
-    <!-- user tasks and tags sidebar -->
-    <div id=main>
-      <div id=sidebar>
-        <h2><img class="sidebar-check" src="/images/side-bar-check-mark.png">My Tasks</h2>
-        <ul>
-          <a href="#" id="all-tasks-link"><li>All tasks</li></a>
-          <a href="#" id="Films-tasks-link"><li>Films/series</li></a>
-          <a href="#" id="Restaurants-tasks-link"><li>Restaurants</li></a>
-          <a href="#" id="Books-tasks-link"><li>Books</li></a>
-          <a href="#" id="Products-tasks-link"><li>Products</li></a>
-        </ul>
 
-        <h2><img class="sidebar-tag" src="/images/side-bar-tag-icon.png">Tags</h2>
-        <ul>
-          <a href="#"><li>Important</li></a>
-          <a href="#"><li>School</li></a>
-        </ul>
 
+<body>
+  <!-- fixed header - shows logo and avatar -->
+  <nav>
+    <img class="logo" src="/images/logo-2c.png">
+
+    <div id="user-settings">
+
+      <div>
+        <img class="avatar" src="/images/avatar-1.png">
       </div>
 
-      <!-- the main portion of the page -->
-      <div class="main-information">
-
-      <!-- the edit modal -->
-      <div class="edit-modal-root">
-        <div id="edit-modal" class="modal">
-
-          <!-- the modal content -->
-          <div class="edit-modal-header">
-
-            <!-- x for closing the modal -->
-            <i class="fas fa-times" id="edit-modal-close"></i>
-            <h1>Edit Task</h1>
-          </div>
-
-          <div class="edit-modal-body">
-            <!-- modal tags -->
-            <div class="tags">
-              <span class="tag-important">
-                <p>Important</p>
-                <!-- <i class="fas fa-times"></i> -->
-              </span>
-
-              <span class="tag-school">
-                <p>School</p>
-                <!-- <i class="fas fa-times"></i> -->
-              </span>
-
-              <span class="tag-create">
-                <p>Add tag</p>
-              </span>
-            </div>
-
-            <!-- modal edit task title
-            <textarea type="text" id="task-title" placeholder="\\replace placeholder with actual user task//"></textarea> -->
-
-
-            <div class="task-title-category-check">
-              <!-- modal edit task title -->
-              <input type="text" id="task-title-edit" placeholder="\\replace placeholder with actual user task//"></input>
-              <i class="fas fa-redo-alt" title="auto-categorizer"></i>
-            </div>
-
-            <!-- modal edit category dropdown -->
-            <div class="category-dropdown">
-              <h5>Category: </h5>
-
-              <div class="category-select">
-                <!-- these are the dropdown menu options -->
-                <ul class="category-contents" id="category-contents-edit-task">
-                  <li>Films/series</li>
-                  <li>Restaurants</li>
-                  <li>Books</li>
-                  <li>Products</li>
-                </ul>
-              </div>
-
-              <!-- up and down arrows that toggle the visibility of the dropdown menu -->
-              <p class="category-visibility-toggle">
-                <i class="fas fa-caret-down" id="caret-down-edit-task"></i>
-                <i class="fas fa-caret-up" id="caret-up-edit-task"></i>
-              </p>
-            </div>
-
-            <button type="submit" id="edit-task-button">Edit</button>
-          </div>
-
-          <div class="edit-modal-footer">
-          </div>
-        </div>
-      </div>
-
-      <!-- the delete modal -->
-      <div class="delete-modal-root">
-        <div id="delete-modal" class="modal">
-
-          <!-- the modal content -->
-          <div class="delete-modal-header">
-
-            <!-- x for closing the modal -->
-            <i class="fas fa-times" id="delete-modal-close"></i>
-            <i class="far fa-trash-alt" id="delete-modal-bin"></i>
-            <h1>Want to delete?</h1>
-          </div>
-
-          <div class="delete-modal-body">
-
-            <p>Are you sure you want to delete this task? You will <b>not be able to restore</b> it.</p>
-
-            <button type="submit" id="delete-task-button">Delete</button>
-            <button id="cancel-deletion-button">Cancel</button>
-
-          </div>
-        </div>
-      </div>
-
-
-
-
-        <div class="see-and-create">
-
-          <!-- this section contains the selected task list (left box on page)  -->
-          <section id=tasks-list>
-            <h1 id="list-title">Films</h1>
-
-          </section>
-
-          <!-- this section contains the box where we can create a new task (right box on page) -->
-          <section id="create-new-task">
-
-            <p id="create-task-heading">Create a new task</p>
-
-
-            <form action="/tasks" method="POST" id="create-task-form">
-
-              <!-- had to group the tags, input bar and the category drop down into one div for flexbox purposes-->
-              <div class="form-upper">
-
-                <div class="tags">
-                  <span class="tag-important">
-                    <p>Important</p>
-                  </span>
-
-                  <span class="tag-school">
-                    <p>School</p>
-                  </span>
-
-                  <span class="tag-create">
-                    <p>Add tag</p>
-                  </span>
-
-                </div>
-
-                <div class="task-title-category-check">
-                  <!-- task title user input bar -->
-
-                  <input type="text" id="task-title-new" placeholder="Task" name="taskTitle"></input>
-                  <i class="fas fa-redo-alt" id="find-category" title="auto-categorizer"></i>
-
-                </div>
-
-
-                <div class="category-dropdown">
-                  <h5>Category: </h5>
-                  <h5 id="selectedCategory"></h5>
-
-                  <div class="category-select">
-
-                    <!-- this is where the auto-categorizer states the category -->
-                    <p id="auto-category"><%= %></p>
-
-                    <!-- these are the dropdown menu options -->
-                    <ul class="category-contents" id="category-contents-create-task">
-                      <li id="cat-item-Films">Films/series</li>
-                      <li id="cat-item-Restaurants">Restaurants</li>
-                      <li id="cat-item-Books">Books</li>
-                      <li id="cat-item-Products">Products</li>
-                    </ul>
-                  </div>
-
-                  <!-- up and down arrows that toggle the visibility of the dropdown menu -->
-                  <p class="category-visibility-toggle">
-                    <i class="fas fa-caret-down" id="caret-down-create-task"></i>
-                <i class="fas fa-caret-up" id="caret-up-create-task"></i>
-                  </p>
-                </div>
-              </div>
-
-              <div class="features-form-submit">
-                <!-- this contains the 'reminder', 'due date' and 'share' buttons -->
-                <div id="task-additional-features">
-
-                  <div class="task-reminder" title="Set a reminder">
-                    <i class="fas fa-bell"></i>
-                  </div>
-
-
-                  <div class="task-calendar-date" title="Set a due date">
-                    <i class="far fa-calendar-alt"></i>
-                  </div>
-
-
-                  <div class="task-share" title="Share task">
-                    <i class="fas fa-share-square"></i>
-                  </div>
-
-
-                </div>
-
-                <!-- button to submit a new task -->
-                <button type="submit" class="new-task-button">Submit</button>
-                <input type="text" id="selectedCategoryInput" name="hiddenInput" style="visibility: hidden;"></input>
-              </div>
-
-            </form>
-
-          </section>
-
-        </div>
+      <div id="user-dropdown-content">
+        <p>
+          <%= username %>
+        </p>
+        <a href="#">Personal settings</a>
+        <a href="/logout">Log out</a>
       </div>
     </div>
-  </body>
+  </nav>
+
+
+  <!-- user tasks and tags sidebar -->
+  <div id=main>
+    <div id=sidebar>
+      <h2><img class="sidebar-check" src="/images/side-bar-check-mark.png">My Tasks</h2>
+      <ul>
+        <a href="#" id="all-tasks-link">
+          <li>All tasks</li>
+        </a>
+        <a href="#" id="Films-tasks-link">
+          <li>Movies</li>
+        </a>
+        <a href="#" id="Restaurants-tasks-link">
+          <li>Restaurants</li>
+        </a>
+        <a href="#" id="Books-tasks-link">
+          <li>Books</li>
+        </a>
+        <a href="#" id="Products-tasks-link">
+          <li>Products</li>
+        </a>
+      </ul>
+
+      <h2><img class="sidebar-tag" src="/images/side-bar-tag-icon.png">Tags</h2>
+      <ul>
+        <a href="#">
+          <li>Important</li>
+        </a>
+        <a href="#">
+          <li>School</li>
+        </a>
+      </ul>
+
+    </div>
+
+    <!-- the main portion of the page -->
+    <div class="main-information">
+
+      <!-- the edit modal -->
+      <form action="/tasks/edit:id" method="POST">
+
+        <div class="edit-modal-root">
+          <div id="edit-modal" class="modal">
+
+            <!-- the modal content -->
+            <div class="edit-modal-header">
+
+              <!-- x for closing the modal -->
+              <i class="fas fa-times" id="edit-modal-close"></i>
+              <h1>Edit Task</h1>
+            </div>
+
+            <div class="edit-modal-body">
+              <!-- modal tags -->
+              <div class="tags">
+                <span class="tag-important">
+                  <p>Important</p>
+                  <!-- <i class="fas fa-times"></i> -->
+                </span>
+
+                <span class="tag-school">
+                  <p>School</p>
+                  <!-- <i class="fas fa-times"></i> -->
+                </span>
+
+                <span class="tag-create">
+                  <p>Add tag</p>
+                </span>
+              </div>
+
+              <!-- modal edit task title
+              <textarea type="text" id="task-title" placeholder="\\replace placeholder with actual user task//"></textarea> -->
+
+
+              <div class="task-title-category-check">
+                <!-- modal edit task title -->
+                <input type="text" id="task-title-edit"  name="taskTitleEdit"></input>
+                <!-- <i class="fas fa-redo-alt"></i> -->
+              </div>
+
+              <!-- modal edit category dropdown -->
+              <div class="category-dropdown">
+                <h5>Category: </h5>
+                <h5 id="selectedCategoryEdit"></h5>
+
+                <div class="category-select">
+                  <!-- these are the dropdown menu options -->
+                  <ul class="category-contents" id="category-contents-edit-task">
+                    <li id="cat-item-edit-Films">Movies</li>
+                    <li id="cat-item-edit-Restaurants">Restaurants</li>
+                    <li id="cat-item-edit-Books">Books</li>
+                    <li id="cat-item-edit-Products">Products</li>
+                  </ul>
+                </div>
+
+                <!-- up and down arrows that toggle the visibility of the dropdown menu -->
+                <p class="category-visibility-toggle">
+                  <i class="fas fa-caret-down" id="caret-down-edit-task"></i>
+                  <i class="fas fa-caret-up" id="caret-up-edit-task"></i>
+                </p>
+              </div>
+
+              <button type="submit" id="edit-task-button">Edit</button>
+            </div>
+            <input type="text" id="selectedCategoryEditInput" name="hiddenInputEdit" style="visibility: hidden;"></input>
+
+            <div class="edit-modal-footer">
+            </div>
+          </div>
+        </div>
+        
+      </form>
+
+
+      <!-- the delete modal -->
+      <form action="/tasks/delete:id" method="POST">
+        <div class="delete-modal-root">
+          <div id="delete-modal" class="modal">
+
+            <!-- the modal content -->
+            <div class="delete-modal-header">
+
+              <!-- x for closing the modal -->
+              <i class="fas fa-times" id="delete-modal-close"></i>
+              <i class="far fa-trash-alt" id="delete-modal-bin"></i>
+              <h1>Want to delete?</h1>
+            </div>
+
+            <div class="delete-modal-body">
+
+              <p>Are you sure you want to delete this task? You will <b>not be able to restore</b> it.</p>
+
+              <button type="submit" id="delete-task-button">Delete</button>
+              <button id="cancel-deletion-button">Cancel</button>
+
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+
+
+      <div class="see-and-create">
+
+        <!-- this section contains the selected task list (left box on page)  -->
+        <section id=tasks-list>
+          <h1 id="list-title">Films</h1>
+
+        </section>
+
+        <!-- this section contains the box where we can create a new task (right box on page) -->
+        <section id="create-new-task">
+
+          <p id="create-task-heading">Create a new task</p>
+
+
+          <form action="/tasks" method="POST" id="create-task-form">
+
+            <!-- had to group the tags, input bar and the category drop down into one div for flexbox purposes-->
+            <div class="form-upper">
+
+              <div class="tags">
+                <span class="tag-important">
+                  <p>Important</p>
+                </span>
+
+                <span class="tag-school">
+                  <p>School</p>
+                </span>
+
+                <span class="tag-create">
+                  <p>Add tag</p>
+                </span>
+
+              </div>
+              <div>
+                <% if (typeof errorMessage !=="undefined" ) { %>
+                  <span id="error-message"><i class="fas fa-exclamation-circle"></i>
+                    <%= errorMessage %>
+                  </span>
+                  <% } %>
+
+              </div>
+
+              <div class="task-title-category-check">
+                <!-- task title user input bar -->
+
+                <input type="text" id="task-title-new" placeholder="Task" name="taskTitle"></input>
+                <i class="fas fa-redo-alt" id="find-category" title="auto-categorizer"></i>
+
+              </div>
+
+
+              <div class="category-dropdown">
+                <h5>Category: </h5>
+                <h5 id="selectedCategory"></h5>
+
+                <div class="category-select">
+
+                  <!-- this is where the auto-categorizer states the category -->
+                  <p id="auto-category">
+                    <%= %>
+                  </p>
+
+                  <!-- these are the dropdown menu options -->
+                  <ul class="category-contents" id="category-contents-create-task">
+                    <li id="cat-item-Films">Movies</li>
+                    <li id="cat-item-Restaurants">Restaurants</li>
+                    <li id="cat-item-Books">Books</li>
+                    <li id="cat-item-Products">Products</li>
+                  </ul>
+                </div>
+
+                <!-- up and down arrows that toggle the visibility of the dropdown menu -->
+                <p class="category-visibility-toggle">
+                  <i class="fas fa-caret-down" id="caret-down-create-task"></i>
+                  <i class="fas fa-caret-up" id="caret-up-create-task"></i>
+                </p>
+              </div>
+            </div>
+
+            <div class="features-form-submit">
+              <!-- this contains the 'reminder', 'due date' and 'share' buttons -->
+              <div id="task-additional-features">
+
+                <div class="task-reminder" title="Set a reminder">
+                  <i class="fas fa-bell"></i>
+                </div>
+
+
+                <div class="task-calendar-date" title="Set a due date">
+                  <i class="far fa-calendar-alt"></i>
+                </div>
+
+
+                <div class="task-share" title="Share task">
+                  <i class="fas fa-share-square"></i>
+                </div>
+
+
+              </div>
+
+              <!-- button to submit a new task -->
+              <button type="submit" class="new-task-button">Submit</button>
+              <input type="text" id="selectedCategoryInput" name="hiddenInput" style="visibility: hidden;"></input>
+            </div>
+
+          </form>
+
+        </section>
+
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
