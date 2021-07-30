@@ -1,15 +1,45 @@
-LHL Node Skeleton
+Contributors -  [Roshanak](https://github.com/roshanakak), [Veronica](https://github.com/tungtung233) and [Emeka](https://github.com/Emeka-asogwa),
 =========
+# Task Me Later
+This is a todo list app that auto-categorizes tasks as the user adds the name of a task, and it gets added into the correct list.
+
+Tasks are categorized using API services such as those offered by Google, Wolfram Alpha, Rotten Tomatoes, Amazon, etc, and put as one of:
+
+1. Film/Series (To watch)
+2. Restaurants (To eat)
+3. Books (To read)
+4. Products (To buy)
+
+In a case where there was a  mis-categorization or no categorization of a task, users are able to Edit/change the category to reflect what they want. Users can also mark a task as complete and/or delete a task that is no longer needed to be accomplished or task that is completed.
+
+Users can filter tasks in categozies.
+
+To use this app, users need to first register an account and then login to create a task, and when done, logout from the app. 
+
+- Task Me later outlook
+!["Task Me later outlook"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/Task_me_later.gif)
+
+- Login page 
+!["login page"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/login_pix.png)
+
+- Add task page
+!["all tasks"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/task_pix.png)
+- Edit your task
+!["edit task"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/edit_pix.png)
+- Delete your task
+!["delete task"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/delete_pix.png)
+
+
 
 ## Project Setup
+1. Install `psql` and set up a user for your machine
+2. Run `psql` to enter the database
+3. Run the code below to create a new user and database for the project:
 
-The following steps are only for _one_ of the group members to perform.
-
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
+```
+CREATE ROLE labber WITH LOGIN password 'labber';
+CREATE DATABASE midterm OWNER labber;
+```
 
 
 ## Getting Started
@@ -41,3 +71,20 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- JQuery 3.4.1 or above
+- body-parser 1.19.0 or above
+- ejs 2.6.2 or above
+- chalk 2.4.2 or above
+- bcrypt 5.0.1 or above
+- cookie-parser 1.4.5 or above
+- cookie-session 1.4.0 or above 
+- express 4.17.1 or above
+- google-books-search 0.3.1 or above
+- method-override 3.0.0 or above
+- morgan 1.9.1 or above
+- node-sass-middleware 0.11.0 or above
+- dotenv 2.0.0 or above
+- sass 1.36.0 or above
+- rottentomatoes-data 2.1.8 or above
+- superagent 6.1.0 or above
+- xmlhttprequest 1.8.0 or above
