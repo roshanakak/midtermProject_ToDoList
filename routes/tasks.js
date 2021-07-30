@@ -86,7 +86,6 @@ module.exports = (db) => {
 
     //res.redirect("/");
 
-
     const templateVars = {
       username: req.session.username,
       userId: req.session.userID

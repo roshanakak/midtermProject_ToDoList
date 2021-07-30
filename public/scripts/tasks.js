@@ -111,14 +111,13 @@ $(document).ready(() => {
     return true;
   };
 
-  const newTaskHandler = () => {
-    $(".new-task-button").on("click", () => {
-      //alert("Can't be empty")
 
-    }
-    )
+
+  const clearError = () => {
+    $("#error-message").remove();
   };
-  newTaskHandler();
+
+  $("#task-title-new").keydown(clearError);
 
   $("#create-task-form").submit((event) => {
     // event.preventDefault();
