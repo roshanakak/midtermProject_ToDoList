@@ -77,7 +77,7 @@ app.use("/tasks", tasksRoutes(db));
 app.get("/", (req, res) => {
   const templateVars = {
     username: req.session.username,
-    userId: req.session.id,
+    userId: req.session.userID,
     registerModal: "hidden"
   };
 
