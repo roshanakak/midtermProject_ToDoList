@@ -70,14 +70,15 @@ module.exports = (db) => {
         'owner_id': owner.id,
         'category_id': cat.id
       };
-      console.log("Saving a task");
+      // console.log("Saving a task");
       await saveTask(Task);
-      console.log("Task saved");
+      // console.log("Task saved");
     }
     if (!req.body.taskTitle) {
       console.log("Task field is empty")
       res.render('homepage-user', {
-        errorMessage: "Task Title cannot be blank", username: req.session.username,
+        errorMessage: "Task title cannot be blank",
+        username: req.session.username,
         userId: req.session.userID
       });
 
@@ -93,38 +94,38 @@ module.exports = (db) => {
     res.render('homepage-user', templateVars);
 
   });
-  
+
   //edit a task
   router.post("/edit:id", async(req, res) => {
     if (req.body.taskTitleEdit) {
 
       let owner = await getUserByID(req.session.userID);
       let cat = await getCategoryByTitle(req.body.hiddenInputEdit);
-      
+
       const Task = {
         id: req.cookies.taskid,
         title: req.body.taskTitleEdit,
         'owner_id':  owner.id,
         'category_id': cat.id
       };
-      
+
       await editTask(Task);
-     
+
     }
     res.redirect('/');
 
   });
-  
+
   //complete a task
   router.get("/edit/:taskid/:statusid", async(req, res) => {
-    
+
     await completeTask(req.params.taskid, req.params.statusid);
-     
-    
+
+
     res.redirect('/');
 
   });
-  
+
   //delete a task
   router.post("/delete:id", async(req, res) => {
     await deleteTask(req.cookies.taskid);

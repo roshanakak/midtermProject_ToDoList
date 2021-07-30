@@ -99,3 +99,15 @@
     }
   }
 }
+
+#error-message {
+  visibility: visible;
+  color: base.$red-highlights;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1em;
+
+  i {
+    margin: 2%;
+  }
+}
