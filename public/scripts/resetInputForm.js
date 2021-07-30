@@ -10,4 +10,8 @@ $(document).ready(function() {
     $('#error-message').empty();
   })
 
+  $('#task-title-new').focus(() => {
+    $('#error-message').empty();
+  })
+
 });

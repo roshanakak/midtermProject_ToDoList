@@ -77,6 +77,7 @@ app.use("/tasks", tasksRoutes(db));
 app.get("/", (req, res) => {
   const templateVars = {
     username: req.session.username,
+    userId: req.session.id,
     registerModal: "hidden"
   };
 
@@ -85,7 +86,7 @@ app.get("/", (req, res) => {
   } else {
     res.render("login", templateVars);
   }
-  
+
 });
 
 app.listen(PORT, () => {

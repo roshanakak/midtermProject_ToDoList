@@ -41,7 +41,7 @@
   <script type="text/javascript" src="scripts/tasks.js"></script>
   <script type="text/javascript" src="scripts/mainEditDelete.js"></script>
   <script type="text/javascript" src="scripts/findCategory.js"></script>
-
+  <script type="text/javascript" src="scripts/resetInputForm.js"></script>
 
 
 </head>
@@ -246,14 +246,7 @@
                 </span>
 
               </div>
-              <div>
-                <% if (typeof errorMessage !=="undefined" ) { %>
-                  <span id="error-message"><i class="fas fa-exclamation-circle"></i>
-                    <%= errorMessage %>
-                  </span>
-                  <% } %>
 
-              </div>
 
               <div class="task-title-category-check">
                 <!-- task title user input bar -->
@@ -294,25 +287,33 @@
 
             <div class="features-form-submit">
               <!-- this contains the 'reminder', 'due date' and 'share' buttons -->
-              <div id="task-additional-features">
+              <div id="features-error-message">
 
-                <div class="task-reminder" title="Set a reminder">
-                  <i class="fas fa-bell"></i>
+                <div id="task-additional-features">
+                  <div class="task-reminder" title="Set a reminder">
+                    <i class="fas fa-bell"></i>
+                  </div>
+
+
+                  <div class="task-calendar-date" title="Set a due date">
+                    <i class="far fa-calendar-alt"></i>
+                  </div>
+
+
+                  <div class="task-share" title="Share task">
+                    <i class="fas fa-share-square"></i>
+                  </div>
                 </div>
 
 
-                <div class="task-calendar-date" title="Set a due date">
-                  <i class="far fa-calendar-alt"></i>
-                </div>
-
-
-                <div class="task-share" title="Share task">
-                  <i class="fas fa-share-square"></i>
-                </div>
-
-
+                <span id="error-message-span">
+                  <% if (typeof errorMessage !=="undefined" ) { %>
+                    <span id="error-message"><i class="fas fa-exclamation-circle"></i>
+                      <%= errorMessage %>
+                    </span>
+                    <% } %>
+                </span>
               </div>
-
               <!-- button to submit a new task -->
               <button type="submit" class="new-task-button">Submit</button>
               <input type="text" id="selectedCategoryInput" name="hiddenInput" style="visibility: hidden;"></input>

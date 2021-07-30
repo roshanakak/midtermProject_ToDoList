@@ -12,6 +12,8 @@ $(document).ready(function() {
   });
 
   $("#cancel-deletion-button").on("click", function() {
+    event.preventDefault();
+
     $(".delete-modal-root").css({"z-index" : "-1"});
   });
 
