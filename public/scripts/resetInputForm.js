@@ -9,9 +9,6 @@ $(document).ready(function() {
   $('.register-modal-body input').focus(() => {
     $('#error-message').empty();
   })
-
-  $('#task-title-new').focus(() => {
-    $('#error-message').empty();
-  })
+  
 
 });
