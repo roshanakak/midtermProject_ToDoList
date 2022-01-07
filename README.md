@@ -17,17 +17,19 @@ Users can filter tasks in categozies.
 To use this app, users need to first register an account and then login to create a task, and when done, logout from the app. 
 
 - Task Me later outlook
-!["Task Me later outlook"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/Task_me_later.gif)
+!["Task Me later outlook"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/TaskMeLater.gif)
 
 - Login page 
-!["login page"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/login_pix.png)
+!["login page"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/loginPage.png)
 
-- Add task page
-!["all tasks"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/task_pix.png)
+- Homepage - User Logged In
+!["all tasks"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/homepageUser.png)
+
 - Edit your task
-!["edit task"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/edit_pix.png)
+!["edit task"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/taskEdit.png)
+
 - Delete your task
-!["delete task"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/delete_pix.png)
+!["delete task"](https://github.com/roshanakak/midtermProject_ToDoList/blob/master/docs/taskDelete.png)
 
 
 
